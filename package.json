@@ -1,0 +1,17 @@
+{
+  "name": "jamb-bot",
+  "version": "1.0.0",
+  "description": "A Facebook Quiz Bot with Node and Heroku",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Chieze Franklin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "request": "^2.75.0"
+  }
+}
