@@ -12,11 +12,11 @@
 },
 {
 	"id": "eng/1",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
 	"options": {
-		"A": "oppressive",
-		"B": "prodigal",
-		"C": "crumbling"
+		"A": "temporary guests",
+		"B": "professionals",
+		"C": "permanent guests"
 	},
 	"answer": "B"
 }

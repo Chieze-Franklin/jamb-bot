@@ -298,7 +298,7 @@ function createMessageForQuestion(question) {
     var buttons = [];
     if (question.options) {
         if (question.options.A) {
-            text += "\nA: " + question.options.A;
+            text += "\n\nA: " + question.options.A;
             buttons.push({type: "postback", title: "A", payload: "OPTION_A/" + question.id});
         }
         if (question.options.B) {
@@ -342,7 +342,7 @@ function createMessagesForOptions(question) {
                     payload: {
                         template_type: "button",
                         text: "A: " + question.options.A,
-                        buttons: [{type: "postback", title: "I choose this", payload: "OPTION_A/" + question.id}]
+                        buttons: [{type: "postback", title: "A", payload: "OPTION_A/" + question.id}]
                     }
                 }
             });
@@ -354,7 +354,7 @@ function createMessagesForOptions(question) {
                     payload: {
                         template_type: "button",
                         text: "B: " + question.options.B,
-                        buttons: [{type: "postback", title: "I choose this", payload: "OPTION_B/" + question.id}]
+                        buttons: [{type: "postback", title: "B", payload: "OPTION_B/" + question.id}]
                     }
                 }
             });
@@ -366,7 +366,7 @@ function createMessagesForOptions(question) {
                     payload: {
                         template_type: "button",
                         text: "C: " + question.options.C,
-                        buttons: [{type: "postback", title: "I choose this", payload: "OPTION_C/" + question.id}]
+                        buttons: [{type: "postback", title: "C", payload: "OPTION_C/" + question.id}]
                     }
                 }
             });
@@ -378,7 +378,7 @@ function createMessagesForOptions(question) {
                     payload: {
                         template_type: "button",
                         text: "D: " + question.options.D,
-                        buttons: [{type: "postback", title: "I choose this", payload: "OPTION_D/" + question.id}]
+                        buttons: [{type: "postback", title: "D", payload: "OPTION_D/" + question.id}]
                     }
                 }
             });
@@ -390,7 +390,7 @@ function createMessagesForOptions(question) {
                     payload: {
                         template_type: "button",
                         text: "E: " + question.options.E,
-                        buttons: [{type: "postback", title: "I choose this", payload: "OPTION_E/" + question.id}]
+                        buttons: [{type: "postback", title: "E", payload: "OPTION_E/" + question.id}]
                     }
                 }
             });
