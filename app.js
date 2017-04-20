@@ -83,10 +83,10 @@ function processPostback(event) {
             if (question) {
                 //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
                 if (question.options.D) {
-                    sendMessage(senderId, {text: question.text});
+                    sendMessage(senderId, {text: question.text}); //send question
                     var messages = createMessagesForOptions(question);
                     messages.forEach(function(message){
-                        sendMessage(senderId, message);
+                        sendMessage(senderId, message); //send options
                     });
                 } else {
                     var message = createMessageForQuestion(question);
@@ -341,7 +341,7 @@ function createMessagesForOptions(question) {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: question.options.A,
+                        text: "A: " + question.options.A,
                         buttons: [{type: "postback", title: "I choose this", payload: "OPTION_A/" + question.id}]
                     }
                 }
@@ -353,7 +353,7 @@ function createMessagesForOptions(question) {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: question.options.B,
+                        text: "B: " + question.options.B,
                         buttons: [{type: "postback", title: "I choose this", payload: "OPTION_B/" + question.id}]
                     }
                 }
@@ -365,7 +365,7 @@ function createMessagesForOptions(question) {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: question.options.C,
+                        text: "C: " + question.options.C,
                         buttons: [{type: "postback", title: "I choose this", payload: "OPTION_C/" + question.id}]
                     }
                 }
@@ -377,7 +377,7 @@ function createMessagesForOptions(question) {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: question.options.D,
+                        text: "D: " + question.options.D,
                         buttons: [{type: "postback", title: "I choose this", payload: "OPTION_D/" + question.id}]
                     }
                 }
@@ -389,7 +389,7 @@ function createMessagesForOptions(question) {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: question.options.E,
+                        text: "E: " + question.options.E,
                         buttons: [{type: "postback", title: "I choose this", payload: "OPTION_E/" + question.id}]
                     }
                 }
