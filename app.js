@@ -72,9 +72,27 @@ function processPostback(event) {
             var message = greeting + "I am your JAMB buddy. I am here to help you prepare for JAMB.";
             sendMessage(senderId, {text: message});
 
-            message = createMessageForSubjects();
-            sendMessage(senderId, message);
+            sendMessage(senderId, {text: "What subject would you like to practice?"});
         });
+    }
+    else if (payload.indexOf("SUBJECT/") == 0) {
+        var indexOf_ = payload.indexOf('/');
+        var subjId = payload.substr(indexOf_ + 1);
+
+        function afterGettingRandomQuestion(error, question) {
+            if (question) {
+                var message = createMessageForQuestion(question);
+                sendMessage(senderId, message);
+            }
+            else {
+                sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
+            }
+        }
+
+        utils.getRandomQuestion(subjId, afterGettingRandomQuestion);
+    }
+    else if (payload.indexOf("SUBJECT_WRONG") == 0) {
+        sendMessage(senderId, {text: "Oops! Sorry about that. Please try retyping the subject"});
     } else if (payload === "Explain") { //user wants you to explain how the answer was gotten
         utils.getCurrentQuestion(senderId, function(error, question){
             if(question && question.solution) {
@@ -111,22 +129,6 @@ function processPostback(event) {
     } else if (payload === "Change") { //user wants another subject
         sendMessage(senderId, {text: "What subject would you like to practice?"});
     }
-    else if (payload.indexOf("SUBJECT/") == 0) {
-        var indexOf_ = payload.indexOf('/');
-        var subjId = payload.substr(indexOf_ + 1);
-
-        function afterGettingRandomQuestion(error, question) {
-            if (question) {
-                var message = createMessageForQuestion(question);
-                sendMessage(senderId, message);
-            }
-            else {
-                sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
-            }
-        }
-
-        utils.getRandomQuestion(subjId, afterGettingRandomQuestion);
-    }
 }
 
 function processMessage(event) {
@@ -139,9 +141,19 @@ function processMessage(event) {
 
         // You may get a text or attachment but not both
         if (message.text) {
-            var formattedMsg = message.text.toUpperCase().trim();
+            var formattedMsg = message.text.toLowerCase().trim();
 
-            // If we receive a text message, check to see if it matches any option
+            if (formattedMsg.indexOf("start") > -1 || formattedMsg.indexOf("begin") > -1 ||
+                formattedMsg.indexOf("subject") > -1 || formattedMsg.indexOf("course") > -1 || formattedMsg.indexOf("program") > -1) {
+                //assume the user wants to change subjects
+                sendMessage(senderId, {text: "What subject would you like to practice?"});
+            }
+            else {
+                message = createMessageForConfirmSubject(formattedMsg);
+                sendMessage(senderId, message);
+            }
+
+            /* If we receive a text message, check to see if it matches any option
             // Otherwise consider it to be a subject.
             switch (formattedMsg) {
                 case "A":
@@ -192,8 +204,8 @@ function processMessage(event) {
                 default:
                     //search for a new subject
                     message = createMessageForSubjects();
-                    sendMessage(senderId, message);
-            }
+                    sendMessage(senderId, {text: "What subject would you like to practice?"});
+            }*/
         } else if (message.attachments) {
             // Get user's first name from the User Profile API
             // and include it in the warning
@@ -218,73 +230,36 @@ function processMessage(event) {
         }
     }
 }
-/*
-function findMovie(userId, movieTitle) {
-    request("http://www.omdbapi.com/?type=movie&t=" + movieTitle, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var movieObj = JSON.parse(body);
-            if (movieObj.Response === "True") {
-                var query = {user_id: userId};
-                var update = {
-                    user_id: userId,
-                    title: movieObj.Title,
-                    plot: movieObj.Plot,
-                    date: movieObj.Released,
-                    runtime: movieObj.Runtime,
-                    director: movieObj.Director,
-                    cast: movieObj.Actors,
-                    rating: movieObj.imdbRating,
-                    poster_url:movieObj.Poster
-                };
-                var options = {upsert: true};
-                Movie.findOneAndUpdate(query, update, options, function(err, mov) {
-                    if (err) {
-                        console.log("Database error: " + err);
-                    } else {
-                        message = {
-                            attachment: {
-                                type: "template",
-                                payload: {
-                                    template_type: "generic",
-                                    elements: [{
-                                        title: movieObj.Title,
-                                        subtitle: "Is this the movie you are looking for?",
-                                        image_url: movieObj.Poster === "N/A" ? "http://placehold.it/350x150" : movieObj.Poster,
-                                        buttons: [{
-                                            type: "postback",
-                                            title: "Yes",
-                                            payload: "Correct"
-                                        }, {
-                                            type: "postback",
-                                            title: "No",
-                                            payload: "Incorrect"
-                                        }]
-                                    }]
-                                }
-                            }
-                        };
-                        sendMessage(userId, message);
-                    }
-                });
-            } else {
-                console.log(movieObj.Error);
-                sendMessage(userId, {text: movieObj.Error});
-            }
-        } else {
-            sendMessage(userId, {text: "Something went wrong. Try again."});
-        }
-    });
-}
 
-function getMovieDetail(userId, field) {
-    Movie.findOne({user_id: userId}, function(err, movie) {
-        if(err) {
-            sendMessage(userId, {text: "Something went wrong. Try again"});
-        } else {
-            sendMessage(userId, {text: movie[field]});
+function createMessageForConfirmSubject(subject) {
+    var subjName = "any subject", subjCode = "*";
+    if (subject.indexOf("eng") > -1) {
+        subjName = "English";
+        subjCode = "eng";
+    }
+    var message = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "button",
+                text: "Did you mean " + subjName + "?",
+                buttons: [
+                {
+                    type: "postback",
+                    title: "Yes",
+                    payload: "SUBJECT/" + subjCode
+                },
+                {
+                    type: "postback",
+                    title: "No",
+                    payload: "SUBJECT_WRONG"
+                }]
+            }
         }
-    });
-}*/
+    };
+
+    return message;
+}
 
 function createMessageForOption(question, remark) {
     var buttons = [];
