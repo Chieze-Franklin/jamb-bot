@@ -223,15 +223,7 @@ function processPostback(event) {
     else if (payload.indexOf("SUBJECT_WRONG") == 0) {
         sendMessage(senderId, {text: "Ok. Sorry about that. What subject would you like to practice?"});
     } 
-    else if (payload === "Explain") { //user wants you to explain how the answer was gotten
-        utils.getCurrentQuestion(senderId, function(error, question){
-            if(question && question.solution) {
-                sendMessage(senderId, {text: question.solution});
-            } else {
-                sendMessage(senderId, {text: "Oops! I can't seem to remember how this question was solved. Sorry about that."});
-            }
-        });
-    } else if (payload === "Stop") { //user wants to stop now
+    else if (payload === "STOP") { //user wants to stop now
         // Get user's first name from the User Profile API
         // and include it in the goodbye
         request({
@@ -271,6 +263,28 @@ function processMessage(event) {
                 formattedMsg.indexOf("subject") > -1 || formattedMsg.indexOf("course") > -1 || formattedMsg.indexOf("program") > -1) {
                 //assume the user wants to change subjects
                 sendMessage(senderId, {text: "What subject would you like to practice?"});
+            }
+            else if (formattedMsg == "complete" || formattedMsg == "end" || formattedMsg == "finish" || formattedMsg == "stop") { //user wants to stop now
+                // Get user's first name from the User Profile API
+                // and include it in the goodbye
+                request({
+                    url: "https://graph.facebook.com/v2.6/" + senderId,
+                    qs: {
+                        access_token: process.env.PAGE_ACCESS_TOKEN,
+                        fields: "first_name"
+                    },
+                    method: "GET"
+                }, function(error, response, body) {
+                    var bye = "";
+                    if (error) {
+                        console.log("Error getting user's name: " +  error);
+                    } else {
+                        var bodyObj = JSON.parse(body);
+                        bye = "Bye " + bodyObj.first_name + ". ";
+                    }
+                    var message = bye + "It was really nice practicing with you. Hope we chat again soon.";//TODO: put a button to link to examhub.com when it is ready
+                    sendMessage(senderId, {text: message});
+                });
             }
             else {
                 message = createMessageForConfirmSubject(formattedMsg);
@@ -382,6 +396,10 @@ function createMessageForConfirmSubject(subject) {
         subjName = "Commerce";
         subjCode = "comm";
     }
+    else if (subject.indexOf("crs") > -1 || subject.indexOf("crk") > -1 || subject.indexOf("christ") > -1) {
+        subjName = "Christian Religion Study";
+        subjCode = "crs";
+    }
     else if (subject.indexOf("eco") > -1) {
         subjName = "Economics";
         subjCode = "eco";
@@ -406,6 +424,14 @@ function createMessageForConfirmSubject(subject) {
         subjName = "History";
         subjCode = "hist";
     }
+    else if (subject.indexOf("igbo") > -1 || subject.indexOf("ibo") > -1) {
+        subjName = "Igbo";
+        subjCode = "igbo";
+    }
+    else if (subject.indexOf("irs") > -1 || subject.indexOf("irk") > -1 || subject.indexOf("islam") > -1) {
+        subjName = "Islamic Religion Knowledge";
+        subjCode = "irk";
+    }
     else if (subject.indexOf("mat") > -1) {
         subjName = "Mathematics";
         subjCode = "math";
@@ -421,19 +447,6 @@ function createMessageForConfirmSubject(subject) {
     else if (subject.indexOf("yor") > -1) {
         subjName = "Yoruba";
         subjCode = "yor";
-    }
-
-    else if (subject.indexOf("c") > -1 && subject.indexOf("r") > -1 && subject.indexOf("s") > -1) {
-        subjName = "Christian Religion Study";
-        subjCode = "crs";
-    }
-    else if (subject.indexOf("i") > -1 && subject.indexOf("b") > -1 && subject.indexOf("o") > -1) {
-        subjName = "Igbo";
-        subjCode = "igbo";
-    }
-    else if (subject.indexOf("i") > -1 && subject.indexOf("r") > -1 && subject.indexOf("k") > -1) {
-        subjName = "Islamic Religion Study";
-        subjCode = "irk";
     }
 
     var message = {
