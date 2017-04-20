@@ -82,8 +82,11 @@ function processPostback(event) {
         function afterGettingRandomQuestion(error, question) {
             if (question) {
                 var indexOf_ = payload.indexOf('_');
-                indexOfSlash = payload.indexOf('/');
                 var option = payload.substring(indexOf_ + 1, indexOfSlash);
+                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", indexOf_);
+                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", indexOfSlash);
+                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", option);
+                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", question.answer);
                 if (question.answer.toLowerCase() == option.toLowerCase()) {
                     sendMessage(senderId, {text: "Correct guy"});
                 } else {
