@@ -93,14 +93,39 @@ function processPostback(event) {
                 }
             }
             else {
-                sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
+                sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
             }
         }
 
         utils.getQuestion(qId, afterGettingQuestion);
     }
-    else if (payload == "QUESTION_NEXT") {
-        sendMessage(senderId, {text: "Ok. Sorry about that. What subject would you like to practice?"});
+    else if (payload.indexOf("QUESTION_NEXT/") == 0) {
+        //the format of payload is OPTION_A/eng/0
+        var indexOfSlash = payload.indexOf('/');
+        var qId = payload.substr(indexOfSlash + 1);
+        indexOfSlash = qId.indexOf('/');
+        var subjid = qId.substring(0, indexOfSlash);
+
+        function afterGettingQuestion(error, question) {
+            if (question) {
+                //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
+                if (question.options.D) {
+                    sendMessage(senderId, {text: question.text}); //send question
+                    var messages = createMessagesForOptions(question);
+                    messages.forEach(function(message){
+                        sendMessage(senderId, message); //send options
+                    });
+                } else {
+                    var message = createMessageForQuestion(question);
+                    sendMessage(senderId, message);
+                }
+            }
+            else {
+                sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
+            }
+        }
+
+        utils.getRandomQuestion(subjid, afterGettingQuestion);
     }
     else if (payload.indexOf("SUBJECT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
