@@ -75,7 +75,8 @@ function processPostback(event) {
             sendMessage(senderId, {text: "What subject would you like to practice?"});
         });
     }
-    else if (payload.indexOf("OPTION_A/") == 0) {
+    else if (payload.indexOf("OPTION_") == 0) {
+        //the format of payload is OPTION_A/eng/0
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
 
@@ -83,14 +84,12 @@ function processPostback(event) {
             if (question) {
                 var indexOf_ = payload.indexOf('_');
                 var option = payload.substring(indexOf_ + 1, indexOfSlash);
-                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", indexOf_);
-                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", indexOfSlash);
-                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", option);
-                console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>", question.answer);
-                if (question.answer.toLowerCase() == option.toLowerCase()) {
-                    sendMessage(senderId, {text: "Correct guy"});
+                if (question.answer.toLowerCase() == option.toLowerCase()) { //correct answer
+                    var message = createMessageForAnswer(question, "Yayy, nice job!");
+                    sendMessage(senderId, message);
                 } else {
-                    sendMessage(senderId, {text: "Wrong"});
+                    var message = createMessageForAnswer(question, "Nope, wrong answer!");
+                    sendMessage(senderId, message);
                 }
             }
             else {
@@ -99,6 +98,9 @@ function processPostback(event) {
         }
 
         utils.getQuestion(qId, afterGettingQuestion);
+    }
+    else if (payload == "QUESTION_NEXT") {
+        sendMessage(senderId, {text: "Ok. Sorry about that. What subject would you like to practice?"});
     }
     else if (payload.indexOf("SUBJECT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
@@ -127,7 +129,8 @@ function processPostback(event) {
     }
     else if (payload.indexOf("SUBJECT_WRONG") == 0) {
         sendMessage(senderId, {text: "Ok. Sorry about that. What subject would you like to practice?"});
-    } else if (payload === "Explain") { //user wants you to explain how the answer was gotten
+    } 
+    else if (payload === "Explain") { //user wants you to explain how the answer was gotten
         utils.getCurrentQuestion(senderId, function(error, question){
             if(question && question.solution) {
                 sendMessage(senderId, {text: question.solution});
@@ -295,15 +298,13 @@ function createMessageForConfirmSubject(subject) {
     return message;
 }
 
-function createMessageForOption(question, remark) {
+function createMessageForAnswer(question, remark) {
     var buttons = [];
-    buttons.push({type: "postback", title: "Next question", payload: "ACTION_NEXT"});
+    buttons.push({type: "postback", title: "Next", payload: "QUESTION_NEXT/" + question.id});
     if (question.solution) {
-        buttons.push({type: "postback", title: "Explain the answer", payload: "ACTION_EXPLAIN"});
+        buttons.push({type: "postback", title: "Explain", payload: "QUESTION_EXPLAIN/" + question.id});
     }
-    buttons.push({type: "postback", title: "Let's stop here for now", payload: "ACTION_STOP"});
-    buttons.push({type: "postback", title: "Let's try another subject", payload: "ACTION_SUBJECT"});
-    buttons.push({type: "postback", title: "I don't agree with this answer", payload: "ACTION_REPORT"});
+    buttons.push({type: "postback", title: "Wrong", payload: "QUESTION_REPORT/" + question.id});
     var message = {
         attachment: {
             type: "template",
