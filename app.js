@@ -99,6 +99,22 @@ function processPostback(event) {
 
         utils.getQuestion(qId, afterGettingQuestion);
     }
+    else if (payload.indexOf("QUESTION_EXPLAIN/") == 0) {
+        //the format of payload is OPTION_A/eng/0
+        var indexOfSlash = payload.indexOf('/');
+        var qId = payload.substr(indexOfSlash + 1);
+
+        function afterGettingQuestion(error, question) {
+            if (question && question.solution) {
+                sendMessage(senderId, {text: question.solution});
+            }
+            else {
+                sendMessage(senderId, {text: "Oops! For some reason I can't find the explanation for this question at the moment. Sorry about that."});
+            }
+        }
+
+        utils.getQuestion(qId, afterGettingQuestion);
+    }
     else if (payload.indexOf("QUESTION_NEXT/") == 0) {
         //the format of payload is OPTION_A/eng/0
         var indexOfSlash = payload.indexOf('/');
@@ -128,7 +144,7 @@ function processPostback(event) {
         utils.getRandomQuestion(subjid, afterGettingQuestion);
     }
     else if (payload.indexOf("QUESTION_REPORT/") == 0) {
-        sendMessage(senderId, {text: "Wow! I will have to review this question later."});
+        sendMessage(senderId, {text: "Wow! I will have to review this question later. Meanwhile let's continue."});
 
         //the format of payload is OPTION_A/eng/0
         var indexOfSlash = payload.indexOf('/');
