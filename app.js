@@ -304,7 +304,7 @@ function createMessageForAnswer(question, remark) {
     if (question.solution) {
         //buttons.push({type: "postback", title: "Explain", payload: "QUESTION_EXPLAIN/" + question.id});
     }
-    //buttons.push({type: "postback", title: "Wrong", payload: "QUESTION_REPORT/" + question.id});
+    buttons.push({type: "postback", title: "Wrong", payload: "QUESTION_REPORT/" + question.id});
     var message = {
         attachment: {
             type: "template",
