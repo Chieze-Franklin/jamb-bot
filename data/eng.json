@@ -7,7 +7,8 @@
 		"B": "prodigal",
 		"C": "crumbling",
 		"D": "purposeless"
-	}
+	},
+	"answer": "A"
 },
 {
 	"id": "eng/1",
@@ -15,8 +16,8 @@
 	"options": {
 		"A": "oppressive",
 		"B": "prodigal",
-		"C": "crumbling",
-		"D": "purposeless"
-	}
+		"C": "crumbling"
+	},
+	"answer": "B"
 }
 ]

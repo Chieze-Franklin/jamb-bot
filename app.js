@@ -81,8 +81,17 @@ function processPostback(event) {
 
         function afterGettingRandomQuestion(error, question) {
             if (question) {
-                var message = createMessageForQuestion(question);
-                sendMessage(senderId, message);
+                //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
+                if (question.options.D) {
+                    sendMessage(senderId, {text: question.text});
+                    var messages = createMessagesForOptions(question);
+                    messages.forEach(function(message){
+                        sendMessage(senderId, message);
+                    });
+                } else {
+                    var message = createMessageForQuestion(question);
+                    sendMessage(senderId, message);
+                }
             }
             else {
                 sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
@@ -334,6 +343,54 @@ function createMessagesForOptions(question) {
                         template_type: "button",
                         text: question.options.A,
                         buttons: [{type: "postback", title: "I choose this", payload: "OPTION_A/" + question.id}]
+                    }
+                }
+            });
+        }
+        if (question.options.B) {
+            messages.push({
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: question.options.B,
+                        buttons: [{type: "postback", title: "I choose this", payload: "OPTION_B/" + question.id}]
+                    }
+                }
+            });
+        }
+        if (question.options.C) {
+            messages.push({
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: question.options.C,
+                        buttons: [{type: "postback", title: "I choose this", payload: "OPTION_C/" + question.id}]
+                    }
+                }
+            });
+        }
+        if (question.options.D) {
+            messages.push({
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: question.options.D,
+                        buttons: [{type: "postback", title: "I choose this", payload: "OPTION_D/" + question.id}]
+                    }
+                }
+            });
+        }
+        if (question.options.E) {
+            messages.push({
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: question.options.E,
+                        buttons: [{type: "postback", title: "I choose this", payload: "OPTION_E/" + question.id}]
                     }
                 }
             });
