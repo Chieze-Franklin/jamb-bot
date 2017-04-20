@@ -106,17 +106,40 @@ function processPostback(event) {
 
         function afterGettingQuestion(error, question) {
             if (question && question.solution) {
-                sendMessage(senderId, {text: question.solution});
+                sendMessage(senderId, {text: question.solution + "\n\nMoving on!"});
             }
             else {
                 sendMessage(senderId, {text: "Oops! For some reason I can't find the explanation for this question at the moment. Sorry about that."});
             }
+
+            indexOfSlash = qId.indexOf('/');
+            var subjid = qId.substring(0, indexOfSlash);
+
+            function afterGettingQuestion(error, question) {
+                if (question) {
+                    //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
+                    if (question.options.D) {
+                        sendMessage(senderId, {text: question.text}); //send question
+                        var messages = createMessagesForOptions(question);
+                        messages.forEach(function(message){
+                            sendMessage(senderId, message); //send options
+                        });
+                    } else {
+                        var message = createMessageForQuestion(question);
+                        sendMessage(senderId, message);
+                    }
+                }
+                else {
+                    sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
+                }
+            }
+
+            utils.getRandomQuestion(subjid, afterGettingQuestion);
         }
 
         utils.getQuestion(qId, afterGettingQuestion);
     }
     else if (payload.indexOf("QUESTION_NEXT/") == 0) {
-        //the format of payload is OPTION_A/eng/0
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
         indexOfSlash = qId.indexOf('/');
@@ -146,7 +169,6 @@ function processPostback(event) {
     else if (payload.indexOf("QUESTION_REPORT/") == 0) {
         sendMessage(senderId, {text: "Wow! I will have to review this question later. Meanwhile let's continue."});
 
-        //the format of payload is OPTION_A/eng/0
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
         indexOfSlash = qId.indexOf('/');
