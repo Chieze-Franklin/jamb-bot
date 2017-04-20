@@ -2,9 +2,6 @@ var fs = require("fs");
 var path = require("path");
 
 module.exports = {
-	getCurrentQuestion: function(userid, callback) {
-		//
-	},
 	getQuestion: function(qId, callback) {
 		var indexOfSlash = qId.indexOf('/');
         var subjid = qId.substring(0, indexOfSlash);
@@ -33,8 +30,5 @@ module.exports = {
 
 			callback(null, q);
 		});
-	},
-	setCurrentSubject: function(userid, subjectid, callback) {
-		//
 	}
 };

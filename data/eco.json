@@ -1,0 +1,24 @@
+[
+{
+	"id": "eng/0",
+	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"options": {
+		"A": "oppressive",
+		"B": "prodigal",
+		"C": "crumbling",
+		"D": "purposeless"
+	},
+	"answer": "C"
+},
+{
+	"id": "eng/1",
+	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"options": {
+		"A": "temporary guests",
+		"B": "professionals",
+		"C": "permanent guests"
+	},
+	"answer": "A",
+	"solution": "Don't ask me to explain!"
+}
+]

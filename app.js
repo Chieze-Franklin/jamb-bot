@@ -167,7 +167,7 @@ function processPostback(event) {
         utils.getRandomQuestion(subjid, afterGettingQuestion);
     }
     else if (payload.indexOf("QUESTION_REPORT/") == 0) {
-        sendMessage(senderId, {text: "Wow! I will have to review this question later. Meanwhile let's continue."});
+        sendMessage(senderId, {text: "Wow! I will have to review this question later.\n\nMeanwhile let's continue."});
 
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
@@ -357,10 +357,85 @@ function processMessage(event) {
 
 function createMessageForConfirmSubject(subject) {
     var subjName = "any subject", subjCode = "*";
-    if (subject.indexOf("eng") > -1) {
-        subjName = "English";
+
+    if (subject.indexOf("acc") > -1) {
+        subjName = "Accounting";
+        subjCode = "acc";
+    }
+    else if (subject.indexOf("agr") > -1) {
+        subjName = "Agricultural Science";
+        subjCode = "agric";
+    }
+    else if (subject.indexOf("ara") > -1) {
+        subjName = "Arabic";
+        subjCode = "arab";
+    }
+    else if (subject.indexOf("bio") > -1) {
+        subjName = "Biology";
+        subjCode = "bio";
+    }
+    else if (subject.indexOf("che") > -1) {
+        subjName = "Chemistry";
+        subjCode = "chem";
+    }
+    else if (subject.indexOf("com") > -1) {
+        subjName = "Commerce";
+        subjCode = "comm";
+    }
+    else if (subject.indexOf("eco") > -1) {
+        subjName = "Economics";
+        subjCode = "eco";
+    }
+    else if (subject.indexOf("eng") > -1) {
+        subjName = "English Language";
         subjCode = "eng";
     }
+    else if (subject.indexOf("geo") > -1) {
+        subjName = "Geography";
+        subjCode = "geo";
+    }
+    else if (subject.indexOf("gov") > -1) {
+        subjName = "Government";
+        subjCode = "gov";
+    }
+    else if (subject.indexOf("hau") > -1) {
+        subjName = "Hausa";
+        subjCode = "hau";
+    }
+    else if (subject.indexOf("his") > -1) {
+        subjName = "History";
+        subjCode = "hist";
+    }
+    else if (subject.indexOf("mat") > -1) {
+        subjName = "Mathematics";
+        subjCode = "math";
+    }
+    else if (subject.indexOf("lit") > -1) {
+        subjName = "Literature in English";
+        subjCode = "litt";
+    }
+    else if (subject.indexOf("phy") > -1) {
+        subjName = "Physics";
+        subjCode = "phy";
+    }
+    else if (subject.indexOf("yor") > -1) {
+        subjName = "Yoruba";
+        subjCode = "yor";
+    }
+
+    else if (subject.indexOf("c") > -1 && subject.indexOf("r") > -1 && subject.indexOf("s") > -1) {
+        subjName = "Christian Religion Study";
+        subjCode = "crs";
+    }
+    else if (subject.indexOf("i") > -1 && subject.indexOf("b") > -1 && subject.indexOf("o") > -1) {
+        subjName = "Igbo";
+        subjCode = "igbo";
+    }
+    else if (subject.indexOf("i") > -1 && subject.indexOf("r") > -1 && subject.indexOf("k") > -1) {
+        subjName = "Islamic Religion Study";
+        subjCode = "irk";
+    }
+
     var message = {
         attachment: {
             type: "template",
