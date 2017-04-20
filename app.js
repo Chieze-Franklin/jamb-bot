@@ -354,51 +354,6 @@ function createMessageForSubjects() {
                     type: "postback",
                     title: "Freestyle",
                     payload: "SUBJECT/*"
-                },
-                {
-                    type: "postback",
-                    title: "English Language",
-                    payload: "SUBJECT/eng"
-                }, 
-                {
-                    type: "postback",
-                    title: "Mathematics",
-                    payload: "SUBJECT/maths"
-                }, 
-                {
-                    type: "postback",
-                    title: "Chemistry",
-                    payload: "SUBJECT/chem"
-                }, 
-                {
-                    type: "postback",
-                    title: "Biology",
-                    payload: "SUBJECT/bio"
-                }, 
-                {
-                    type: "postback",
-                    title: "Physics",
-                    payload: "SUBJECT/phy"
-                },
-                {
-                    type: "postback",
-                    title: "Geography",
-                    payload: "SUBJECT/geo"
-                }, 
-                {
-                    type: "postback",
-                    title: "Government",
-                    payload: "SUBJECT/gov"
-                }, 
-                {
-                    type: "postback",
-                    title: "Economics",
-                    payload: "SUBJECT/econs"
-                }, 
-                {
-                    type: "postback",
-                    title: "Accounting",
-                    payload: "SUBJECT/acc"
                 }]
             }
         }
