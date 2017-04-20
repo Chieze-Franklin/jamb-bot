@@ -2,6 +2,8 @@ var express = require("express");
 var request = require("request");
 var bodyParser = require("body-parser");
 
+var utils = require("./utils");
+
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -65,16 +67,65 @@ function processPostback(event) {
                 console.log("Error getting user's name: " +  error);
             } else {
                 var bodyObj = JSON.parse(body);
-                name = bodyObj.first_name;
-                greeting = "Hi " + name + ". ";
+                greeting = "Hi " + bodyObj.first_name + ". ";
             }
-            var message = greeting + "My name is SP Movie Bot. I can tell you various details regarding movies. What movie would you like to know about?";
+            var message = greeting + "I am your JAMB buddy. I am here to help you prepare for JAMB.";
+            sendMessage(senderId, {text: message});
+
+            message = createMessageForSubjects();
+            sendMessage(senderId, message);
+        });
+    } else if (payload === "Explain") { //user wants you to explain how the answer was gotten
+        utils.getCurrentQuestion(senderId, function(error, question){
+            if(question && question.solution) {
+                sendMessage(senderId, {text: question.solution});
+            } else {
+                sendMessage(senderId, {text: "Oops! I can't seem to remember how this question was solved. Sorry about that."});
+            }
+        });
+    } else if (payload === "Next") { //user wants next question
+        sendMessage(senderId, {text: "Oops! Sorry about that. Try using the exact title of the movie"});
+    } else if (payload === "Stop") { //user wants to stop now
+        // Get user's first name from the User Profile API
+        // and include it in the goodbye
+        request({
+            url: "https://graph.facebook.com/v2.6/" + senderId,
+            qs: {
+                access_token: process.env.PAGE_ACCESS_TOKEN,
+                fields: "first_name"
+            },
+            method: "GET"
+        }, function(error, response, body) {
+            var bye = "";
+            if (error) {
+                console.log("Error getting user's name: " +  error);
+            } else {
+                var bodyObj = JSON.parse(body);
+                bye = "Bye " + bodyObj.first_name + ". ";
+            }
+            var message = bye + "It was really nice practicing with you. Hope we chat again soon.";//TODO: put a button to link to examhub.com when it is ready
             sendMessage(senderId, {text: message});
         });
-    } else if (payload === "Correct") {
-        sendMessage(senderId, {text: "Awesome! What would you like to find out? Enter 'plot', 'date', 'runtime', 'director', 'cast' or 'rating' for the various details."});
-    } else if (payload === "Incorrect") {
-        sendMessage(senderId, {text: "Oops! Sorry about that. Try using the exact title of the movie"});
+    } else if (payload === "Report") { //user feels answer is wrongs
+        sendMessage(senderId, {text: "Thanks for your feedback. This question will be crosschecked."});
+    } else if (payload === "Change") { //user wants another subject
+        sendMessage(senderId, {text: "What subject would you like to practice?"});
+    }
+    else if (payload.indexOf("SUBJECT/") == 0) {
+        var indexOf_ = payload.indexOf('/');
+        var subjId = payload.substr(indexOf_ + 1);
+
+        function afterGettingRandomQuestion(error, question) {
+            if (question) {
+                var message = createMessageForQuestion(question);
+                sendMessage(senderId, message);
+            }
+            else {
+                sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
+            }
+        }
+
+        utils.getRandomQuestion(subjId, afterGettingRandomQuestion);
     }
 }
 
@@ -88,26 +139,82 @@ function processMessage(event) {
 
         // You may get a text or attachment but not both
         if (message.text) {
-            var formattedMsg = message.text.toLowerCase().trim();
+            var formattedMsg = message.text.toUpperCase().trim();
 
-            // If we receive a text message, check to see if it matches any special
-            // keywords and send back the corresponding movie detail.
-            // Otherwise search for new movie.
+            // If we receive a text message, check to see if it matches any option
+            // Otherwise consider it to be a subject.
             switch (formattedMsg) {
-                case "plot":
-                case "date":
-                case "runtime":
-                case "director":
-                case "cast":
-                case "rating":
-                    sendMessage(senderId, {text: "I understand"});//getMovieDetail(senderId, formattedMsg);
+                case "A":
+                case "B":
+                case "C":
+                case "D":
+                case "E":
+                    //evaluate the supplied option, return an answer with post back buttons
+                    //button for explain shud show only if there is a solution for the question
+                    message = {
+                        attachment: {
+                            type: "template",
+                            payload: {
+                                template_type: "button",
+                                text: "<<respond to the user's option here>>",
+                                buttons: [
+                                {
+                                    type: "postback",
+                                    title: "Next question",
+                                    payload: "Next"
+                                }, 
+                                {
+                                    type: "postback",
+                                    title: "Explain the answer",
+                                    payload: "Explain"
+                                }, 
+                                {
+                                    type: "postback",
+                                    title: "Let's stop here for now",
+                                    payload: "Stop"
+                                }, 
+                                {
+                                    type: "postback",
+                                    title: "Let's try another subject",
+                                    payload: "Change"
+                                }, 
+                                {
+                                    type: "postback",
+                                    title: "I don't agree with this answer",
+                                    payload: "Report"
+                                }]
+                            }
+                        }
+                    };
+                    sendMessage(senderId, message);
                     break;
 
                 default:
-                    sendMessage(senderId, {text: formattedMsg});//findMovie(senderId, formattedMsg);
+                    //search for a new subject
+                    message = createMessageForSubjects();
+                    sendMessage(senderId, message);
             }
         } else if (message.attachments) {
-            sendMessage(senderId, {text: "Sorry, I don't understand your request."});
+            // Get user's first name from the User Profile API
+            // and include it in the warning
+            request({
+                url: "https://graph.facebook.com/v2.6/" + senderId,
+                qs: {
+                    access_token: process.env.PAGE_ACCESS_TOKEN,
+                    fields: "first_name"
+                },
+                method: "GET"
+            }, function(error, response, body) {
+                var name = "Come on. ";
+                if (error) {
+                    console.log("Error getting user's name: " +  error);
+                } else {
+                    var bodyObj = JSON.parse(body);
+                    name = "Come on " + bodyObj.first_name + ". ";
+                }
+                var message = name + "Don't send any files to me. Let's focus.";
+                sendMessage(senderId, {text: message});
+            });
         }
     }
 }
@@ -178,6 +285,127 @@ function getMovieDetail(userId, field) {
         }
     });
 }*/
+
+function createMessageForOption(question, remark) {
+    var buttons = [];
+    buttons.push({type: "postback", title: "Next question", payload: "ACTION_NEXT"});
+    if (question.solution) {
+        buttons.push({type: "postback", title: "Explain the answer", payload: "ACTION_EXPLAIN"});
+    }
+    buttons.push({type: "postback", title: "Let's stop here for now", payload: "ACTION_STOP"});
+    buttons.push({type: "postback", title: "Let's try another subject", payload: "ACTION_SUBJECT"});
+    buttons.push({type: "postback", title: "I don't agree with this answer", payload: "ACTION_REPORT"});
+    var message = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "button",
+                text: remark,
+                buttons: buttons
+            }
+        }
+    };
+
+    return message;
+}
+
+function createMessageForQuestion(question) {
+    var buttons = [];
+    if (question.options) {
+        if (question.options.A) {
+            buttons.push({type: "postback", title: question.options.A, payload: "OPTION_A"});
+        }
+        if (question.options.B) {
+            buttons.push({type: "postback", title: question.options.B, payload: "OPTION_B"});
+        }
+        if (question.options.C) {
+            buttons.push({type: "postback", title: question.options.C, payload: "OPTION_C"});
+        }
+        if (question.options.D) {
+            buttons.push({type: "postback", title: question.options.D, payload: "OPTION_D"});
+        }
+        if (question.options.E) {
+            buttons.push({type: "postback", title: question.options.E, payload: "OPTION_E"});
+        }
+    }
+    var message = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "button",
+                text: question.text,
+                buttons: buttons
+            }
+        }
+    };
+
+    return message;
+}
+
+function createMessageForSubjects() {
+    var message = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "button",
+                text: "What subject would you like to practice?",
+                buttons: [
+                {
+                    type: "postback",
+                    title: "Freestyle",
+                    payload: "SUBJECT/*"
+                },
+                {
+                    type: "postback",
+                    title: "English Language",
+                    payload: "SUBJECT/eng"
+                }, 
+                {
+                    type: "postback",
+                    title: "Mathematics",
+                    payload: "SUBJECT/maths"
+                }, 
+                {
+                    type: "postback",
+                    title: "Chemistry",
+                    payload: "SUBJECT/chem"
+                }, 
+                {
+                    type: "postback",
+                    title: "Biology",
+                    payload: "SUBJECT/bio"
+                }, 
+                {
+                    type: "postback",
+                    title: "Physics",
+                    payload: "SUBJECT/phy"
+                },
+                {
+                    type: "postback",
+                    title: "Geography",
+                    payload: "SUBJECT/geo"
+                }, 
+                {
+                    type: "postback",
+                    title: "Government",
+                    payload: "SUBJECT/gov"
+                }, 
+                {
+                    type: "postback",
+                    title: "Economics",
+                    payload: "SUBJECT/econs"
+                }, 
+                {
+                    type: "postback",
+                    title: "Accounting",
+                    payload: "SUBJECT/acc"
+                }]
+            }
+        }
+    };
+
+    return message;
+}
 
 // sends message to user
 function sendMessage(recipientId, message) {
