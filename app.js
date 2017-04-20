@@ -302,7 +302,7 @@ function createMessageForAnswer(question, remark) {
     var buttons = [];
     buttons.push({type: "postback", title: "Next", payload: "QUESTION_NEXT/" + question.id});
     if (question.solution) {
-        //buttons.push({type: "postback", title: "Explain", payload: "QUESTION_EXPLAIN/" + question.id});
+        buttons.push({type: "postback", title: "Explain", payload: "QUESTION_EXPLAIN/" + question.id});
     }
     buttons.push({type: "postback", title: "Wrong", payload: "QUESTION_REPORT/" + question.id});
     var message = {
