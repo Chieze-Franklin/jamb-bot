@@ -75,9 +75,31 @@ function processPostback(event) {
             sendMessage(senderId, {text: "What subject would you like to practice?"});
         });
     }
+    else if (payload.indexOf("OPTION_A/") == 0) {
+        var indexOfSlash = payload.indexOf('/');
+        var subjId = payload.substr(indexOfSlash + 1);
+
+        function afterGettingRandomQuestion(error, question) {
+            if (question) {
+                var indexOf_ = payload.indexOf('_');
+                indexOfSlash = payload.indexOf('/');
+                var option = payload.substring(indexOf_ + 1, indexOfSlash);
+                if (question.answer.toLowerCase() == option.toLowerCase()) {
+                    sendMessage(senderId, {text: "Correct guy"});
+                } else {
+                    sendMessage(senderId, {text: "Wrong"});
+                }
+            }
+            else {
+                sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
+            }
+        }
+
+        utils.getRandomQuestion(subjId, afterGettingRandomQuestion);
+    }
     else if (payload.indexOf("SUBJECT/") == 0) {
-        var indexOf_ = payload.indexOf('/');
-        var subjId = payload.substr(indexOf_ + 1);
+        var indexOfSlash = payload.indexOf('/');
+        var subjId = payload.substr(indexOfSlash + 1);
 
         function afterGettingRandomQuestion(error, question) {
             if (question) {
