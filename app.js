@@ -302,7 +302,7 @@ function createMessageForQuestion(question) {
         }
         if (question.options.D) {
             text += "\nD: " + question.options.D;
-            //buttons.push({type: "postback", title: "D", payload: "OPTION_D/" + question.id});
+            buttons.push({type: "postback", title: "D", payload: "OPTION_D/" + question.id});
         }
         if (question.options.E) {
             text += "\nE: " + question.options.E;
@@ -314,13 +314,33 @@ function createMessageForQuestion(question) {
             type: "template",
             payload: {
                 template_type: "button",
-                text: question.text,
+                text: text,
                 buttons: buttons
             }
         }
     };
 
     return message;
+}
+
+function createMessagesForOptions(question) {
+    var messages = [];
+    if (question.options) {
+        if (question.options.A) {
+            messages.push({
+                attachment: {
+                    type: "template",
+                    payload: {
+                        template_type: "button",
+                        text: question.options.A,
+                        buttons: [{type: "postback", title: "I choose this", payload: "OPTION_A/" + question.id}]
+                    }
+                }
+            });
+        }
+    }
+
+    return messages;
 }
 
 function createMessageForSubjects() {
