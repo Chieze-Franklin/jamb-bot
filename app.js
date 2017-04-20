@@ -127,6 +127,36 @@ function processPostback(event) {
 
         utils.getRandomQuestion(subjid, afterGettingQuestion);
     }
+    else if (payload.indexOf("QUESTION_REPORT/") == 0) {
+        sendMessage(senderId, {text: "Wow! I will have to review this question later."});
+
+        //the format of payload is OPTION_A/eng/0
+        var indexOfSlash = payload.indexOf('/');
+        var qId = payload.substr(indexOfSlash + 1);
+        indexOfSlash = qId.indexOf('/');
+        var subjid = qId.substring(0, indexOfSlash);
+
+        function afterGettingQuestion(error, question) {
+            if (question) {
+                //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
+                if (question.options.D) {
+                    sendMessage(senderId, {text: question.text}); //send question
+                    var messages = createMessagesForOptions(question);
+                    messages.forEach(function(message){
+                        sendMessage(senderId, message); //send options
+                    });
+                } else {
+                    var message = createMessageForQuestion(question);
+                    sendMessage(senderId, message);
+                }
+            }
+            else {
+                sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
+            }
+        }
+
+        utils.getRandomQuestion(subjid, afterGettingQuestion);
+    }
     else if (payload.indexOf("SUBJECT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
         var subjId = payload.substr(indexOfSlash + 1);
@@ -163,8 +193,6 @@ function processPostback(event) {
                 sendMessage(senderId, {text: "Oops! I can't seem to remember how this question was solved. Sorry about that."});
             }
         });
-    } else if (payload === "Next") { //user wants next question
-        sendMessage(senderId, {text: "Oops! Sorry about that. Try using the exact title of the movie"});
     } else if (payload === "Stop") { //user wants to stop now
         // Get user's first name from the User Profile API
         // and include it in the goodbye
@@ -186,10 +214,6 @@ function processPostback(event) {
             var message = bye + "It was really nice practicing with you. Hope we chat again soon.";//TODO: put a button to link to examhub.com when it is ready
             sendMessage(senderId, {text: message});
         });
-    } else if (payload === "Report") { //user feels answer is wrongs
-        sendMessage(senderId, {text: "Thanks for your feedback. This question will be crosschecked."});
-    } else if (payload === "Change") { //user wants another subject
-        sendMessage(senderId, {text: "What subject would you like to practice?"});
     }
 }
 
