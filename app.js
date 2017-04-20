@@ -289,23 +289,23 @@ function createMessageForQuestion(question) {
     var buttons = [];
     if (question.options) {
         if (question.options.A) {
-            text + "\nA: " + question.options.A;
+            text += "\nA: " + question.options.A;
             buttons.push({type: "postback", title: "A", payload: "OPTION_A/" + question.id});
         }
         if (question.options.B) {
-            text + "\nB: " + question.options.B;
+            text += "\nB: " + question.options.B;
             buttons.push({type: "postback", title: "B", payload: "OPTION_B/" + question.id});
         }
         if (question.options.C) {
-            text + "\nC: " + question.options.C;
-            //buttons.push({type: "postback", title: "C", payload: "OPTION_C/" + question.id});
+            text += "\nC: " + question.options.C;
+            buttons.push({type: "postback", title: "C", payload: "OPTION_C/" + question.id});
         }
         if (question.options.D) {
-            text + "\nD: " + question.options.D;
+            text += "\nD: " + question.options.D;
             //buttons.push({type: "postback", title: "D", payload: "OPTION_D/" + question.id});
         }
         if (question.options.E) {
-            text + "\nE: " + question.options.E;
+            text += "\nE: " + question.options.E;
             //buttons.push({type: "postback", title: "E", payload: "OPTION_E/" + question.id});
         }
     }
