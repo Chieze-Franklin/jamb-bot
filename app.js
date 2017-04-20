@@ -77,9 +77,9 @@ function processPostback(event) {
     }
     else if (payload.indexOf("OPTION_A/") == 0) {
         var indexOfSlash = payload.indexOf('/');
-        var subjId = payload.substr(indexOfSlash + 1);
+        var qId = payload.substr(indexOfSlash + 1);
 
-        function afterGettingRandomQuestion(error, question) {
+        function afterGettingQuestion(error, question) {
             if (question) {
                 var indexOf_ = payload.indexOf('_');
                 var option = payload.substring(indexOf_ + 1, indexOfSlash);
@@ -98,13 +98,13 @@ function processPostback(event) {
             }
         }
 
-        utils.getRandomQuestion(subjId, afterGettingRandomQuestion);
+        utils.getQuestion(qId, afterGettingQuestion);
     }
     else if (payload.indexOf("SUBJECT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
         var subjId = payload.substr(indexOfSlash + 1);
 
-        function afterGettingRandomQuestion(error, question) {
+        function afterGettingQuestion(error, question) {
             if (question) {
                 //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
                 if (question.options.D) {
@@ -123,7 +123,7 @@ function processPostback(event) {
             }
         }
 
-        utils.getRandomQuestion(subjId, afterGettingRandomQuestion);
+        utils.getRandomQuestion(subjId, afterGettingQuestion);
     }
     else if (payload.indexOf("SUBJECT_WRONG") == 0) {
         sendMessage(senderId, {text: "Ok. Sorry about that. What subject would you like to practice?"});
