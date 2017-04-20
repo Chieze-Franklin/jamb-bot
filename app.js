@@ -298,15 +298,15 @@ function createMessageForQuestion(question) {
         }
         if (question.options.C) {
             text + "\nC: " + question.options.C;
-            buttons.push({type: "postback", title: "C", payload: "OPTION_C/" + question.id});
+            //buttons.push({type: "postback", title: "C", payload: "OPTION_C/" + question.id});
         }
         if (question.options.D) {
             text + "\nD: " + question.options.D;
-            buttons.push({type: "postback", title: "D", payload: "OPTION_D/" + question.id});
+            //buttons.push({type: "postback", title: "D", payload: "OPTION_D/" + question.id});
         }
         if (question.options.E) {
             text + "\nE: " + question.options.E;
-            buttons.push({type: "postback", title: "E", payload: "OPTION_E/" + question.id});
+            //buttons.push({type: "postback", title: "E", payload: "OPTION_E/" + question.id});
         }
     }
     var message = {
