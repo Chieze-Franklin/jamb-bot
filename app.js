@@ -92,7 +92,7 @@ function processPostback(event) {
         utils.getRandomQuestion(subjId, afterGettingRandomQuestion);
     }
     else if (payload.indexOf("SUBJECT_WRONG") == 0) {
-        sendMessage(senderId, {text: "Oops! Sorry about that. Please try retyping the subject"});
+        sendMessage(senderId, {text: "Ok. Sorry about that. What subject would you like to practice?"});
     } else if (payload === "Explain") { //user wants you to explain how the answer was gotten
         utils.getCurrentQuestion(senderId, function(error, question){
             if(question && question.solution) {
@@ -242,7 +242,7 @@ function createMessageForConfirmSubject(subject) {
             type: "template",
             payload: {
                 template_type: "button",
-                text: "Did you mean " + subjName + "?",
+                text: "Ok. Shall we begin practicing " + subjName + "?",
                 buttons: [
                 {
                     type: "postback",
@@ -285,22 +285,28 @@ function createMessageForOption(question, remark) {
 }
 
 function createMessageForQuestion(question) {
+    var text = question.text;
     var buttons = [];
     if (question.options) {
         if (question.options.A) {
-            buttons.push({type: "postback", title: question.options.A, payload: "OPTION_A"});
+            text + "\nA: " + question.options.A;
+            buttons.push({type: "postback", title: "A", payload: "OPTION_A/" + question.id});
         }
         if (question.options.B) {
-            buttons.push({type: "postback", title: question.options.B, payload: "OPTION_B"});
+            text + "\nB: " + question.options.B;
+            buttons.push({type: "postback", title: "B", payload: "OPTION_B/" + question.id});
         }
         if (question.options.C) {
-            buttons.push({type: "postback", title: question.options.C, payload: "OPTION_C"});
+            text + "\nC: " + question.options.C;
+            buttons.push({type: "postback", title: "C", payload: "OPTION_C/" + question.id});
         }
         if (question.options.D) {
-            buttons.push({type: "postback", title: question.options.D, payload: "OPTION_D"});
+            text + "\nD: " + question.options.D;
+            buttons.push({type: "postback", title: "D", payload: "OPTION_D/" + question.id});
         }
         if (question.options.E) {
-            buttons.push({type: "postback", title: question.options.E, payload: "OPTION_E"});
+            text + "\nE: " + question.options.E;
+            buttons.push({type: "postback", title: "E", payload: "OPTION_E/" + question.id});
         }
     }
     var message = {
