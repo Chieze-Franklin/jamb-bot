@@ -20,5 +20,38 @@
 		"D": "16.0g"
 	},
 	"answer": "C"
+},
+{
+	"id": "chem/2",
+	"text": "A particle that contains 9 protons, 10 neutrons and 10 electrons is a",
+	"options": {
+		"A": "negative ion",
+		"B": "positive ion",
+		"C": "neutral atom of a non metal",
+		"D": "neutral atom of a metal"
+	},
+	"answer": "A"
+},
+{
+	"id": "chem/3",
+	"text": "Cancerous growth are cured by exposure to",
+	"options": {
+		"A": "\u03b3-rays",
+		"B": "\u03b2-rays",
+		"C": "\u03b1-rays",
+		"D": "x-rays"
+	},
+	"answer": "A"
+},
+{
+	"id": "chem/4",
+	"text": "An oxide XO\u2082 has a vapour density of 32. What is the atomic mass of X?\n\n[O = 16]",
+	"options": {
+		"A": "32",
+		"B": "20",
+		"C": "14",
+		"D": "12"
+	},
+	"answer": "A"
 }
 ]
