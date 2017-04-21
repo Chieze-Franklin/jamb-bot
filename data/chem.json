@@ -1,7 +1,7 @@
 [
 {
 	"id": "chem/0",
-	"text": "XO\u208225cm\u00b3 of a gas X contains Z molecules at 15\u00b0C and 75mmHg. How many molecules will 25cm\u00b3 of another gas Y contain at the same temperature and pressure?",
+	"text": "25cm\u00b3 of a gas X contains Z molecules at 15\u00b0C and 75mmHg. How many molecules will 25cm\u00b3 of another gas Y contain at the same temperature and pressure?",
 	"options": {
 		"A": "2Y",
 		"B": "2Z",
@@ -12,7 +12,7 @@
 },
 {
 	"id": "chem/1",
-	"text": "XO\u2082What mass of water is produced when 8.0g of hydrogen reacts with excess oxygen?\n\n[H = 1, O = 16]",
+	"text": "What mass of water is produced when 8.0g of hydrogen reacts with excess oxygen?\n\n[H = 1, O = 16]",
 	"options": {
 		"A": "36.0g",
 		"B": "8.0g",
@@ -23,7 +23,7 @@
 },
 {
 	"id": "chem/2",
-	"text": "XO\u2082A particle that contains 9 protons, 10 neutrons and 10 electrons is a",
+	"text": "A particle that contains 9 protons, 10 neutrons and 10 electrons is a",
 	"options": {
 		"A": "negative ion",
 		"B": "positive ion",
@@ -34,7 +34,7 @@
 },
 {
 	"id": "chem/3",
-	"text": "XO\u2082Cancerous growth are cured by exposure to",
+	"text": "Cancerous growth are cured by exposure to",
 	"options": {
 		"A": "\u03b3-rays",
 		"B": "\u03b2-rays",
