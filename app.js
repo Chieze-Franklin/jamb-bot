@@ -77,7 +77,7 @@ function processPostback(event) {
             var message = greeting + "I am your JAMB buddy. I am here to help you prepare for JAMB.";
             sendMessage(senderId, {text: message});
 
-            sendMessage(senderId, {text: "What subject would you like to practice?"});
+            sendMessage(senderId, {text: "What subject would you like to practise?"});
         });
     }
     else if (payload.indexOf("OPTION_") == 0) {
@@ -226,7 +226,7 @@ function processPostback(event) {
         utils.getRandomQuestion(subjId, afterGettingQuestion);
     }
     else if (payload.indexOf("SUBJECT_WRONG") == 0) {
-        sendMessage(senderId, {text: "Ok. Sorry about that. What subject would you like to practice?"});
+        sendMessage(senderId, {text: "Ok. Sorry about that. What subject would you like to practise?"});
     } 
     else if (payload === "STOP") { //user wants to stop now
         // Get user's first name from the User Profile API
@@ -246,7 +246,7 @@ function processPostback(event) {
                 var bodyObj = JSON.parse(body);
                 bye = "Bye " + bodyObj.first_name + ". ";
             }
-            var message = bye + "It was really nice practicing with you. Hope we chat again soon.";//TODO: put a button to link to examhub.com when it is ready
+            var message = bye + "It was really nice practising with you. Hope we chat again soon.";//TODO: put a button to link to examhub.com when it is ready
             sendMessage(senderId, {text: message});
         });
     }
@@ -268,7 +268,7 @@ function processMessage(event) {
                 formattedMsg.indexOf("start") > -1 || formattedMsg.indexOf("begin") > -1 ||
                 formattedMsg.indexOf("subject") > -1 || formattedMsg.indexOf("course") > -1 || formattedMsg.indexOf("program") > -1) {
                 //assume the user wants to change subjects
-                sendMessage(senderId, {text: "What subject would you like to practice?"});
+                sendMessage(senderId, {text: "What subject would you like to practise?"});
             }
             else if (formattedMsg.indexOf("bye") > -1 || formattedMsg.indexOf("later") > -1 || 
                     formattedMsg.indexOf("complete") > -1 || formattedMsg.indexOf("end") > -1 || formattedMsg.indexOf("finish") > -1 || formattedMsg.indexOf("stop") > -1) {
@@ -289,7 +289,7 @@ function processMessage(event) {
                         var bodyObj = JSON.parse(body);
                         bye = "Bye " + bodyObj.first_name + ". ";
                     }
-                    message = bye + "It was really nice practicing with you. Hope we chat again soon.";//TODO: put a button to link to examhub.com when it is ready
+                    message = bye + "It was really nice practising with you. Hope we chat again soon.";//TODO: put a button to link to examhub.com when it is ready
                     sendMessage(senderId, {text: message});
                 });
             }
@@ -412,7 +412,7 @@ function createMessageForConfirmSubject(subject) {
             type: "template",
             payload: {
                 template_type: "button",
-                text: "Ok. Shall we begin practicing " + subjName + "?",
+                text: "Ok. Shall we begin practising " + subjName + "?",
                 buttons: [
                 {
                     type: "postback",
