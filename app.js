@@ -259,7 +259,7 @@ function processMessage(event) {
         if (message.text) {
             var formattedMsg = message.text.toLowerCase().trim();
 
-            if (formattedMsg.indexOf("hey") > -1 || formattedMsg.indexOf("hi") > -1 ||
+            if (formattedMsg.indexOf("hey") > -1 || formattedMsg.indexOf("hi") > -1 || formattedMsg.indexOf("good ") > -1 || //good morning, good day...
                 formattedMsg.indexOf("start") > -1 || formattedMsg.indexOf("begin") > -1 ||
                 formattedMsg.indexOf("subject") > -1 || formattedMsg.indexOf("course") > -1 || formattedMsg.indexOf("program") > -1) {
                 //assume the user wants to change subjects
@@ -284,68 +284,19 @@ function processMessage(event) {
                         var bodyObj = JSON.parse(body);
                         bye = "Bye " + bodyObj.first_name + ". ";
                     }
-                    var message = bye + "It was really nice practicing with you. Hope we chat again soon.";//TODO: put a button to link to examhub.com when it is ready
+                    message = bye + "It was really nice practicing with you. Hope we chat again soon.";//TODO: put a button to link to examhub.com when it is ready
                     sendMessage(senderId, {text: message});
                 });
+            }
+            else if (formattedMsg === "explain" || formattedMsg === "next" || formattedMsg === "wrong" ||
+                     formattedMsg === "a" || formattedMsg === "b" || formattedMsg === "c" || formattedMsg === "d" || formattedMsg === "e" ||
+                     formattedMsg === "no" || formattedMsg === "yes") {
+                sendMessage(senderId, {text: "Sorry, do NOT type '" + message.text + "' directly. Instead, click on the '" + message.text + "' link/button above. Thanks."});
             }
             else {
                 message = createMessageForConfirmSubject(formattedMsg);
                 sendMessage(senderId, message);
             }
-
-            /* If we receive a text message, check to see if it matches any option
-            // Otherwise consider it to be a subject.
-            switch (formattedMsg) {
-                case "A":
-                case "B":
-                case "C":
-                case "D":
-                case "E":
-                    //evaluate the supplied option, return an answer with post back buttons
-                    //button for explain shud show only if there is a solution for the question
-                    message = {
-                        attachment: {
-                            type: "template",
-                            payload: {
-                                template_type: "button",
-                                text: "<<respond to the user's option here>>",
-                                buttons: [
-                                {
-                                    type: "postback",
-                                    title: "Next question",
-                                    payload: "Next"
-                                }, 
-                                {
-                                    type: "postback",
-                                    title: "Explain the answer",
-                                    payload: "Explain"
-                                }, 
-                                {
-                                    type: "postback",
-                                    title: "Let's stop here for now",
-                                    payload: "Stop"
-                                }, 
-                                {
-                                    type: "postback",
-                                    title: "Let's try another subject",
-                                    payload: "Change"
-                                }, 
-                                {
-                                    type: "postback",
-                                    title: "I don't agree with this answer",
-                                    payload: "Report"
-                                }]
-                            }
-                        }
-                    };
-                    sendMessage(senderId, message);
-                    break;
-
-                default:
-                    //search for a new subject
-                    message = createMessageForSubjects();
-                    sendMessage(senderId, {text: "What subject would you like to practice?"});
-            }*/
         } else if (message.attachments) {
             // Get user's first name from the User Profile API
             // and include it in the warning
@@ -601,26 +552,6 @@ function createMessagesForOptions(question) {
     }
 
     return messages;
-}
-
-function createMessageForSubjects() {
-    var message = {
-        attachment: {
-            type: "template",
-            payload: {
-                template_type: "button",
-                text: "What subject would you like to practice?",
-                buttons: [
-                {
-                    type: "postback",
-                    title: "Freestyle",
-                    payload: "SUBJECT/*"
-                }]
-            }
-        }
-    };
-
-    return message;
 }
 
 // sends message to user
