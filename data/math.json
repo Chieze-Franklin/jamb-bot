@@ -8,17 +8,50 @@
 		"C": "20.981",
 		"D": "20.352"
 	},
-	"answer": "C"
+	"answer": "D"
 },
 {
 	"id": "math/1",
-	"text": "Given that p = 1 + \u221a2 and q = 1 - \u221a2, evaluate ((p ",
+	"text": "Given that p = 1 + \u221a2 and q = 1 - \u221a2, evaluate (p\u00b2 - q\u00b2) \u00f7 (2pq)",
 	"options": {
-		"A": "2",
-		"B": "professionals",
-		"C": "permanent guests"
+		"A": "2(2 + \u221a2)",
+		"B": "-2(2 + \u221a2)",
+		"C": "2\u221a2",
+		"D": "-2\u221a2"
 	},
-	"answer": "A",
-	"solution": "Don't ask me to explain!"
+	"answer": "D"
+},
+{
+	"id": "math/2",
+	"text": "A car dealer bought a second-hand car for #250,000.00 and spent #70,000.00 refurbishing it. He then sold the car for #400,000.00. What is the percentage gain?",
+	"options": {
+		"A": "60%",
+		"B": "32%",
+		"C": "25%",
+		"D": "20%"
+	},
+	"answer": "C"
+},
+{
+	"id": "math/3",
+	"text": "If y/2 = x, evaluate [(x\u00b3/y\u00b3) + (1/2)] \u00f7 [(1/2) + (x\u00b2/y\u00b2)]",
+	"options": {
+		"A": "5/8",
+		"B": "5/2",
+		"C": "5/4",
+		"D": "5/16"
+	},
+	"answer": "B"
+},
+{
+	"id": "math/4",
+	"text": "Find the principal which amounts to #5,500 at simple interest in 5 years at 2% per annum.",
+	"options": {
+		"A": "#4,900",
+		"B": "#5,000",
+		"C": "#4,700",
+		"D": "#4,800"
+	},
+	"answer": "B"
 }
 ]
