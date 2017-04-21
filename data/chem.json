@@ -1,24 +1,24 @@
 [
 {
-	"id": "eng/0",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "chem/0",
+	"text": "25cm\u00b3 of a gas X contains Z molecules at 15\u00b0C and 75mmHg. How many molecules will 25cm\u00b3 of another gas Y contain at the same temperature and pressure?",
 	"options": {
-		"A": "oppressive",
-		"B": "prodigal",
-		"C": "crumbling",
-		"D": "purposeless"
+		"A": "2Y",
+		"B": "2Z",
+		"C": "Z",
+		"D": "Y"
 	},
 	"answer": "C"
 },
 {
-	"id": "eng/1",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "chem/1",
+	"text": "What mass of water is produced when 8.0g of hydrogen reacts with excess oxygen?\n\n[H = 1, O = 16]",
 	"options": {
-		"A": "temporary guests",
-		"B": "professionals",
-		"C": "permanent guests"
+		"A": "36.0g",
+		"B": "8.0g",
+		"C": "72.0g",
+		"D": "16.0g"
 	},
-	"answer": "A",
-	"solution": "Don't ask me to explain!"
+	"answer": "C"
 }
 ]
