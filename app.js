@@ -226,7 +226,7 @@ function processPostback(event) {
         utils.getRandomQuestion(subjId, afterGettingQuestion);
     }
     else if (payload.indexOf("SUBJECT_WRONG") == 0) {
-        sendMessage(senderId, {text: "Ok. Sorry about that. What subject would you like to practise?"});
+        sendMessage(senderId, {text: "OK. Sorry about that. What subject would you like to practise?"});
     } 
     else if (payload === "STOP") { //user wants to stop now
         // Get user's first name from the User Profile API
@@ -412,7 +412,7 @@ function createMessageForConfirmSubject(subject) {
             type: "template",
             payload: {
                 template_type: "button",
-                text: "Ok. Shall we begin practising " + subjName + "?",
+                text: "OK. Shall we begin practising " + subjName + "?",
                 buttons: [
                 {
                     type: "postback",
