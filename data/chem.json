@@ -1,57 +1,57 @@
 [
 {
 	"id": "chem/0",
-	"text": "25cm\u00b3 of a gas X contains Z molecules at 15\u00b0C and 75mmHg. How many molecules will 25cm\u00b3 of another gas Y contain at the same temperature and pressure?",
+	"body": "25cm\u00b3 of a gas X contains Z molecules at 15\u00b0C and 75mmHg. How many molecules will 25cm\u00b3 of another gas Y contain at the same temperature and pressure?",
 	"options": {
-		"A": "2Y",
-		"B": "2Z",
-		"C": "Z",
-		"D": "Y"
+		"a": "2Y",
+		"b": "2Z",
+		"c": "Z",
+		"d": "Y"
 	},
-	"answer": "C"
+	"answer": "c"
 },
 {
 	"id": "chem/1",
-	"text": "What mass of water is produced when 8.0g of hydrogen reacts with excess oxygen?\n\n[H = 1, O = 16]",
+	"body": "What mass of water is produced when 8.0g of hydrogen reacts with excess oxygen?\n\n[H = 1, O = 16]",
 	"options": {
-		"A": "36.0g",
-		"B": "8.0g",
-		"C": "72.0g",
-		"D": "16.0g"
+		"a": "36.0g",
+		"b": "8.0g",
+		"c": "72.0g",
+		"d": "16.0g"
 	},
-	"answer": "C"
+	"answer": "c"
 },
 {
 	"id": "chem/2",
-	"text": "A particle that contains 9 protons, 10 neutrons and 10 electrons is a",
+	"body": "A particle that contains 9 protons, 10 neutrons and 10 electrons is a",
 	"options": {
-		"A": "negative ion",
-		"B": "positive ion",
-		"C": "neutral atom of a non metal",
-		"D": "neutral atom of a metal"
+		"a": "negative ion",
+		"b": "positive ion",
+		"c": "neutral atom of a non metal",
+		"d": "neutral atom of a metal"
 	},
-	"answer": "A"
+	"answer": "a"
 },
 {
 	"id": "chem/3",
-	"text": "Cancerous growth are cured by exposure to",
+	"body": "Cancerous growth are cured by exposure to",
 	"options": {
-		"A": "\u03b3-rays",
-		"B": "\u03b2-rays",
-		"C": "\u03b1-rays",
-		"D": "x-rays"
+		"a": "\u03b3-rays",
+		"b": "\u03b2-rays",
+		"c": "\u03b1-rays",
+		"d": "x-rays"
 	},
-	"answer": "A"
+	"answer": "a"
 },
 {
 	"id": "chem/4",
-	"text": "An oxide XO\u2082 has a vapour density of 32. What is the atomic mass of X?\n\n[O = 16]",
+	"body": "An oxide XO\u2082 has a vapour density of 32. What is the atomic mass of X?\n\n[O = 16]",
 	"options": {
-		"A": "32",
-		"B": "20",
-		"C": "14",
-		"D": "12"
+		"a": "32",
+		"b": "20",
+		"c": "14",
+		"d": "12"
 	},
-	"answer": "A"
+	"answer": "a"
 }
 ]

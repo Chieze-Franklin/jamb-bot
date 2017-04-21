@@ -1,24 +1,24 @@
 [
 {
 	"id": "eng/0",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
 	"options": {
-		"A": "oppressive",
-		"B": "prodigal",
-		"C": "crumbling",
-		"D": "purposeless"
+		"a": "oppressive",
+		"b": "prodigal",
+		"c": "crumbling",
+		"d": "purposeless"
 	},
-	"answer": "C"
+	"answer": "c"
 },
 {
 	"id": "eng/1",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
 	"options": {
-		"A": "temporary guests",
-		"B": "professionals",
-		"C": "permanent guests"
+		"a": "temporary guests",
+		"b": "professionals",
+		"c": "permanent guests"
 	},
-	"answer": "A",
+	"answer": "a",
 	"solution": "Don't ask me to explain!"
 }
 ]

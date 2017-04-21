@@ -474,7 +474,7 @@ function createMessageForQuestion(question) {
         }
         if (question.options.E) {
             text += "\nE: " + question.options.E;
-            //buttons.push({type: "postback", title: "E", payload: "OPTION_E/" + question.id});
+            buttons.push({type: "postback", title: "E", payload: "OPTION_E/" + question.id});
         }
     }
     var message = {

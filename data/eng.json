@@ -1,57 +1,57 @@
 [
 {
 	"id": "eng/0",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that **moribund** administration.",
+	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that **moribund** administration.",
 	"options": {
-		"A": "oppressive",
-		"B": "prodigal",
-		"C": "crumbling",
-		"D": "purposeless"
+		"a": "oppressive",
+		"b": "prodigal",
+		"c": "crumbling",
+		"d": "purposeless"
 	},
-	"answer": "C"
+	"answer": "c"
 },
 {
 	"id": "eng/1",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for **transients** only.",
+	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for **transients** only.",
 	"options": {
-		"A": "temporary guests",
-		"B": "professionals",
-		"C": "permanent guests",
-		"D": "novices"
+		"a": "temporary guests",
+		"b": "professionals",
+		"c": "permanent guests",
+		"d": "novices"
 	},
-	"answer": "A"
+	"answer": "a"
 },
 {
 	"id": "eng/2",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe **coalescence** of the groups created additional problems.",
+	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe **coalescence** of the groups created additional problems.",
 	"options": {
-		"A": "proscription",
-		"B": "fighting",
-		"C": "disbandment",
-		"D": "union"
+		"a": "proscription",
+		"b": "fighting",
+		"c": "disbandment",
+		"d": "union"
 	},
-	"answer": "D"
+	"answer": "d"
 },
 {
 	"id": "eng/3",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nAs the triumphant rebels were returning to their base, they met with a **serious reverse**.",
+	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nAs the triumphant rebels were returning to their base, they met with a **serious reverse**.",
 	"options": {
-		"A": "a defeat",
-		"B": "an enemy",
-		"C": "an army",
-		"D": "a victory"
+		"a": "a defeat",
+		"b": "an enemy",
+		"c": "an army",
+		"d": "a victory"
 	},
-	"answer": "A"
+	"answer": "a"
 },
 {
 	"id": "eng/4",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe village girl wore **sumptuous** clothes.",
+	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe village girl wore **sumptuous** clothes.",
 	"options": {
-		"A": "faded-looking",
-		"B": "cheap",
-		"C": "expensive",
-		"D": "loose-fitting"
+		"a": "faded-looking",
+		"b": "cheap",
+		"c": "expensive",
+		"d": "loose-fitting"
 	},
-	"answer": "C"
+	"answer": "c"
 }
 ]

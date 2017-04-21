@@ -1,57 +1,57 @@
 [
 {
 	"id": "math/0",
-	"text": "Evaluate 21.05347 - 1.6324 x 0.43, to 3 decimal places.",
+	"body": "Evaluate 21.05347 - 1.6324 x 0.43, to 3 decimal places.",
 	"options": {
-		"A": "20.980",
-		"B": "20.351",
-		"C": "20.981",
-		"D": "20.352"
+		"a": "20.980",
+		"b": "20.351",
+		"c": "20.981",
+		"d": "20.352"
 	},
-	"answer": "D"
+	"answer": "d"
 },
 {
 	"id": "math/1",
-	"text": "Given that p = 1 + \u221a2 and q = 1 - \u221a2, evaluate (p\u00b2 - q\u00b2) \u00f7 (2pq)",
+	"body": "Given that p = 1 + \u221a2 and q = 1 - \u221a2, evaluate (p\u00b2 - q\u00b2) \u00f7 (2pq)",
 	"options": {
-		"A": "2(2 + \u221a2)",
-		"B": "-2(2 + \u221a2)",
-		"C": "2\u221a2",
-		"D": "-2\u221a2"
+		"a": "2(2 + \u221a2)",
+		"b": "-2(2 + \u221a2)",
+		"c": "2\u221a2",
+		"d": "-2\u221a2"
 	},
-	"answer": "D"
+	"answer": "d"
 },
 {
 	"id": "math/2",
-	"text": "A car dealer bought a second-hand car for #250,000.00 and spent #70,000.00 refurbishing it. He then sold the car for #400,000.00. What is the percentage gain?",
+	"body": "A car dealer bought a second-hand car for #250,000.00 and spent #70,000.00 refurbishing it. He then sold the car for #400,000.00. What is the percentage gain?",
 	"options": {
-		"A": "60%",
-		"B": "32%",
-		"C": "25%",
-		"D": "20%"
+		"a": "60%",
+		"b": "32%",
+		"c": "25%",
+		"d": "20%"
 	},
-	"answer": "C"
+	"answer": "c"
 },
 {
 	"id": "math/3",
-	"text": "If y/2 = x, evaluate [(x\u00b3/y\u00b3) + (1/2)] \u00f7 [(1/2) + (x\u00b2/y\u00b2)]",
+	"body": "If y/2 = x, evaluate [(x\u00b3/y\u00b3) + (1/2)] \u00f7 [(1/2) + (x\u00b2/y\u00b2)]",
 	"options": {
-		"A": "5/8",
-		"B": "5/2",
-		"C": "5/4",
-		"D": "5/16"
+		"a": "5/8",
+		"b": "5/2",
+		"c": "5/4",
+		"d": "5/16"
 	},
-	"answer": "B"
+	"answer": "b"
 },
 {
 	"id": "math/4",
-	"text": "Find the principal which amounts to #5,500 at simple interest in 5 years at 2% per annum.",
+	"body": "Find the principal which amounts to #5,500 at simple interest in 5 years at 2% per annum.",
 	"options": {
-		"A": "#4,900",
-		"B": "#5,000",
-		"C": "#4,700",
-		"D": "#4,800"
+		"a": "#4,900",
+		"b": "#5,000",
+		"c": "#4,700",
+		"d": "#4,800"
 	},
-	"answer": "B"
+	"answer": "b"
 }
 ]
