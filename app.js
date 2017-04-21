@@ -14,6 +14,11 @@ app.get("/", function (req, res) {
     res.send("JAMB Bot up and running!");
 });
 
+// Privacy Policy
+app.get("/privacy", function (req, res) {
+    res.send("JAMB Bot currently does NOT collect any information about users. You have nothing to fear. If anything changes with regards to this, you will be duely informed.");
+});
+
 // Facebook Webhook
 // Used for verification
 app.get("/webhook", function (req, res) {
