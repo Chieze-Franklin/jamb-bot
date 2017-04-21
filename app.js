@@ -259,12 +259,14 @@ function processMessage(event) {
         if (message.text) {
             var formattedMsg = message.text.toLowerCase().trim();
 
-            if (formattedMsg.indexOf("start") > -1 || formattedMsg.indexOf("begin") > -1 ||
+            if (formattedMsg.indexOf("hey") > -1 || formattedMsg.indexOf("hi") > -1 ||
+                formattedMsg.indexOf("start") > -1 || formattedMsg.indexOf("begin") > -1 ||
                 formattedMsg.indexOf("subject") > -1 || formattedMsg.indexOf("course") > -1 || formattedMsg.indexOf("program") > -1) {
                 //assume the user wants to change subjects
                 sendMessage(senderId, {text: "What subject would you like to practice?"});
             }
-            else if (formattedMsg == "complete" || formattedMsg == "end" || formattedMsg == "finish" || formattedMsg == "stop") { //user wants to stop now
+            else if (formattedMsg.indexOf("bye") > -1 || formattedMsg.indexOf("later") > -1 || 
+                    formattedMsg.indexOf("complete") > -1 || formattedMsg.indexOf("end") > -1 || formattedMsg.indexOf("finish") > -1 || formattedMsg.indexOf("stop") > -1) {
                 // Get user's first name from the User Profile API
                 // and include it in the goodbye
                 request({

@@ -1,20 +1,20 @@
 [
 {
-	"id": "eng/0",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "math/0",
+	"text": "Evaluate 21.05347 - 1.6324 x 0.43, to 3 decimal places.",
 	"options": {
-		"A": "oppressive",
-		"B": "prodigal",
-		"C": "crumbling",
-		"D": "purposeless"
+		"A": "20.980",
+		"B": "20.351",
+		"C": "20.981",
+		"D": "20.352"
 	},
 	"answer": "C"
 },
 {
-	"id": "eng/1",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "math/1",
+	"text": "Given that p = 1 + \u221a2 and q = 1 - \u221a2, evaluate ((p ",
 	"options": {
-		"A": "temporary guests",
+		"A": "2",
 		"B": "professionals",
 		"C": "permanent guests"
 	},

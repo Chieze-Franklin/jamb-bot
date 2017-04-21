@@ -1,7 +1,7 @@
 [
 {
 	"id": "eng/0",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that **moribund** administration.",
 	"options": {
 		"A": "oppressive",
 		"B": "prodigal",
@@ -12,13 +12,46 @@
 },
 {
 	"id": "eng/1",
-	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for **transients** only.",
 	"options": {
 		"A": "temporary guests",
 		"B": "professionals",
-		"C": "permanent guests"
+		"C": "permanent guests",
+		"D": "novices"
 	},
-	"answer": "A",
-	"solution": "Don't ask me to explain!"
+	"answer": "A"
+},
+{
+	"id": "eng/2",
+	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe **coalescence** of the groups created additional problems.",
+	"options": {
+		"A": "proscription",
+		"B": "fighting",
+		"C": "disbandment",
+		"D": "union"
+	},
+	"answer": "D"
+},
+{
+	"id": "eng/3",
+	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nAs the triumphant rebels were returning to their base, they met with a **serious reverse**.",
+	"options": {
+		"A": "a defeat",
+		"B": "an enemy",
+		"C": "an army",
+		"D": "a victory"
+	},
+	"answer": "A"
+},
+{
+	"id": "eng/4",
+	"text": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe village girl wore **sumptuous** clothes.",
+	"options": {
+		"A": "faded-looking",
+		"B": "cheap",
+		"C": "expensive",
+		"D": "loose-fitting"
+	},
+	"answer": "C"
 }
 ]
