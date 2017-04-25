@@ -461,35 +461,35 @@ function createMessagesForOptions(question) {
             messages.push(createTextWithButtonsMessage("A: " + question.options.a, [{type: "postback", title: "A", payload: "OPTION_A/" + question.id}]));
         }
         else if (question.options.a_image) {
-            messages.push(createImageWithButtonsMessage("", "", BASE_URL + question.options.a_image, [{type: "postback", title: "A", payload: "OPTION_A/" + question.id}]));
+            messages.push(createImageWithButtonsMessage("A", "option a", BASE_URL + question.options.a_image, [{type: "postback", title: "A", payload: "OPTION_A/" + question.id}]));
         }
 
         if (question.options.b) {
             messages.push(createTextWithButtonsMessage("B: " + question.options.b, [{type: "postback", title: "B", payload: "OPTION_B/" + question.id}]));
         }
         else if (question.options.b_image) {
-            messages.push(createImageWithButtonsMessage("", "", BASE_URL + question.options.b_image, [{type: "postback", title: "B", payload: "OPTION_B/" + question.id}]));
+            messages.push(createImageWithButtonsMessage("B", "option b", BASE_URL + question.options.b_image, [{type: "postback", title: "B", payload: "OPTION_B/" + question.id}]));
         }
 
         if (question.options.c) {
             messages.push(createTextWithButtonsMessage("C: " + question.options.c, [{type: "postback", title: "C", payload: "OPTION_C/" + question.id}]));
         }
         else if (question.options.c_image) {
-            messages.push(createImageWithButtonsMessage("", "", BASE_URL + question.options.c_image, [{type: "postback", title: "C", payload: "OPTION_C/" + question.id}]));
+            messages.push(createImageWithButtonsMessage("C", "option c", BASE_URL + question.options.c_image, [{type: "postback", title: "C", payload: "OPTION_C/" + question.id}]));
         }
 
         if (question.options.d) {
             messages.push(createTextWithButtonsMessage("D: " + question.options.d, [{type: "postback", title: "D", payload: "OPTION_D/" + question.id}]));
         }
         else if (question.options.d_image) {
-            messages.push(createImageWithButtonsMessage("", "", BASE_URL + question.options.d_image, [{type: "postback", title: "D", payload: "OPTION_D/" + question.id}]));
+            messages.push(createImageWithButtonsMessage("D", "option d", BASE_URL + question.options.d_image, [{type: "postback", title: "D", payload: "OPTION_D/" + question.id}]));
         }
 
         if (question.options.e) {
             messages.push(createTextWithButtonsMessage("E: " + question.options.e, [{type: "postback", title: "E", payload: "OPTION_E/" + question.id}]));
         }
         else if (question.options.e_image) {
-            messages.push(createImageWithButtonsMessage("", "", BASE_URL + question.options.e_image, [{type: "postback", title: "E", payload: "OPTION_E/" + question.id}]));
+            messages.push(createImageWithButtonsMessage("E", "option e", BASE_URL + question.options.e_image, [{type: "postback", title: "E", payload: "OPTION_E/" + question.id}]));
         }
     }
 
