@@ -7,7 +7,10 @@ var utils = require("./utils");
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use('/public', express.static(__dirname + "/public"));
 app.listen((process.env.PORT || 5000));
+
+var BASE_URL = "https://jamb-bot.herokuapp.com/";
 
 // Server index page
 app.get("/", function (req, res) {
@@ -519,14 +522,68 @@ function createMessagesForOptions(question) {
     return messages;
 }
 
+function createImageMessage(url) {
+    var message = {
+        attachment: {
+            type: "image",
+            payload: {
+                url: url
+            }
+        }
+    };
+
+    return message;
+}
+function createImageWithButtonsMessage() {
+    var message = {
+        attachment: {
+            type: "template",
+            payload: {
+                template_type: "generic",
+                elements: [{
+                    title: "",
+                    subtitle: "Is this the movie you are looking for?",
+                    image_url: "",
+                    buttons: [{
+                        type: "postback",
+                        title: "Yes",
+                        payload: "Correct"
+                    }, {
+                        type: "postback",
+                        title: "No",
+                        payload: "Incorrect"
+                    }]
+                }]
+            }
+        }
+    };
+
+    return message;
+}
+
 function sendQuestion(recipientId, question) {
     if (question.preamble) {
         sendMessage(recipientId, {text: question.preamble});
     }
+    else if (question.preamble_image) {
+        var message = createImageMessage(BASE_URL + question.preamble_image);
+        sendMessage(recipientId, message);
+    }
 
-    //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
-    if (question.options.d || question.options.d_image) {
-        sendMessage(recipientId, {text: question.body}); //send question
+    //if the question has body_image or
+    //if question has more than 3 options (Facebook doesn't let us create more than 3 buttons at once) or
+    //if the question has an option that is not a text (like a_image)
+    if (question.body_image ||
+        question.options.d || 
+        question.options.a_image || question.options.b_image || question.options.c_image || question.options.d_image || question.options.e_image) {
+        if (question.body) {
+            sendMessage(recipientId, {text: question.body});
+        }
+        else if (question.body_image) {
+            var message = createImageMessage(BASE_URL + question.body_image);
+            sendMessage(recipientId, message);
+        }
+
         var messages = createMessagesForOptions(question);
         messages.forEach(function(message){
             sendMessage(recipientId, message); //send options
