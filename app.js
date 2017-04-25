@@ -113,7 +113,7 @@ function processPostback(event) {
         var qId = payload.substr(indexOfSlash + 1);
 
         function afterGettingQuestion(error, question) {
-            if (question && question.solution) {
+            if (question && question.solution) {console.log(">>>>>>>>>>>>>>>>>>>>>>question.id: " + question.id);
                 var message = createTextWithButtonsMessage(question.solution, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + question.Id}]);
                 sendMessage(senderId, message);
             }
@@ -122,6 +122,7 @@ function processPostback(event) {
             }
         }
 
+console.log(">>>>>>>>>>>>>>>>>>>>>>qId: " + qId);
         utils.getQuestion(qId, afterGettingQuestion);
     }
     else if (payload.indexOf("QUESTION_NEXT/") == 0) {
@@ -139,6 +140,7 @@ function processPostback(event) {
             }
         }
 
+        console.log(">>>>>>>>>>>>>>>>>>>>>>subjid: " + subjid);
         utils.getRandomQuestion(subjid, afterGettingQuestion);
     }
     else if (payload.indexOf("QUESTION_REPORT/") == 0) {
