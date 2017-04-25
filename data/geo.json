@@ -14,13 +14,15 @@
 },
 {
 	"id": "geo/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"preamble_image": "public/geo-0.jpg",
+	"body": "The feature, running approximately North to North-East, on which the trigonometrical station is located is a",
 	"options": {
-		"a_image": "public/geo-0.jpg",
-		"b_image": "public/geo-0.jpg",
-		"c_image": "public/geo-0.jpg"
+		"a": "conical hill",
+		"b": "cliff",
+		"c": "ridge",
+		"d": "plateau"
 	},
-	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"answer": "c",
+	"solution": "This is because the contour lines are close together and the feature itself is elongated. "
 }
 ]

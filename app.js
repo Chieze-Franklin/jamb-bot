@@ -142,11 +142,14 @@ function processPostback(event) {
         utils.getRandomQuestion(subjid, afterGettingQuestion);
     }
     else if (payload.indexOf("QUESTION_REPORT/") == 0) {
-        sendMessage(senderId, {text: "Wow! I will have to review this question later.\n\nMeanwhile let's continue."});
-
+        //sendMessage(senderId, {text: "Wow! I will have to review this question later.\n\nMeanwhile let's continue."});
+        
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
-        indexOfSlash = qId.indexOf('/');
+        var message = createTextWithButtonsMessage("Wow! I will have to review this question later.", 
+            [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+        sendMessage(senderId, message);
+        /*indexOfSlash = qId.indexOf('/');
         var subjid = qId.substring(0, indexOfSlash);
 
         function afterGettingQuestion(error, question) {
@@ -158,7 +161,7 @@ function processPostback(event) {
             }
         }
 
-        utils.getRandomQuestion(subjid, afterGettingQuestion);
+        utils.getRandomQuestion(subjid, afterGettingQuestion);*/
     }
     else if (payload.indexOf("SUBJECT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
