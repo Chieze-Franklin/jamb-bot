@@ -1,24 +1,26 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "phy/0",
+	"preamble": "I. The earth is not spherical but elliptical in shape.\nII. Variation in latitude and longitude.\nIII. Rotation of the earth on its axis.\nVariation in the density of the earth.",
+	"body": "On which combination of the above does the weight of an object vary on the earth’s surface?",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "I, II and III only.",
+		"b": "I, II, III and IV.",
+		"c": "I and II only.",
+		"d": "II, III and IV only."
 	},
-	"answer": "c"
+	"answer": "b"
 },
 {
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "phy/1",
+	"preamble": "I. The earth is not spherical but elliptical in shape.\nII. Variation in latitude and longitude.\nIII. Rotation of the earth on its axis.\nVariation in the density of the earth.",
+	"body": "On which combination of the above does the weight of an object vary on the earth’s surface?",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "I, II and III only.",
+		"b": "I, II, III and IV.",
+		"c": "I and II only.",
+		"d": "II, III and IV only."
 	},
-	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"answer": "b"
 }
 ]

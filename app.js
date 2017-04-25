@@ -122,17 +122,7 @@ function processPostback(event) {
 
             function afterGettingQuestion(error, question) {
                 if (question) {
-                    //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
-                    if (question.options.d) {
-                        sendMessage(senderId, {text: question.body}); //send question
-                        var messages = createMessagesForOptions(question);
-                        messages.forEach(function(message){
-                            sendMessage(senderId, message); //send options
-                        });
-                    } else {
-                        var message = createMessageForQuestion(question);
-                        sendMessage(senderId, message);
-                    }
+                    sendQuestion(senderId, question);
                 }
                 else {
                     sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
@@ -152,17 +142,7 @@ function processPostback(event) {
 
         function afterGettingQuestion(error, question) {
             if (question) {
-                //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
-                if (question.options.d) {
-                    sendMessage(senderId, {text: question.body}); //send question
-                    var messages = createMessagesForOptions(question);
-                    messages.forEach(function(message){
-                        sendMessage(senderId, message); //send options
-                    });
-                } else {
-                    var message = createMessageForQuestion(question);
-                    sendMessage(senderId, message);
-                }
+                sendQuestion(senderId, question);
             }
             else {
                 sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
@@ -181,17 +161,7 @@ function processPostback(event) {
 
         function afterGettingQuestion(error, question) {
             if (question) {
-                //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
-                if (question.options.d) {
-                    sendMessage(senderId, {text: question.body}); //send question
-                    var messages = createMessagesForOptions(question);
-                    messages.forEach(function(message){
-                        sendMessage(senderId, message); //send options
-                    });
-                } else {
-                    var message = createMessageForQuestion(question);
-                    sendMessage(senderId, message);
-                }
+                sendQuestion(senderId, question);
             }
             else {
                 sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
@@ -206,17 +176,7 @@ function processPostback(event) {
 
         function afterGettingQuestion(error, question) {
             if (question) {
-                //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
-                if (question.options.d) {
-                    sendMessage(senderId, {text: question.body}); //send question
-                    var messages = createMessagesForOptions(question);
-                    messages.forEach(function(message){
-                        sendMessage(senderId, message); //send options
-                    });
-                } else {
-                    var message = createMessageForQuestion(question);
-                    sendMessage(senderId, message);
-                }
+                sendQuestion(senderId, question);
             }
             else {
                 sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
@@ -264,7 +224,7 @@ function processMessage(event) {
         if (message.text) {
             var formattedMsg = message.text.toLowerCase().trim();
 
-            if (formattedMsg.indexOf("hey") > -1 || formattedMsg.indexOf("hi") > -1 || formattedMsg.indexOf("good ") > -1 || //good morning, good day...
+            if (formattedMsg.indexOf("hello") > -1 || formattedMsg.indexOf("hey") > -1 || formattedMsg.indexOf("hi") > -1 || formattedMsg.indexOf("good ") > -1 || //good morning, good day...
                 formattedMsg.indexOf("start") > -1 || formattedMsg.indexOf("begin") > -1 ||
                 formattedMsg.indexOf("subject") > -1 || formattedMsg.indexOf("course") > -1 || formattedMsg.indexOf("program") > -1) {
                 //assume the user wants to change subjects
@@ -557,6 +517,24 @@ function createMessagesForOptions(question) {
     }
 
     return messages;
+}
+
+function sendQuestion(recipientId, question) {
+    if (question.preamble) {
+        sendMessage(recipientId, {text: question.preamble});
+    }
+
+    //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
+    if (question.options.d || question.options.d_image) {
+        sendMessage(recipientId, {text: question.body}); //send question
+        var messages = createMessagesForOptions(question);
+        messages.forEach(function(message){
+            sendMessage(recipientId, message); //send options
+        });
+    } else {
+        var message = createMessageForQuestion(question);
+        sendMessage(recipientId, message);
+    }
 }
 
 // sends message to user
