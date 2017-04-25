@@ -1,22 +1,24 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "geo/0",
+	"preamble_image": "public/geo-0.jpg",
+	"body": "The crop that will be most suitable for cultivation in the lower basin of River Madu is",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "coffee",
+		"b": "groundnut",
+		"c": "cotton",
+		"d": "rice"
 	},
-	"answer": "c"
+	"answer": "d",
+	"solution": "This is because the area is liable to flooding and rice needs a lot of water to perform well."
 },
 {
-	"id": "eng/1",
+	"id": "geo/1",
 	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a_image": "public/geo-0.jpg",
+		"b_image": "public/geo-0.jpg",
+		"c_image": "public/geo-0.jpg"
 	},
 	"answer": "a",
 	"solution": "Don't ask me to explain!"
