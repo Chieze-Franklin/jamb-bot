@@ -1,67 +1,63 @@
 [
 {
 	"id": "phy/0",
-	"preamble_image": "public/phy-5.jpg",
-	"body_image": "public/phy-5.jpg",
+	"preamble": "I. The earth is not spherical but elliptical in shape.\nII. Variation in latitude and longitude.\nIII. Rotation of the earth on its axis.\nVariation in the density of the earth.",
+	"body": "On which combination of the above does the weight of an object vary on the earth’s surface?",
 	"options": {
-		"a": "40%",
-		"b": "33%",
-		"c": "60%",
-		"d": "50%"
+		"a": "I, II and III only.",
+		"b": "I, II, III and IV.",
+		"c": "I and II only.",
+		"d": "II, III and IV only."
 	},
-	"answer": "d"
+	"answer": "b"
 },
 {
 	"id": "phy/1",
-	"preamble_image": "public/phy-5.jpg",
-	"body_image": "public/phy-5.jpg",
+	"body": "If a spherical metal bob of radius 3cm is fully immersed in a cylinder containing water and the water level rises by 1cm, what is the radius of the cylinder?",
 	"options": {
-		"a": "40%",
-		"b": "33%",
-		"c": "60%",
-		"d": "50%"
+		"a": "6cm",
+		"b": "12cm",
+		"c": "1cm",
+		"d": "3cm"
 	},
-	"answer": "d"
+	"answer": "a"
 },
 {
 	"id": "phy/2",
-	"preamble_image": "public/phy-5.jpg",
-	"body_image": "public/phy-5.jpg",
+	"body": "The efficiency of a machine is always less than 100% because the",
 	"options": {
-		"a": "40%",
-		"b": "33%",
-		"c": "60%",
-		"d": "50%"
+		"a": "velocity ratio is always greater than the mechanical advantage.",
+		"b": "work output is always greater than the work input.",
+		"c": "effort applied is always greater than the load lifted.",
+		"d": "load lifted is always greater than the effort applied."
 	},
-	"answer": "d"
+	"answer": "a"
 },
 {
 	"id": "phy/3",
-	"preamble_image": "public/phy-5.jpg",
-	"body_image": "public/phy-5.jpg",
+	"body": "The height at which the atmosphere ceases to exist is about 80km. If the atmospheric pressure on the ground level is 760mmHg, the pressure at a height of 20km above the ground level is",
 	"options": {
-		"a": "40%",
-		"b": "33%",
-		"c": "60%",
-		"d": "50%"
+		"a": "380 mmHg",
+		"b": "190 mmHg",
+		"c": "570 mmHg",
+		"d": "480 mmHg"
 	},
-	"answer": "d"
+	"answer": "c"
 },
 {
 	"id": "phy/4",
-	"preamble_image": "public/phy-5.jpg",
-	"body_image": "public/phy-5.jpg",
+	"body": "Which of the following consists entirely vector quantities?",
 	"options": {
-		"a": "40%",
-		"b": "33%",
-		"c": "60%",
-		"d": "50%"
+		"a": "Work, pressure and moment",
+		"b": "Velocity, magnetic flux and reaction",
+		"c": "Displacement, impulse and power",
+		"d": "Tension, magnetic flux and mass"
 	},
-	"answer": "d"
+	"answer": "b"
 },
 {
 	"id": "phy/5",
-	"preamble_image": "public/phy-5.jpg",
+	"preamble": "The diagram below is a block-and-tackle pulley system in which an effort of 80N is used to lift a load of 240N. The efficiency of the machine is",
 	"body_image": "public/phy-5.jpg",
 	"options": {
 		"a": "40%",
