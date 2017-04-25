@@ -113,7 +113,7 @@ function processPostback(event) {
 
         function afterGettingQuestion(error, question) {
             if (question && question.solution) {
-                var message = createTextWithButtonsMessage(question.solution, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + question.Id}]);
+                var message = createTextWithButtonsMessage(question.solution, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
                 sendMessage(senderId, message);
             }
             else {
@@ -123,7 +123,7 @@ function processPostback(event) {
 
         utils.getQuestion(qId, afterGettingQuestion);
     }
-    else if (payload.indexOf("QUESTION_NEXT/") == 0) {
+    else if (payload.indexOf("QUESTION_NEXT/") == 0) {console.log(">>>>>>>>>>>>>>>>>>>>>>payload: " + payload);
         var indexOfSlash = payload.indexOf('/');console.log(">>>>>>>>>>>>>>>>>>>>>>indexOfSlash: " + indexOfSlash);
         var qId = payload.substr(indexOfSlash + 1);console.log(">>>>>>>>>>>>>>>>>>>>>>qId: " + qId);
         indexOfSlash = qId.indexOf('/');console.log(">>>>>>>>>>>>>>>>>>>>>>indexOfSlash: " + indexOfSlash);
