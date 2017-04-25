@@ -1,24 +1,68 @@
 [
 {
 	"id": "bio/0",
-	"text": "Water fleas, wood lice and barnacles belong to the group",
+	"body": "Water fleas, wood lice and barnacles belong to the group",
 	"options": {
-		"A": "insecta",
-		"B": "chilopoda",
-		"C": "crustacea",
-		"D": "arachnida"
+		"a": "insecta",
+		"b": "chilopoda",
+		"c": "crustacea",
+		"d": "arachnida"
 	},
-	"answer": "C"
+	"answer": "c"
 },
 {
 	"id": "bio/1",
-	"text": "Which of the following organisms does not exist as a single free living cell?",
+	"body": "Which of the following organisms does not exist as a single free living cell?",
 	"options": {
-		"A": "volvox",
-		"B": "amoeba",
-		"C": "chlamydomonas",
-		"D": "paramecium"
+		"a": "volvox",
+		"b": "amoeba",
+		"c": "chlamydomonas",
+		"d": "paramecium"
 	},
-	"answer": "A"
+	"answer": "a"
+},
+{
+	"id": "bio/2",
+	"body": "An association between the root nodule of a leguminous plant and Rhizobium sp. is known as",
+	"options": {
+		"a": "parasitism",
+		"b": "symbiosis",
+		"c": "commensalism",
+		"d": "mycorrhiza"
+	},
+	"answer": "b"
+},
+{
+	"id": "bio/3",
+	"body": "Which of the following groups is the most advanced?",
+	"options": {
+		"a": "Thallophytes",
+		"b": "Pteridophytes",
+		"c": "Gymnosperms",
+		"d": "Bryophytes"
+	},
+	"answer": "c"
+},
+{
+	"id": "bio/4",
+	"body": "The mode of feeding in Amoeba and Hydra is",
+	"options": {
+		"a": "autotrophic",
+		"b": "heterotrophic",
+		"c": "symbiotic",
+		"d": "holophytic."
+	},
+	"answer": "b"
+},
+{
+	"id": "bio/5",
+	"body": "Viviparity occurs mainly in the",
+	"options": {
+		"a": "aves",
+		"b": "amphibians",
+		"c": "mammals",
+		"d": "reptiles"
+	},
+	"answer": "c"
 }
 ]

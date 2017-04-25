@@ -123,8 +123,8 @@ function processPostback(event) {
             function afterGettingQuestion(error, question) {
                 if (question) {
                     //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
-                    if (question.options.D) {
-                        sendMessage(senderId, {text: question.text}); //send question
+                    if (question.options.d) {
+                        sendMessage(senderId, {text: question.body}); //send question
                         var messages = createMessagesForOptions(question);
                         messages.forEach(function(message){
                             sendMessage(senderId, message); //send options
@@ -153,8 +153,8 @@ function processPostback(event) {
         function afterGettingQuestion(error, question) {
             if (question) {
                 //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
-                if (question.options.D) {
-                    sendMessage(senderId, {text: question.text}); //send question
+                if (question.options.d) {
+                    sendMessage(senderId, {text: question.body}); //send question
                     var messages = createMessagesForOptions(question);
                     messages.forEach(function(message){
                         sendMessage(senderId, message); //send options
@@ -182,8 +182,8 @@ function processPostback(event) {
         function afterGettingQuestion(error, question) {
             if (question) {
                 //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
-                if (question.options.D) {
-                    sendMessage(senderId, {text: question.text}); //send question
+                if (question.options.d) {
+                    sendMessage(senderId, {text: question.body}); //send question
                     var messages = createMessagesForOptions(question);
                     messages.forEach(function(message){
                         sendMessage(senderId, message); //send options
@@ -207,8 +207,8 @@ function processPostback(event) {
         function afterGettingQuestion(error, question) {
             if (question) {
                 //if question has more than 3 options, Facebook doesn't let us create more than 3 buttons at once
-                if (question.options.D) {
-                    sendMessage(senderId, {text: question.text}); //send question
+                if (question.options.d) {
+                    sendMessage(senderId, {text: question.body}); //send question
                     var messages = createMessagesForOptions(question);
                     messages.forEach(function(message){
                         sendMessage(senderId, message); //send options
@@ -453,27 +453,27 @@ function createMessageForAnswer(question, remark) {
 }
 
 function createMessageForQuestion(question) {
-    var text = question.text;
+    var text = question.body;
     var buttons = [];
     if (question.options) {
-        if (question.options.A) {
-            text += "\n\nA: " + question.options.A;
+        if (question.options.a) {
+            text += "\n\nA: " + question.options.a;
             buttons.push({type: "postback", title: "A", payload: "OPTION_A/" + question.id});
         }
-        if (question.options.B) {
-            text += "\nB: " + question.options.B;
+        if (question.options.b) {
+            text += "\nB: " + question.options.b;
             buttons.push({type: "postback", title: "B", payload: "OPTION_B/" + question.id});
         }
-        if (question.options.C) {
-            text += "\nC: " + question.options.C;
+        if (question.options.c) {
+            text += "\nC: " + question.options.c;
             buttons.push({type: "postback", title: "C", payload: "OPTION_C/" + question.id});
         }
-        if (question.options.D) {
-            text += "\nD: " + question.options.D;
+        if (question.options.d) {
+            text += "\nD: " + question.options.d;
             buttons.push({type: "postback", title: "D", payload: "OPTION_D/" + question.id});
         }
-        if (question.options.E) {
-            text += "\nE: " + question.options.E;
+        if (question.options.e) {
+            text += "\nE: " + question.options.e;
             buttons.push({type: "postback", title: "E", payload: "OPTION_E/" + question.id});
         }
     }
@@ -494,61 +494,61 @@ function createMessageForQuestion(question) {
 function createMessagesForOptions(question) {
     var messages = [];
     if (question.options) {
-        if (question.options.A) {
+        if (question.options.a) {
             messages.push({
                 attachment: {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: "A: " + question.options.A,
+                        text: "A: " + question.options.a,
                         buttons: [{type: "postback", title: "A", payload: "OPTION_A/" + question.id}]
                     }
                 }
             });
         }
-        if (question.options.B) {
+        if (question.options.b) {
             messages.push({
                 attachment: {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: "B: " + question.options.B,
+                        text: "B: " + question.options.b,
                         buttons: [{type: "postback", title: "B", payload: "OPTION_B/" + question.id}]
                     }
                 }
             });
         }
-        if (question.options.C) {
+        if (question.options.c) {
             messages.push({
                 attachment: {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: "C: " + question.options.C,
+                        text: "C: " + question.options.c,
                         buttons: [{type: "postback", title: "C", payload: "OPTION_C/" + question.id}]
                     }
                 }
             });
         }
-        if (question.options.D) {
+        if (question.options.d) {
             messages.push({
                 attachment: {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: "D: " + question.options.D,
+                        text: "D: " + question.options.d,
                         buttons: [{type: "postback", title: "D", payload: "OPTION_D/" + question.id}]
                     }
                 }
             });
         }
-        if (question.options.E) {
+        if (question.options.e) {
             messages.push({
                 attachment: {
                     type: "template",
                     payload: {
                         template_type: "button",
-                        text: "E: " + question.options.E,
+                        text: "E: " + question.options.e,
                         buttons: [{type: "postback", title: "E", payload: "OPTION_E/" + question.id}]
                     }
                 }
