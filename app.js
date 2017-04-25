@@ -114,25 +114,12 @@ function processPostback(event) {
 
         function afterGettingQuestion(error, question) {
             if (question && question.solution) {
-                sendMessage(senderId, {text: question.solution + "\n\nMoving on!"});
+                var message = createTextWithButtonsMessage(question.solution, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + question.Id}]);
+                sendMessage(senderId, message);
             }
             else {
                 sendMessage(senderId, {text: "Oops! For some reason I can't find the explanation for this question at the moment. Sorry about that."});
             }
-
-            indexOfSlash = qId.indexOf('/');
-            var subjid = qId.substring(0, indexOfSlash);
-
-            function afterGettingQuestion(error, question) {
-                if (question) {
-                    sendQuestion(senderId, question);
-                }
-                else {
-                    sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
-                }
-            }
-
-            utils.getRandomQuestion(subjid, afterGettingQuestion);
         }
 
         utils.getQuestion(qId, afterGettingQuestion);

@@ -4,9 +4,10 @@
 	"preamble_image": "public/geo-0.jpg",
 	"body": "The crop that will be most suitable for cultivation in the lower basin of River Madu is",
 	"options": {
-		"a_image": "public/geo-0.jpg",
-		"b_image": "public/geo-0.jpg",
-		"c_image": "public/geo-0.jpg"
+		"a": "coffee",
+		"b": "groundnut",
+		"c": "cotton",
+		"d": "rice"
 	},
 	"answer": "d",
 	"solution": "This is because the area is liable to flooding and rice needs a lot of water to perform well."
