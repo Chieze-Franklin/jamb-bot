@@ -1,23 +1,38 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "eco/0",
+	"body": "A vertical supply curve indicates that",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "the same fixed quantity will be supplied no matter the price",
+		"b": "the quantity supplied is responsive to price",
+		"c": "an increase in price will result in an increase in the quantity supplied",
+		"d": "there is a fixed price for the commodity below which no supply will be made"
 	},
-	"answer": "c"
+	"answer": "a",
+	"explanation_image": "public/eco-0.jpg"
 },
 {
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "eco/1",
+	"body": "A change in supply is best described as a",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "movement along the supply curve",
+		"b": "shift of the supply curve to the right",
+		"c": "shift of the supply curve to the left",
+		"d": "shift of the supply curve to the left or to the right"
 	},
-	"answer": "a"
+	"answer": "d",
+	"explanation": "Change in supply is the increase or decrease in supply of gods and services due to changes in the other factors affecting supply other than the price (e.g. cost of production, weather, etc.)"
+},
+{
+	"id": "eco/2",
+	"body": "When a generalization is made based on observed facts, it is known as",
+	"options": {
+		"a": "normative reasoning",
+		"b": "theoretical reasoning",
+		"c": "inductive reasoning",
+		"d": "deductive reasoning"
+	},
+	"answer": "c",
+	"explanation": "Inductive reasoning involves drawing a conclusion from particular to general. By saying economists distill principles from facts, we are describing the inductive or empirical method."
 }
 ]
