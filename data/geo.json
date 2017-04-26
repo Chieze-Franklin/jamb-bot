@@ -10,7 +10,7 @@
 		"d": "rice"
 	},
 	"answer": "d",
-	"solution": "This is because the area is liable to flooding and rice needs a lot of water to perform well."
+	"explanation": "This is because the area is liable to flooding and rice needs a lot of water to perform well."
 },
 {
 	"id": "geo/1",
@@ -23,7 +23,7 @@
 		"d": "plateau"
 	},
 	"answer": "c",
-	"solution": "This is because the contour lines are close together and the feature itself is elongated."
+	"explanation": "This is because the contour lines are close together and the feature itself is elongated."
 },
 {
 	"id": "geo/2",
@@ -36,7 +36,7 @@
 		"d": "6.0km"
 	},
 	"answer": "c",
-	"solution": "6.5Km is the distance on a straight line."
+	"explanation": "6.5Km is the distance on a straight line."
 },
 {
 	"id": "geo/3",
@@ -49,7 +49,7 @@
 		"d": "animal husbandry"
 	},
 	"answer": "b",
-	"solution": "Lumbering – presence of thick forest."
+	"explanation": "Lumbering – presence of thick forest."
 },
 {
 	"id": "geo/4",
@@ -62,6 +62,6 @@
 		"d": "275m"
 	},
 	"answer": "c",
-	"solution": "320m – The peak (highest point) on the ridge which is also the highest area on the map. "
+	"explanation": "320m – The peak (highest point) on the ridge which is also the highest area on the map. "
 }
 ]

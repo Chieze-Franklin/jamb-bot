@@ -112,14 +112,14 @@ function processPostback(event) {
         var qId = payload.substr(indexOfSlash + 1);
 
         function afterGettingQuestion(error, question) {
-            if (question && question.solution) {
-                if (question.solution) {
-                    var message = createTextWithButtonsMessage(question.solution, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+            if (question && question.explanation) {
+                if (question.explanation) {
+                    var message = createTextWithButtonsMessage(question.explanation, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
                     sendMessage(senderId, message);
                 }
-                else if (question.solution_image) {
+                else if (question.explanation_image) {
                     var message = createImageWithButtonsMessage("Explanation", "how the answer was gotten", 
-                        BASE_URL + question.solution_image, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+                        BASE_URL + question.explanation_image, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
                     sendMessage(senderId, message);
                 }
             }
@@ -380,7 +380,7 @@ function createMessageForConfirmSubject(subject) {
 function createMessageForAnswer(question, remark) {
     var buttons = [];
     buttons.push({type: "postback", title: "Next", payload: "QUESTION_NEXT/" + question.id});
-    if (question.solution) {
+    if (question.explanation) {
         buttons.push({type: "postback", title: "Explain", payload: "QUESTION_EXPLAIN/" + question.id});
     }
     buttons.push({type: "postback", title: "Wrong", payload: "QUESTION_REPORT/" + question.id});

@@ -31,7 +31,7 @@
 		"d": "impeachment"
 	},
 	"answer": "b",
-	"solution": "Recall is the process through which the electorate removes an elected official.\nVote of no confidence is a process in which the Parliament withdraws its support for the Executive who may be forced to resign.\nImpeachment is a process in which the Parliament removes an elected official from office."
+	"explanation": "Recall is the process through which the electorate removes an elected official.\nVote of no confidence is a process in which the Parliament withdraws its support for the Executive who may be forced to resign.\nImpeachment is a process in which the Parliament removes an elected official from office."
 },
 {
 	"id": "gov/3",
@@ -54,6 +54,6 @@
 		"d": "Adherence to majority rule"
 	},
 	"answer": "d",
-	"solution": "In the Parliamentary system, there is no clear separation of government organs.\nGovernment can be removed by a vote of no confidence by the Parliament.\nParliamentary system may operate either a Bicameral or Unicameral Legislature."
+	"explanation": "In the Parliamentary system, there is no clear separation of government organs.\nGovernment can be removed by a vote of no confidence by the Parliament.\nParliamentary system may operate either a Bicameral or Unicameral Legislature."
 }
 ]
