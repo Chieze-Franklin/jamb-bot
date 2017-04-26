@@ -23,6 +23,45 @@
 		"d": "plateau"
 	},
 	"answer": "c",
-	"solution": "This is because the contour lines are close together and the feature itself is elongated. "
+	"solution": "This is because the contour lines are close together and the feature itself is elongated."
+},
+{
+	"id": "geo/2",
+	"preamble_image": "public/geo-0.jpg",
+	"body": "The distance as the crow flies between the trigonometrical station and Josan is approximately",
+	"options": {
+		"a": "5.5km",
+		"b": "5.0km",
+		"c": "6.5km",
+		"d": "6.0km"
+	},
+	"answer": "c",
+	"solution": "6.5Km is the distance on a straight line."
+},
+{
+	"id": "geo/3",
+	"preamble_image": "public/geo-0.jpg",
+	"body": "The most prominent economic activity in the North-Western part of the area is likely to be",
+	"options": {
+		"a": "mining",
+		"b": "lumbering",
+		"c": "mixed farming",
+		"d": "animal husbandry"
+	},
+	"answer": "b",
+	"solution": "Lumbering – presence of thick forest."
+},
+{
+	"id": "geo/4",
+	"preamble_image": "public/geo-0.jpg",
+	"body": "The highest point in the area is",
+	"options": {
+		"a": "300m",
+		"b": "250m",
+		"c": "320m",
+		"d": "275m"
+	},
+	"answer": "c",
+	"solution": "320m – The peak (highest point) on the ridge which is also the highest area on the map. "
 }
 ]

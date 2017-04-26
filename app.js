@@ -113,8 +113,15 @@ function processPostback(event) {
 
         function afterGettingQuestion(error, question) {
             if (question && question.solution) {
-                var message = createTextWithButtonsMessage(question.solution, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
-                sendMessage(senderId, message);
+                if (question.solution) {
+                    var message = createTextWithButtonsMessage(question.solution, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+                    sendMessage(senderId, message);
+                }
+                else if (question.solution_image) {
+                    var message = createImageWithButtonsMessage("Explanation", "how the answer was gotten", 
+                        BASE_URL + question.solution_image, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+                    sendMessage(senderId, message);
+                }
             }
             else {
                 sendMessage(senderId, {text: "Oops! For some reason I can't find the explanation for this question at the moment. Sorry about that."});
@@ -123,33 +130,10 @@ function processPostback(event) {
 
         utils.getQuestion(qId, afterGettingQuestion);
     }
-    else if (payload.indexOf("QUESTION_NEXT/") == 0) {console.log(">>>>>>>>>>>>>>>>>>>>>>payload: " + payload);
-        var indexOfSlash = payload.indexOf('/');console.log(">>>>>>>>>>>>>>>>>>>>>>indexOfSlash: " + indexOfSlash);
-        var qId = payload.substr(indexOfSlash + 1);console.log(">>>>>>>>>>>>>>>>>>>>>>qId: " + qId);
-        indexOfSlash = qId.indexOf('/');console.log(">>>>>>>>>>>>>>>>>>>>>>indexOfSlash: " + indexOfSlash);
-        var subjid = qId.substring(0, indexOfSlash);console.log(">>>>>>>>>>>>>>>>>>>>>>subjid: " + subjid);
-
-        function afterGettingQuestion(error, question) {
-            if (question) {
-                sendQuestion(senderId, question);
-            }
-            else {
-                sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
-            }
-        }
-
-        console.log(">>>>>>>>>>>>>>>>>>>>>>subjid: " + subjid);
-        utils.getRandomQuestion(subjid, afterGettingQuestion);
-    }
-    else if (payload.indexOf("QUESTION_REPORT/") == 0) {
-        //sendMessage(senderId, {text: "Wow! I will have to review this question later.\n\nMeanwhile let's continue."});
-        
+    else if (payload.indexOf("QUESTION_NEXT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
-        var message = createTextWithButtonsMessage("Wow! I will have to review this question later.", 
-            [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
-        sendMessage(senderId, message);
-        /*indexOfSlash = qId.indexOf('/');
+        indexOfSlash = qId.indexOf('/');
         var subjid = qId.substring(0, indexOfSlash);
 
         function afterGettingQuestion(error, question) {
@@ -161,7 +145,16 @@ function processPostback(event) {
             }
         }
 
-        utils.getRandomQuestion(subjid, afterGettingQuestion);*/
+        utils.getRandomQuestion(subjid, afterGettingQuestion);
+    }
+    else if (payload.indexOf("QUESTION_REPORT/") == 0) {
+        //sendMessage(senderId, {text: "Wow! I will have to review this question later.\n\nMeanwhile let's continue."});
+        
+        var indexOfSlash = payload.indexOf('/');
+        var qId = payload.substr(indexOfSlash + 1);
+        var message = createTextWithButtonsMessage("Wow! I will have to review this question later.", 
+            [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+        sendMessage(senderId, message);
     }
     else if (payload.indexOf("SUBJECT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
