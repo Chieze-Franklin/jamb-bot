@@ -1,24 +1,59 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "gov/0",
+	"body": "Power differs from influence in that it is",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "persuasive while influence is directive",
+		"b": "coercive while influence is harmful",
+		"c": "coercive while influence is persuasive",
+		"d": "coercive while influence of a legislature"
 	},
 	"answer": "c"
 },
 {
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "gov/1",
+	"body": "The standing committee of a legislature is one",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "whose members stand while deliberating",
+		"b": "that has statutory responsibilities",
+		"c": "that performs ad hoc function",
+		"d": "that has all legislators as members"
 	},
-	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"answer": "b"
+},
+{
+	"id": "gov/2",
+	"body": "Where the constitution is supreme, unconstitutional acts of the executive and the legislature can be checked by the courts through",
+	"options": {
+		"a": "recall",
+		"b": "judicial review",
+		"c": "vote of no confidence",
+		"d": "impeachment"
+	},
+	"answer": "b",
+	"solution": "Recall is the process through which the electorate removes an elected official.\nVote of no confidence is a process in which the Parliament withdraws its support for the Executive who may be forced to resign.\nImpeachment is a process in which the Parliament removes an elected official from office."
+},
+{
+	"id": "gov/3",
+	"body": "The central decision-making organ of a confederation is made up of",
+	"options": {
+		"a": "technocrats appointed by the units",
+		"b": "politicians elected from the confederal constituencies",
+		"c": "politicians nominated by government of member states",
+		"d": "representatives of pressure groups"
+	},
+	"answer": "c"
+},
+{
+	"id": "gov/4",
+	"body": "Which of the following of government?",
+	"options": {
+		"a": "Clear separation of government organs",
+		"b": "Strict operation of bicameral legislature",
+		"c": "Removal of government by impeachment",
+		"d": "Adherence to majority rule"
+	},
+	"answer": "d",
+	"solution": "In the Parliamentary system, there is no clear separation of government organs.\nGovernment can be removed by a vote of no confidence by the Parliament.\nParliamentary system may operate either a Bicameral or Unicameral Legislature."
 }
 ]
