@@ -223,7 +223,7 @@ function processMessage(event) {
             else if (formattedMsg === "explain") {
                 utils.getUserQuestionId(senderId, function(error, qid) {
                     if (qid) {
-                        sendExplanation(senderId, qId);
+                        sendExplanation(senderId, qid);
                     }
                     else {
                         sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
