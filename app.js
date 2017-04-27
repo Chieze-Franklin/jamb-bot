@@ -114,16 +114,7 @@ function processPostback(event) {
         var indexOfSlash = payload.indexOf('/');
         var subjId = payload.substr(indexOfSlash + 1);
 
-        function afterGettingQuestion(error, question) {
-            if (question) {
-                sendQuestion(senderId, question);
-            }
-            else {
-                sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
-            }
-        }
-
-        utils.getRandomQuestion(subjId, afterGettingQuestion);
+        sendSubjectQuestion(senderId, subjId);
     }
     else if (payload.indexOf("SUBJECT_WRONG") == 0) {
         sendMessage(senderId, {text: "OK. Sorry about that. What subject would you like to practise?"});
@@ -233,11 +224,21 @@ function processMessage(event) {
                     }
                 });
             }
-            else if (formattedMsg === "no" || formattedMsg === "yes") {
-                sendMessage(senderId, {text: "Sorry, do NOT type '" + message.text + "' directly. Instead, click on the '" + message.text + "' link/button above. Thanks."});
+            else if ("yes") {
+                utils.getUserSubjectId(senderId, function(error, sid) {
+                    if (sid) {
+                        sendSubjectQuestion(senderId, sid);
+                    }
+                    else {
+                        sendMessage(senderId, {text: "Oops! For some reason I can't find the subject for you at the moment. Sorry about that."});
+                    }
+                });
+            }
+            else if (formattedMsg === "no") {
+                sendMessage(senderId, {text: "OK. Sorry about that. What subject would you like to practise?"});
             }
             else {
-                message = createMessageForConfirmSubject(formattedMsg);
+                message = createMessageForConfirmSubject(senderId, formattedMsg);
                 sendMessage(senderId, message);
             }
         } else if (message.attachments) {
@@ -265,7 +266,7 @@ function processMessage(event) {
     }
 }
 
-function createMessageForConfirmSubject(subject) {
+function createMessageForConfirmSubject(recipientId, subject) {
     var subjName = "any subject", subjCode = "*";
 
     if (subject.indexOf("acc") > -1) {
@@ -344,6 +345,8 @@ function createMessageForConfirmSubject(subject) {
         subjName = "Yoruba";
         subjCode = "yor";
     }
+
+    utils.setUserSubjectId(recipientId, subjCode, function(error, data) {});
 
     var message = {
         attachment: {
@@ -573,6 +576,18 @@ function sendReportQuestion(recipientId, qId) {
     var message = createTextWithButtonsMessage("Wow! I will have to review this question later.", 
         [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
     sendMessage(recipientId, message);
+}
+function sendSubjectQuestion(recipientId, subjId) {
+    function afterGettingQuestion(error, question) {
+        if (question) {
+            sendQuestion(recipientId, question);
+        }
+        else {
+            sendMessage(recipientId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
+        }
+    }
+
+    utils.getRandomQuestion(subjId, afterGettingQuestion);
 }
 
 function sendQuestion(recipientId, question) {

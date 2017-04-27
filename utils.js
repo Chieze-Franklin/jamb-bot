@@ -53,21 +53,6 @@ module.exports = {
 			return;
 		}
 
-		/*fs.readFile(path.join(__dirname, 'users', userId + '.json'), function (err, data) {
-			if(err){
-				callback(err);
-				return;
-			}
-			
-			var user = JSON.parse(data);
-			if (user.qid) {
-				callback(null, user.qid);
-			}
-			else {
-				callback({message: "Cannot find question ID for specified user!"});
-			}
-		});*/
-
 		State.findOne({user_id: userId}, function (err, state) {
 			if(err){
 				callback(err);
@@ -92,22 +77,41 @@ module.exports = {
 			return;
 		}
 
-		/*fs.readFile(path.join(__dirname, 'users', userId + '.json'), function (err, data) {
-			var user = {};
+		State.findOneAndUpdate({user_id: userId}, {user_id: userId, qid: qId}, {upsert: true}, function (err, data) {
+			callback(err, data);
+		});
+	},
+	getUserSubjectId: function(userId, callback) {
+		if(!userId) {
+			callback({message: "No user ID specified!"});
+			return;
+		}
 
+		State.findOne({user_id: userId}, function (err, state) {
 			if(err){
-				user.qid = qId;
-			}
-			else {
-				user = JSON.parse(data);
-				user.qid = qId;
+				callback(err);
+				return;
 			}
 			
-			fs.writeFile(path.join(__dirname, 'users', userId + '.json'), JSON.stringify(user), function(err2, data2) {
-				callback(err2, data2);
-			});
-		});*/
-		State.findOneAndUpdate({user_id: userId}, {user_id: userId, qid: qId}, {upsert: true}, function (err, data) {
+			if (state.sid) {
+				callback(null, state.sid);
+			}
+			else {
+				callback({message: "Cannot find subject ID for specified user!"});
+			}
+		});
+	},
+	setUserSubjectId: function(userId, sId, callback) {
+		if(!userId) {
+			callback({message: "No user ID specified!"});
+			return;
+		}
+		if(!sId) {
+			callback({message: "No subject ID specified!"});
+			return;
+		}
+
+		State.findOneAndUpdate({user_id: userId}, {user_id: userId, sid: sId}, {upsert: true}, function (err, data) {
 			callback(err, data);
 		});
 	}
