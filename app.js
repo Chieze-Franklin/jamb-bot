@@ -541,10 +541,10 @@ function sendNextQuestion(recipientId, qId) {
 
     function afterGettingQuestion(error, question) {
         if (question) {
-            sendQuestion(senderId, question);
+            sendQuestion(recipientId, question);
         }
         else {
-            sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
+            sendMessage(recipientId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
         }
     }
 
