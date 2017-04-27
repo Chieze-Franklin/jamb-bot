@@ -537,7 +537,7 @@ function sendExplanation(recipientId, qId) {
 }
 
 function sendQuestion(recipientId, question) {
-    utils.getUserQuestionId(recipientId, question.id, function(error, data) {});
+    utils.setUserQuestionId(recipientId, question.id, function(error, data) {});
 
     if (question.preamble) {
         sendMessage(recipientId, {text: question.preamble});
