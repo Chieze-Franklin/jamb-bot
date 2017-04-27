@@ -116,19 +116,8 @@ function processPostback(event) {
     else if (payload.indexOf("QUESTION_NEXT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
-        indexOfSlash = qId.indexOf('/');
-        var subjid = qId.substring(0, indexOfSlash);
 
-        function afterGettingQuestion(error, question) {
-            if (question) {
-                sendQuestion(senderId, question);
-            }
-            else {
-                sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
-            }
-        }
-
-        utils.getRandomQuestion(subjid, afterGettingQuestion);
+        sendNextQuestion(senderId, qId);
     }
     else if (payload.indexOf("QUESTION_REPORT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
@@ -230,7 +219,17 @@ function processMessage(event) {
                     }
                 });
             }
-            else if (formattedMsg === "explain" || formattedMsg === "next" || formattedMsg === "wrong" ||
+            else if (formattedMsg === "next") {
+                utils.getUserQuestionId(senderId, function(error, qid) {
+                    if (qid) {
+                        sendNextQuestion(senderId, qid);
+                    }
+                    else {
+                        sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
+                    }
+                });
+            }
+            else if (formattedMsg === "wrong" ||
                      formattedMsg === "a" || formattedMsg === "b" || formattedMsg === "c" || formattedMsg === "d" || formattedMsg === "e" ||
                      formattedMsg === "no" || formattedMsg === "yes") {
                 sendMessage(senderId, {text: "Sorry, do NOT type '" + message.text + "' directly. Instead, click on the '" + message.text + "' link/button above. Thanks."});
@@ -534,6 +533,22 @@ function sendExplanation(recipientId, qId) {
     }
 
     utils.getQuestion(qId, afterGettingQuestion);
+}
+
+function sendNextQuestion(recipientId, qId) {
+    var indexOfSlash = qId.indexOf('/');
+    var subjid = qId.substring(0, indexOfSlash);
+
+    function afterGettingQuestion(error, question) {
+        if (question) {
+            sendQuestion(senderId, question);
+        }
+        else {
+            sendMessage(senderId, {text: "Oops! For some reason I can't find a random question for you at the moment. Sorry about that."});
+        }
+    }
+
+    utils.getRandomQuestion(subjid, afterGettingQuestion);
 }
 
 function sendQuestion(recipientId, question) {
