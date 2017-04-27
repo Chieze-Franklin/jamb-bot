@@ -111,24 +111,7 @@ function processPostback(event) {
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
 
-        function afterGettingQuestion(error, question) {
-            if (question && question.explanation) {
-                if (question.explanation) {
-                    var message = createTextWithButtonsMessage(question.explanation, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
-                    sendMessage(senderId, message);
-                }
-                else if (question.explanation_image) {
-                    var message = createImageWithButtonsMessage("Explanation", "how the answer was gotten", 
-                        BASE_URL + question.explanation_image, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
-                    sendMessage(senderId, message);
-                }
-            }
-            else {
-                sendMessage(senderId, {text: "Oops! For some reason I can't find the explanation for this question at the moment. Sorry about that."});
-            }
-        }
-
-        utils.getQuestion(qId, afterGettingQuestion);
+        sendExplanation(senderId, qId);
     }
     else if (payload.indexOf("QUESTION_NEXT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
@@ -148,8 +131,6 @@ function processPostback(event) {
         utils.getRandomQuestion(subjid, afterGettingQuestion);
     }
     else if (payload.indexOf("QUESTION_REPORT/") == 0) {
-        //sendMessage(senderId, {text: "Wow! I will have to review this question later.\n\nMeanwhile let's continue."});
-        
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
         var message = createTextWithButtonsMessage("Wow! I will have to review this question later.", 
@@ -238,6 +219,9 @@ function processMessage(event) {
                     message = bye + "It was really nice practising with you. Hope we chat again soon.";//TODO: put a button to link to examhub.com when it is ready
                     sendMessage(senderId, {text: message});
                 });
+            }
+            else if (formattedMsg === "explain") {
+                sendMessage(senderId, {text: "Sorry, do NOT type '" + message.text + "' directly. Instead, click on the '" + message.text + "' link/button above. Thanks."});
             }
             else if (formattedMsg === "explain" || formattedMsg === "next" || formattedMsg === "wrong" ||
                      formattedMsg === "a" || formattedMsg === "b" || formattedMsg === "c" || formattedMsg === "d" || formattedMsg === "e" ||
@@ -524,6 +508,27 @@ function createTextWithButtonsMessage(text, buttons) {
     return message;
 }
 
+function sendExplanation(recipientId, qId) {
+    function afterGettingQuestion(error, question) {
+        if (question && question.explanation) {
+            if (question.explanation) {
+                var message = createTextWithButtonsMessage(question.explanation, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+                sendMessage(recipientId, message);
+            }
+            else if (question.explanation_image) {
+                var message = createImageWithButtonsMessage("Explanation", "how the answer was gotten", 
+                    BASE_URL + question.explanation_image, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+                sendMessage(recipientId, message);
+            }
+        }
+        else {
+            sendMessage(recipientId, {text: "Oops! For some reason I can't find the explanation for this question at the moment. Sorry about that."});
+        }
+    }
+
+    utils.getQuestion(qId, afterGettingQuestion);
+}
+
 function sendQuestion(recipientId, question) {
     if (question.preamble) {
         sendMessage(recipientId, {text: question.preamble});
@@ -556,6 +561,8 @@ function sendQuestion(recipientId, question) {
         sendMessage(recipientId, message);
     }
 }
+
+//====================================
 
 // sends message to user
 function sendMessage(recipientId, message) {
