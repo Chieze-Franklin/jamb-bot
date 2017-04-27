@@ -346,6 +346,8 @@ function createMessageForConfirmSubject(recipientId, subject) {
         subjCode = "yor";
     }
 
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", recipientId);
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", subjCode);
     utils.setUserSubjectId(recipientId, subjCode, function(error, data) {});
 
     var message = {
