@@ -87,25 +87,10 @@ function processPostback(event) {
         //the format of payload is OPTION_A/eng/0
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
+        var indexOf_ = payload.indexOf('_');
+        var option = payload.substring(indexOf_ + 1, indexOfSlash);
 
-        function afterGettingQuestion(error, question) {
-            if (question) {
-                var indexOf_ = payload.indexOf('_');
-                var option = payload.substring(indexOf_ + 1, indexOfSlash);
-                if (question.answer.toLowerCase() == option.toLowerCase()) { //correct answer
-                    var message = createMessageForAnswer(question, "Yayy, nice job!");
-                    sendMessage(senderId, message);
-                } else {
-                    var message = createMessageForAnswer(question, "Nope, wrong answer!");
-                    sendMessage(senderId, message);
-                }
-            }
-            else {
-                sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
-            }
-        }
-
-        utils.getQuestion(qId, afterGettingQuestion);
+        sendAnswerQuestion(senderId, qId, option);
     }
     else if (payload.indexOf("QUESTION_EXPLAIN/") == 0) {
         var indexOfSlash = payload.indexOf('/');
@@ -208,6 +193,16 @@ function processMessage(event) {
                     sendMessage(senderId, {text: message});
                 });
             }
+            else if (formattedMsg === "a" || formattedMsg === "b" || formattedMsg === "c" || formattedMsg === "d" || formattedMsg === "e") {
+                utils.getUserQuestionId(senderId, function(error, qid) {
+                    if (qid) {
+                        sendAnswerQuestion(senderId, qid, formattedMsg);
+                    }
+                    else {
+                        sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
+                    }
+                });
+            }
             else if (formattedMsg === "explain") {
                 utils.getUserQuestionId(senderId, function(error, qid) {
                     if (qid) {
@@ -238,8 +233,7 @@ function processMessage(event) {
                     }
                 });
             }
-            else if (formattedMsg === "a" || formattedMsg === "b" || formattedMsg === "c" || formattedMsg === "d" || formattedMsg === "e" ||
-                     formattedMsg === "no" || formattedMsg === "yes") {
+            else if (formattedMsg === "no" || formattedMsg === "yes") {
                 sendMessage(senderId, {text: "Sorry, do NOT type '" + message.text + "' directly. Instead, click on the '" + message.text + "' link/button above. Thanks."});
             }
             else {
@@ -522,6 +516,24 @@ function createTextWithButtonsMessage(text, buttons) {
     return message;
 }
 
+function sendAnswerQuestion(recipientId, qId, option) {
+    function afterGettingQuestion(error, question) {
+        if (question) {
+            if (question.answer.toLowerCase() == option.toLowerCase()) { //correct answer
+                var message = createMessageForAnswer(question, "Yayy, nice job!");
+                sendMessage(recipientId, message);
+            } else {
+                var message = createMessageForAnswer(question, "Nope, wrong answer!");
+                sendMessage(recipientId, message);
+            }
+        }
+        else {
+            sendMessage(recipientId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
+        }
+    }
+
+    utils.getQuestion(qId, afterGettingQuestion);
+}
 function sendExplanation(recipientId, qId) {
     function afterGettingQuestion(error, question) {
         if (question && question.explanation) {
