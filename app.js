@@ -221,7 +221,14 @@ function processMessage(event) {
                 });
             }
             else if (formattedMsg === "explain") {
-                sendMessage(senderId, {text: "Sorry, do NOT type '" + message.text + "' directly. Instead, click on the '" + message.text + "' link/button above. Thanks."});
+                utils.getUserQuestionId(senderId, function(error, qid) {
+                    if (qid) {
+                        sendExplanation(senderId, qId);
+                    }
+                    else {
+                        sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
+                    }
+                });
             }
             else if (formattedMsg === "explain" || formattedMsg === "next" || formattedMsg === "wrong" ||
                      formattedMsg === "a" || formattedMsg === "b" || formattedMsg === "c" || formattedMsg === "d" || formattedMsg === "e" ||
@@ -530,6 +537,8 @@ function sendExplanation(recipientId, qId) {
 }
 
 function sendQuestion(recipientId, question) {
+    utils.getUserQuestionId(recipientId, question.id, function(error, data) {});
+
     if (question.preamble) {
         sendMessage(recipientId, {text: question.preamble});
     }
