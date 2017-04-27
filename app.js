@@ -224,7 +224,7 @@ function processMessage(event) {
                     }
                 });
             }
-            else if ("yes") {
+            else if (formattedMsg === "yes") {
                 utils.getUserSubjectId(senderId, function(error, sid) {
                     if (sid) {
                         sendSubjectQuestion(senderId, sid);
@@ -346,8 +346,6 @@ function createMessageForConfirmSubject(recipientId, subject) {
         subjCode = "yor";
     }
 
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", recipientId);
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", subjCode);
     utils.setUserSubjectId(recipientId, subjCode, function(error, data) {});
 
     var message = {
