@@ -122,9 +122,8 @@ function processPostback(event) {
     else if (payload.indexOf("QUESTION_REPORT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
-        var message = createTextWithButtonsMessage("Wow! I will have to review this question later.", 
-            [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
-        sendMessage(senderId, message);
+
+        sendReportQuestion(senderId, qId);
     }
     else if (payload.indexOf("SUBJECT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
@@ -229,8 +228,17 @@ function processMessage(event) {
                     }
                 });
             }
-            else if (formattedMsg === "wrong" ||
-                     formattedMsg === "a" || formattedMsg === "b" || formattedMsg === "c" || formattedMsg === "d" || formattedMsg === "e" ||
+            else if (formattedMsg === "wrong") {
+                utils.getUserQuestionId(senderId, function(error, qid) {
+                    if (qid) {
+                        sendReportQuestion(senderId, qid);
+                    }
+                    else {
+                        sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
+                    }
+                });
+            }
+            else if (formattedMsg === "a" || formattedMsg === "b" || formattedMsg === "c" || formattedMsg === "d" || formattedMsg === "e" ||
                      formattedMsg === "no" || formattedMsg === "yes") {
                 sendMessage(senderId, {text: "Sorry, do NOT type '" + message.text + "' directly. Instead, click on the '" + message.text + "' link/button above. Thanks."});
             }
@@ -534,7 +542,6 @@ function sendExplanation(recipientId, qId) {
 
     utils.getQuestion(qId, afterGettingQuestion);
 }
-
 function sendNextQuestion(recipientId, qId) {
     var indexOfSlash = qId.indexOf('/');
     var subjid = qId.substring(0, indexOfSlash);
@@ -549,6 +556,11 @@ function sendNextQuestion(recipientId, qId) {
     }
 
     utils.getRandomQuestion(subjid, afterGettingQuestion);
+}
+function sendReportQuestion(recipientId, qId) {
+    var message = createTextWithButtonsMessage("Wow! I will have to review this question later.", 
+        [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+    sendMessage(recipientId, message);
 }
 
 function sendQuestion(recipientId, question) {
