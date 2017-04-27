@@ -1,7 +1,8 @@
 [
 {
 	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that **moribund** administration.",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "I cannot understand why Ali should serve in that **moribund** administration.",
 	"options": {
 		"a": "oppressive",
 		"b": "prodigal",
@@ -12,7 +13,8 @@
 },
 {
 	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for **transients** only.",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "The Conference Centre caters for **transients** only.",
 	"options": {
 		"a": "temporary guests",
 		"b": "professionals",
@@ -23,7 +25,8 @@
 },
 {
 	"id": "eng/2",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe **coalescence** of the groups created additional problems.",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "The **coalescence** of the groups created additional problems.",
 	"options": {
 		"a": "proscription",
 		"b": "fighting",
@@ -34,7 +37,8 @@
 },
 {
 	"id": "eng/3",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nAs the triumphant rebels were returning to their base, they met with a **serious reverse**.",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "As the triumphant rebels were returning to their base, they met with a **serious reverse**.",
 	"options": {
 		"a": "a defeat",
 		"b": "an enemy",
@@ -45,7 +49,8 @@
 },
 {
 	"id": "eng/4",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe village girl wore **sumptuous** clothes.",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "The village girl wore **sumptuous** clothes.",
 	"options": {
 		"a": "faded-looking",
 		"b": "cheap",
@@ -53,5 +58,17 @@
 		"d": "loose-fitting"
 	},
 	"answer": "c"
+},
+{
+	"id": "eng/5",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "Any Chief Executive of an organization would find *radical changes* blocked at every turn.",
+	"options": {
+		"a": "developments",
+		"b": "ideas",
+		"c": "suggestions",
+		"d": "innovations"
+	},
+	"answer": "d"
 }
 ]

@@ -92,6 +92,12 @@ function processPostback(event) {
 
         sendAnswerQuestion(senderId, qId, option);
     }
+    else if (payload.indexOf("QUESTION_ANSWER/") == 0) {
+        var indexOfSlash = payload.indexOf('/');
+        var qId = payload.substr(indexOfSlash + 1);
+
+        sendAnswer(senderId, qId);
+    }
     else if (payload.indexOf("QUESTION_EXPLAIN/") == 0) {
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
@@ -194,6 +200,16 @@ function processMessage(event) {
                     }
                 });
             }
+            else if (formattedMsg === "answer") {
+                utils.getUserQuestionId(senderId, function(error, qid) {
+                    if (qid) {
+                        sendAnswer(senderId, qid);
+                    }
+                    else {
+                        sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
+                    }
+                });
+            }
             else if (formattedMsg === "explain") {
                 utils.getUserQuestionId(senderId, function(error, qid) {
                     if (qid) {
@@ -224,7 +240,7 @@ function processMessage(event) {
                     }
                 });
             }
-            else if (formattedMsg === "yes") {
+            else if (formattedMsg.indexOf("y") == 0) { //yes, yh, yeah, ...
                 utils.getUserSubjectId(senderId, function(error, sid) {
                     if (sid) {
                         sendSubjectQuestion(senderId, sid);
@@ -234,7 +250,7 @@ function processMessage(event) {
                     }
                 });
             }
-            else if (formattedMsg === "no") {
+            else if (formattedMsg.indexOf("n") == 0) { //no, nope, nah, ...
                 sendMessage(senderId, {text: "OK. Sorry about that. What subject would you like to practise?"});
             }
             else {
@@ -378,13 +394,21 @@ function createMessageForConfirmSubject(recipientId, subject) {
     return message;
 }
 
-function createMessageForAnswer(question, remark) {
+function createMessageForAnswer(question, correct) {
     var buttons = [];
+    var remark = "";
     buttons.push({type: "postback", title: "Next", payload: "QUESTION_NEXT/" + question.id});
+    if (correct) {
+        remark = "Yayy, nice job!";
+    }
+    else {
+        remark = "Nope, wrong answer!";
+        buttons.push({type: "postback", title: "Answer", payload: "QUESTION_ANSWER/" + question.id});
+    }
     if (question.explanation) {
         buttons.push({type: "postback", title: "Explain", payload: "QUESTION_EXPLAIN/" + question.id});
     }
-    buttons.push({type: "postback", title: "Wrong", payload: "QUESTION_REPORT/" + question.id});
+    //buttons.push({type: "postback", title: "Wrong", payload: "QUESTION_REPORT/" + question.id});
     var message = {
         attachment: {
             type: "template",
@@ -527,14 +551,9 @@ function createTextWithButtonsMessage(text, buttons) {
 
 function sendAnswerQuestion(recipientId, qId, option) {
     function afterGettingQuestion(error, question) {
-        if (question) {
-            if (question.answer.toLowerCase() == option.toLowerCase()) { //correct answer
-                var message = createMessageForAnswer(question, "Yayy, nice job!");
-                sendMessage(recipientId, message);
-            } else {
-                var message = createMessageForAnswer(question, "Nope, wrong answer!");
-                sendMessage(recipientId, message);
-            }
+        if (question && question.answer) {
+            var message = createMessageForAnswer(question, question.answer.toLowerCase() == option.toLowerCase());
+            sendMessage(recipientId, message);
         }
         else {
             sendMessage(recipientId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
@@ -543,9 +562,22 @@ function sendAnswerQuestion(recipientId, qId, option) {
 
     utils.getQuestion(qId, afterGettingQuestion);
 }
+function sendAnswer(recipientId, qId) {
+    function afterGettingQuestion(error, question) {
+        if (question && question.answer) {
+            var message = createTextWithButtonsMessage(question.answer, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+            sendMessage(recipientId, message);
+        }
+        else {
+            sendMessage(recipientId, {text: "Oops! For some reason I can't find the answer for this question at the moment. Sorry about that."});
+        }
+    }
+
+    utils.getQuestion(qId, afterGettingQuestion);
+}
 function sendExplanation(recipientId, qId) {
     function afterGettingQuestion(error, question) {
-        if (question && question.explanation) {
+        if (question) {
             if (question.explanation) {
                 var message = createTextWithButtonsMessage(question.explanation, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
                 sendMessage(recipientId, message);
