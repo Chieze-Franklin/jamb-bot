@@ -268,6 +268,7 @@ function processMessage(event) {
 
 function createMessageForConfirmSubject(recipientId, subject) {
     var subjName = "any subject", subjCode = "*";
+    var message = {};
 
     if (subject.indexOf("acc") > -1) {
         subjName = "Accounting";
@@ -346,28 +347,33 @@ function createMessageForConfirmSubject(recipientId, subject) {
         subjCode = "yor";
     }
 
-    utils.setUserSubjectId(recipientId, subjCode, function(error, data) {});
+    if (subjCode == "*") {
+        message = {text: "Sorry I didn't get that. What subject would you like to practise?"};
+    }
+    else {
+        utils.setUserSubjectId(recipientId, subjCode, function(error, data) {});
 
-    var message = {
-        attachment: {
-            type: "template",
-            payload: {
-                template_type: "button",
-                text: "OK. Shall we begin practising " + subjName + "?",
-                buttons: [
-                {
-                    type: "postback",
-                    title: "Yes",
-                    payload: "SUBJECT/" + subjCode
-                },
-                {
-                    type: "postback",
-                    title: "No",
-                    payload: "SUBJECT_WRONG"
-                }]
+        message = {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "button",
+                    text: "OK. Shall we begin practising " + subjName + "?",
+                    buttons: [
+                    {
+                        type: "postback",
+                        title: "Yes",
+                        payload: "SUBJECT/" + subjCode
+                    },
+                    {
+                        type: "postback",
+                        title: "No",
+                        payload: "SUBJECT_WRONG"
+                    }]
+                }
             }
-        }
-    };
+        };
+    }
 
     return message;
 }
