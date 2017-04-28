@@ -64,5 +64,73 @@
 		"d": "reptiles"
 	},
 	"answer": "c"
+},
+{
+	"id": "bio/6",
+	"preamble_image": "public/bio-6.jpg",
+	"body": "In ferns, the structure above is equivalent to the",
+	"options": {
+		"a": "gametophyte generation of a moss",
+		"b": "sporophyte generation of a moss",
+		"c": "sporangium of a moss",
+		"d": "zygote of a moss"
+	},
+	"answer": "a"
+},
+{
+	"id": "bio/7",
+	"preamble_image": "public/bio-6.jpg",
+	"body": "The structures labeled II and III respectively are",
+	"options": {
+		"a": "sporophyte and sori",
+		"b": "annulus and stalk of sporangium",
+		"c": "female organs and rhizoid",
+		"d": "male organs and rhizoid"
+	},
+	"answer": "d"
+},
+{
+	"id": "bio/8",
+	"body": "Most monocots are easily recognized by their",
+	"options": {
+		"a": "long and sword-like leaves",
+		"b": "long and palm-like leaves",
+		"c": "short leaves with petioles",
+		"d": "short leaves with many veinlets"
+	},
+	"answer": "a"
+},
+{
+	"id": "bio/9",
+	"body": "Amphibians are normally found",
+	"options": {
+		"a": "in water",
+		"b": "on moist land",
+		"c": "in water and moist land",
+		"d": "maleon dry land and in water"
+	},
+	"answer": "c"
+},
+{
+	"id": "bio/10",
+	"body": "The jointed structure in insects that bears organs which are sensitive to touch, smell and vibration is the",
+	"options": {
+		"a": "antenna",
+		"b": "abdomen",
+		"c": "maxilla",
+		"d": "labium"
+	},
+	"answer": "a"
+},
+{
+	"id": "bio/11",
+	"body": "The veins of the leaf are formed by the",
+	"options": {
+		"a": "spongy mesophyll",
+		"b": "palisade tissue",
+		"c": "cambium cells",
+		"d": "vascular bundles"
+	},
+	"answer": "d"
 }
 ]
