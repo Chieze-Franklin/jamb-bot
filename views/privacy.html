@@ -1,1 +1,124 @@
-JAMB Bot currently does NOT collect any information about users. You have nothing to fear. If anything changes with regards to this, you will be duely informed.
+ <nav class="main-nav-outer" id="test"><!--main-nav-start-->
+    <div class="container">
+        <ul class="main-nav">
+            <li class="small-logo"><a href="/#header"><img src="assets/img/small-logo.png" alt=""></a></li>
+        </ul>
+        <a class="res-nav_click" href="#"><i class="fa-bars"></i></a>
+    </div>
+</nav><!--main-nav-end-->
+
+<section class="main-section alabaster" id="commands"><!--main-section alabaster-start-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 featured-work">
+                <div class="featured-box">
+                    <div class="featured-box-col1 wow fadeInRight delay-02s">
+                        <i class="fa-lock"></i>
+                    </div>  
+                    <div class="featured-box-col2 wow fadeInRight delay-02s">
+                        <p>JAMB Buddy currently does NOT collect any information about users. You have nothing to fear.</p>
+                    </div>    
+                </div>
+                <div class="featured-box">
+                    <div class="featured-box-col1 wow fadeInRight delay-04s">
+                        <i class="fa-magic"></i>
+                    </div>  
+                    <div class="featured-box-col2 wow fadeInRight delay-04s">
+                        <p>If anything changes with regards to this, you will be duely informed.</p>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--main-section alabaster-end-->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(e) {
+        $('#test').scrollToFixed();
+        $('.res-nav_click').click(function(){
+            $('.main-nav').slideToggle();
+            return false    
+            
+        });
+        
+    });
+</script>
+
+  <script>
+    wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       100
+      }
+    );
+    wow.init();
+  </script>
+
+
+<script type="text/javascript">
+    $(window).load(function(){
+        
+        $('.main-nav li a').bind('click',function(event){
+            var $anchor = $(this);
+            
+            $('html, body').stop().animate({
+                scrollTop: $($anchor.attr('href')).offset().top - 102
+            }, 1500,'easeInOutExpo');
+            /*
+            if you don't want to use the easing effects:
+            $('html, body').stop().animate({
+                scrollTop: $($anchor.attr('href')).offset().top
+            }, 1000);
+            */
+            event.preventDefault();
+        });
+    })
+</script>
+
+<script type="text/javascript">
+
+$(window).load(function(){
+  
+  
+  var $container = $('.portfolioContainer'),
+      $body = $('body'),
+      colW = 375,
+      columns = null;
+
+  
+  $container.isotope({
+    // disable window resizing
+    resizable: true,
+    masonry: {
+      columnWidth: colW
+    }
+  });
+  
+  $(window).smartresize(function(){
+    // check if columns has changed
+    var currentColumns = Math.floor( ( $body.width() -30 ) / colW );
+    if ( currentColumns !== columns ) {
+      // set new column count
+      columns = currentColumns;
+      // apply width to container manually, then trigger relayout
+      $container.width( columns * colW )
+        .isotope('reLayout');
+    }
+    
+  }).smartresize(); // trigger resize to set container width
+  $('.portfolioFilter a').click(function(){
+        $('.portfolioFilter .current').removeClass('current');
+        $(this).addClass('current');
+ 
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+            
+            filter: selector,
+         });
+         return false;
+    });
+  
+});
+
+</script>
