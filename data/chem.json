@@ -53,5 +53,16 @@
 		"d": "12"
 	},
 	"answer": "a"
+},
+{
+	"id": "chem/5",
+	"body": "Milikan’s contribution to the development of atomic theory is the determination of",
+	"options": {
+		"a": "charge on electron",
+		"b": "positive rays",
+		"c": "charge to mass ratio",
+		"d": "cathode rays"
+	},
+	"answer": "a"
 }
 ]

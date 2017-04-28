@@ -70,5 +70,65 @@
 		"d": "innovations"
 	},
 	"answer": "d"
+},
+{
+	"id": "eng/6",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "Ugo has often been described as *belligerent*.",
+	"options": {
+		"a": "attractive",
+		"b": "patient",
+		"c": "innocent",
+		"d": "combative"
+	},
+	"answer": "d"
+},
+{
+	"id": "eng/7",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "The men were *tardy* in offering help.",
+	"options": {
+		"a": "brave",
+		"b": "generous",
+		"c": "slow",
+		"d": "quick"
+	},
+	"answer": "c"
+},
+{
+	"id": "eng/8",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "Funmi is just being *facetious* about her marrying a soldier.",
+	"options": {
+		"a": "unserious",
+		"b": "crazy",
+		"c": "serious",
+		"d": "unfaithful"
+	},
+	"answer": "a"
+},
+{
+	"id": "eng/9",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "The professor discussed a number of *abstruse* topics.",
+	"options": {
+		"a": "esoteric",
+		"b": "relevant",
+		"c": "irrelevant",
+		"d": "useful"
+	},
+	"answer": "a"
+},
+{
+	"id": "eng/10",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "Bose was angry because her friend called her a *pilferer*.",
+	"options": {
+		"a": "hypocrite",
+		"b": "thief",
+		"c": "criminal",
+		"d": "liar"
+	},
+	"answer": "b"
 }
 ]

@@ -96,25 +96,25 @@ function processPostback(event) {
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
 
-        sendAnswer(senderId, qId);
+        reactToAnswerQuestion(senderId, qId);
     }
     else if (payload.indexOf("QUESTION_EXPLAIN/") == 0) {
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
 
-        sendExplanation(senderId, qId);
+        reactToExplainQuestion(senderId, qId);
     }
     else if (payload.indexOf("QUESTION_NEXT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
 
-        sendNextQuestion(senderId, qId);
+        reactToNextQuestion(senderId, qId);
     }
     else if (payload.indexOf("QUESTION_REPORT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
         var qId = payload.substr(indexOfSlash + 1);
 
-        sendReportQuestion(senderId, qId);
+        reactToReportQuestion(senderId, qId);
     }
     else if (payload.indexOf("SUBJECT/") == 0) {
         var indexOfSlash = payload.indexOf('/');
@@ -203,7 +203,7 @@ function processMessage(event) {
             else if (formattedMsg === "answer") {
                 utils.getUserQuestionId(senderId, function(error, qid) {
                     if (qid) {
-                        sendAnswer(senderId, qid);
+                        reactToAnswerQuestion(senderId, qid);
                     }
                     else {
                         sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
@@ -213,7 +213,7 @@ function processMessage(event) {
             else if (formattedMsg === "explain") {
                 utils.getUserQuestionId(senderId, function(error, qid) {
                     if (qid) {
-                        sendExplanation(senderId, qid);
+                        reactToExplainQuestion(senderId, qid);
                     }
                     else {
                         sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
@@ -223,7 +223,7 @@ function processMessage(event) {
             else if (formattedMsg === "next") {
                 utils.getUserQuestionId(senderId, function(error, qid) {
                     if (qid) {
-                        sendNextQuestion(senderId, qid);
+                        reactToNextQuestion(senderId, qid);
                     }
                     else {
                         sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
@@ -233,7 +233,7 @@ function processMessage(event) {
             else if (formattedMsg === "wrong") {
                 utils.getUserQuestionId(senderId, function(error, qid) {
                     if (qid) {
-                        sendReportQuestion(senderId, qid);
+                        reactToReportQuestion(senderId, qid);
                     }
                     else {
                         sendMessage(senderId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
@@ -549,23 +549,16 @@ function createTextWithButtonsMessage(text, buttons) {
     return message;
 }
 
-function sendAnswerQuestion(recipientId, qId, option) {
+//reacts to user input 'answer'
+function reactToAnswerQuestion(recipientId, qId) {
     function afterGettingQuestion(error, question) {
         if (question && question.answer) {
-            var message = createMessageForAnswer(question, question.answer.toLowerCase() == option.toLowerCase());
-            sendMessage(recipientId, message);
-        }
-        else {
-            sendMessage(recipientId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
-        }
-    }
-
-    utils.getQuestion(qId, afterGettingQuestion);
-}
-function sendAnswer(recipientId, qId) {
-    function afterGettingQuestion(error, question) {
-        if (question && question.answer) {
-            var message = createTextWithButtonsMessage(question.answer, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
+            var buttons = [];
+            buttons.push({type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId});
+            if (question.explanation) {
+                buttons.push({type: "postback", title: "Explain", payload: "QUESTION_EXPLAIN/" + qId});
+            }
+            var message = createTextWithButtonsMessage(question.answer, buttons);
             sendMessage(recipientId, message);
         }
         else {
@@ -575,7 +568,8 @@ function sendAnswer(recipientId, qId) {
 
     utils.getQuestion(qId, afterGettingQuestion);
 }
-function sendExplanation(recipientId, qId) {
+//reacts to user input 'explain'
+function reactToExplainQuestion(recipientId, qId) {
     function afterGettingQuestion(error, question) {
         if (question) {
             if (question.explanation) {
@@ -595,7 +589,8 @@ function sendExplanation(recipientId, qId) {
 
     utils.getQuestion(qId, afterGettingQuestion);
 }
-function sendNextQuestion(recipientId, qId) {
+//reacts to user input 'next'
+function reactToNextQuestion(recipientId, qId) {
     var indexOfSlash = qId.indexOf('/');
     var subjid = qId.substring(0, indexOfSlash);
 
@@ -610,11 +605,28 @@ function sendNextQuestion(recipientId, qId) {
 
     utils.getRandomQuestion(subjid, afterGettingQuestion);
 }
-function sendReportQuestion(recipientId, qId) {
+//reacts to user input 'wrong' or 'report'
+function reactToReportQuestion(recipientId, qId) {
     var message = createTextWithButtonsMessage("Wow! I will have to review this question later.", 
         [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
     sendMessage(recipientId, message);
 }
+
+//send a message when user attempts a question
+function sendAnswerQuestion(recipientId, qId, option) {
+    function afterGettingQuestion(error, question) {
+        if (question && question.answer) {
+            var message = createMessageForAnswer(question, question.answer.toLowerCase() == option.toLowerCase());
+            sendMessage(recipientId, message);
+        }
+        else {
+            sendMessage(recipientId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
+        }
+    }
+
+    utils.getQuestion(qId, afterGettingQuestion);
+}
+//sends a random question from a subject
 function sendSubjectQuestion(recipientId, subjId) {
     function afterGettingQuestion(error, question) {
         if (question) {
@@ -628,6 +640,7 @@ function sendSubjectQuestion(recipientId, subjId) {
     utils.getRandomQuestion(subjId, afterGettingQuestion);
 }
 
+//sends question
 function sendQuestion(recipientId, question) {
     utils.setUserQuestionId(recipientId, question.id, function(error, data) {});
 
@@ -654,9 +667,20 @@ function sendQuestion(recipientId, question) {
         }
 
         var messages = createMessagesForOptions(question);
-        messages.forEach(function(message){
+        /*messages.forEach(function(message){ //with this method there's no guarantee the options will be posted to d user in order: A, B, C, ...
             sendMessage(recipientId, message); //send options
-        });
+        });*/
+        //below is an attempt to make the options be posted in order
+        var index = 0;
+        function postOption() {
+            if (index < messages.length) {
+                var message = messages[index];
+                sendMessage(recipientId, message);
+                index++;
+                setTimeout(postOption, 500);
+            }
+        }
+        postOption();
     } else {
         var message = createMessageForQuestion(question);
         sendMessage(recipientId, message);

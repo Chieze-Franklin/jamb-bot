@@ -1,24 +1,39 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "acc/0",
+	"body": "In preparing the final accounts, the bad debt account is closed by a transfer to the",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "balance sheet",
+		"b": "provision for bad debt account",
+		"c": "profit and loss account",
+		"d": "treading account"
 	},
-	"answer": "c"
+	"answer": "c",
+	"explanation": " In closing a bad debt account the amount is transferred to the profit and loss account as a change against profit."
 },
 {
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "acc/1",
+	"preamble": "Given                                N\nstock (1/4/94).......................800\npurchase of flour...................2450\nsales...............................4745\nwages of bakery staff................675\ncarriage outwards.....................50\nsalary of administrative staff.......225\nstock (31/3/95)......................940\ncapital.............................1540",
+	"body": "Determine the cost of goods sold",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "N2575",
+		"b": "N2985",
+		"c": "N3250",
+		"d": "N3925"
 	},
-	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"answer": "b",
+	"explanation": "Determining cost of goods sold\n\nOpening stock............   800\nAdd Purchase:............ +2450\n                           3250\nLess Closing Stock.......  -940\n                           2310\nWages....................  +675\n                           2985"
+},
+{
+	"id": "acc/2",
+	"preamble": "In a petty cash book the imprest is N1380.\nExpenses:                            N\nStationery...........................350\nCleaning material....................335\nGeneral expenses.....................265",
+	"body": "How much was received to maintain the imprest at the end of the month?",
+	"options": {
+		"a": "N950",
+		"b": "N970",
+		"c": "N430",
+		"d": "N380"
+	},
+	"answer": "a"
 }
 ]
