@@ -64,5 +64,40 @@
 		"d": "cathode rays"
 	},
 	"answer": "a"
+},
+{
+	"id": "chem/6",
+	"preamble_image": "public/chem-6.jpg",
+	"body": "If the gas is cooled, at what temperature will it start to condense?",
+	"options": {
+		"a": "125\u00b0C",
+		"b": "150\u00b0C",
+		"c": "175\u00b0C",
+		"d": "250\u00b0C"
+	},
+	"answer": "b"
+},
+{
+	"id": "chem/7",
+	"preamble_image": "public/chem-6.jpg",
+	"body": "How long does it take all the solid to melt?",
+	"options": {
+		"a": "2.5 mins",
+		"b": "6.0 mins",
+		"c": "1.0 mins",
+		"d": "3.0 mins"
+	},
+	"answer": "d"
+},
+{
+	"id": "chem/8",
+	"body": "Four elements W, X, Y, and Z have atomic numbers 2, 6, 16 and 20 respectively. Which of these elements is a metal?",
+	"options": {
+		"a": "X",
+		"b": "W",
+		"c": "Z",
+		"d": "Y"
+	},
+	"answer": "c"
 }
 ]

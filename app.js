@@ -77,7 +77,8 @@ function processPostback(event) {
                 var bodyObj = JSON.parse(body);
                 greeting = "Hi " + bodyObj.first_name + ". ";
             }
-            var message = greeting + "I am your JAMB buddy. I am here to help you prepare for JAMB.";
+            var message = greeting + "I am your JAMB buddy. I am here to help you prepare for JAMB." + 
+                "\nCurrently I have access to only a few questions but I am always working for you, gathering more from various corners on the internet.";
             sendMessage(senderId, {text: message});
 
             sendMessage(senderId, {text: "What subject would you like to practise?"});
@@ -667,17 +668,19 @@ function sendQuestion(recipientId, question) {
         }
 
         var messages = createMessagesForOptions(question);
-        /*messages.forEach(function(message){ //with this method there's no guarantee the options will be posted to d user in order: A, B, C, ...
+        //METHOD 1: with this method there's no guarantee the options will be posted to d user in order: A, B, C, ...
+        /*messages.forEach(function(message){ 
             sendMessage(recipientId, message); //send options
         });*/
-        //below is an attempt to make the options be posted in order
+        //METHOD 2: below is an attempt to make the options be posted in order
         var index = 0;
         function postOption() {
             if (index < messages.length) {
                 var message = messages[index];
                 sendMessage(recipientId, message);
                 index++;
-                setTimeout(postOption, 500);
+                setTimeout(postOption, 500); //wait 500ms before sending the next option... this way we have a good CHANCE facebook will post dem in order
+                //of course to make sure facebook posts them in order I could increase 500 to, say, 1000... but nahhh
             }
         }
         postOption();
