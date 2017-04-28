@@ -588,7 +588,7 @@ function reactToAnswerQuestion(recipientId, qId) {
             if (question.explanation) {
                 buttons.push({type: "postback", title: "Explain", payload: "QUESTION_EXPLAIN/" + qId});
             }
-            var message = createTextWithButtonsMessage(question.answer, buttons);
+            var message = createTextWithButtonsMessage(question.answer.toUpperCase(), buttons);
             sendMessage(recipientId, message);
         }
         else {

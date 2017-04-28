@@ -401,7 +401,7 @@ img {
 /* Clients
 ---------------------------------*/
 .client-part{
-	background:url(../img/section-bg1.jpg) center center no-repeat;
+	background:url(../assets/img/section-bg1.jpg) center center no-repeat;
 	background-size:cover;
 	padding:55px 0;
 	text-align:center;
@@ -591,7 +591,7 @@ border: 2px solid #fff;
 /* Talk Business
 ---------------------------------*/
 .business-talking{
-	background:url(../img/section-bg2.jpg) top center no-repeat;
+	background:url(../assets/img/section-bg2.jpg) top center no-repeat;
 	background-size:cover;
 	padding:60px 0 10px;
 	text-align:center;

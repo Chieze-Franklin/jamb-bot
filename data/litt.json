@@ -1,24 +1,119 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "litt/0",
+	"preamble": "Based on Literary Appreciation",
+	"body": "'Careened,\nThese oily tears\nDripping down the tears on your depressed face,\nWill one day be staunched,\nI swear!'\n\t- Ibiwari Ikiriko, Oily Tears.\n\nThe tone of the poet is",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
-	},
-	"answer": "c"
-},
-{
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
-	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "optimistic",
+		"b": "supplicatory",
+		"c": "sympathetic",
+		"d": "piteous"
 	},
 	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"explanation": "The tone is optimistic because it predicts an end to the shedding of tears. The phrase **oily tears** is a metonymy for **oil spill** being a cause of **sorrow** (i.e. tears) to the addressee, and the poet being of a strong hope that oil spilling and attendant suffering will become a past tense matter (staunched) sooner than later, is clearly OPTIMISTIC"
+},
+{
+	"id": "litt/1",
+	"preamble": "Based on Literary Appreciation",
+	"body": "'Lift not the painted veil which those who live call life: though unreal shapes be pictured there,\nAnd it but mimic all we would believe'\nWith colours idly spread, - behind, lurk fear,'\n\t- P. B. Shelly, Sonnet\n\nThe stanza above is an example of a",
+	"options": {
+		"a": "quatrain",
+		"b": "couplet",
+		"c": "free verse",
+		"d": "limerick"
+	},
+	"answer": "a",
+	"explanation": "The stanza is a quatrain because it has four lines."
+},
+{
+	"id": "litt/2",
+	"preamble": "Based on Literary Appreciation",
+	"body": "''Symbol of fruitfulness, symbol of barrenness\nMother and destroyer, the calm and the storm!\nLife and desire and dreams and death\nAre born of the sea; this swarming land.'\n\t- Frank Collymore, Hymn to the Sea\n\nThe address to the sea in the lines above is done by the use of",
+	"options": {
+		"a": "personification",
+		"b": "praise",
+		"c": "symbolism",
+		"d": "apostrophe"
+	},
+	"answer": "d",
+	"explanation": "Addressing the sea as if it is a human being is an example of apostrophe. The sea is not qualified with human being pronoun grammatical references (personification) or eulogized (praised) being addressed as a second-person human being, present with the poet."
+},
+{
+	"id": "litt/3",
+	"preamble": "Based on Literary Appreciation",
+	"body": "'When he gave me the bottle, and I opened it,\nI was shocked by the odour that hit my nose:\nI immediately corked it again, and spat on the floor.'.\n\t- Isidore Okpewho, The Last Duty.\n\nThe reaction in the passage above is that of",
+	"options": {
+		"a": "rejection",
+		"b": "anger",
+		"c": "protest",
+		"d": "nausea"
+	},
+	"answer": "d",
+	"explanation": "The feeling of nausea is indicated by words like shocked, odour and spat."
+},
+{
+	"id": "litt/4",
+	"preamble": "Based on Literary Appreciation",
+	"body": "'Careened,\nThese oily tears\nDripping down the tears on your depressed face,\nWill one day be staunched,\nI swear!'\n\t- Ibiwari Ikiriko, Oily Tears.\n\nThe tone of the poet is",
+	"options": {
+		"a": "optimistic",
+		"b": "supplicatory",
+		"c": "sympathetic",
+		"d": "piteous"
+	},
+	"answer": "a",
+	"explanation": "The tone is optimistic because it predicts an end to the shedding of tears. The phrase **oily tears** is a metonymy for **oil spill** being a cause of **sorrow** (i.e. tears) to the addressee, and the poet being of a strong hope that oil spilling and attendant suffering will become a past tense matter (staunched) sooner than later, is clearly OPTIMISTIC"
+},
+{
+	"id": "litt/5",
+	"preamble": "Based on Literary Appreciation",
+	"body": "'Careened,\nThese oily tears\nDripping down the tears on your depressed face,\nWill one day be staunched,\nI swear!'\n\t- Ibiwari Ikiriko, Oily Tears.\n\nThe tone of the poet is",
+	"options": {
+		"a": "optimistic",
+		"b": "supplicatory",
+		"c": "sympathetic",
+		"d": "piteous"
+	},
+	"answer": "a",
+	"explanation": "The tone is optimistic because it predicts an end to the shedding of tears. The phrase **oily tears** is a metonymy for **oil spill** being a cause of **sorrow** (i.e. tears) to the addressee, and the poet being of a strong hope that oil spilling and attendant suffering will become a past tense matter (staunched) sooner than later, is clearly OPTIMISTIC"
+},
+{
+	"id": "litt/6",
+	"preamble": "Based on Literary Appreciation",
+	"body": "'Careened,\nThese oily tears\nDripping down the tears on your depressed face,\nWill one day be staunched,\nI swear!'\n\t- Ibiwari Ikiriko, Oily Tears.\n\nThe tone of the poet is",
+	"options": {
+		"a": "optimistic",
+		"b": "supplicatory",
+		"c": "sympathetic",
+		"d": "piteous"
+	},
+	"answer": "a",
+	"explanation": "The tone is optimistic because it predicts an end to the shedding of tears. The phrase **oily tears** is a metonymy for **oil spill** being a cause of **sorrow** (i.e. tears) to the addressee, and the poet being of a strong hope that oil spilling and attendant suffering will become a past tense matter (staunched) sooner than later, is clearly OPTIMISTIC"
+},
+{
+	"id": "litt/7",
+	"preamble": "Based on Literary Appreciation",
+	"body": "'Careened,\nThese oily tears\nDripping down the tears on your depressed face,\nWill one day be staunched,\nI swear!'\n\t- Ibiwari Ikiriko, Oily Tears.\n\nThe tone of the poet is",
+	"options": {
+		"a": "optimistic",
+		"b": "supplicatory",
+		"c": "sympathetic",
+		"d": "piteous"
+	},
+	"answer": "a",
+	"explanation": "The tone is optimistic because it predicts an end to the shedding of tears. The phrase **oily tears** is a metonymy for **oil spill** being a cause of **sorrow** (i.e. tears) to the addressee, and the poet being of a strong hope that oil spilling and attendant suffering will become a past tense matter (staunched) sooner than later, is clearly OPTIMISTIC"
+},
+{
+	"id": "litt/8",
+	"preamble": "Based on Literary Appreciation",
+	"body": "'Careened,\nThese oily tears\nDripping down the tears on your depressed face,\nWill one day be staunched,\nI swear!'\n\t- Ibiwari Ikiriko, Oily Tears.\n\nThe tone of the poet is",
+	"options": {
+		"a": "optimistic",
+		"b": "supplicatory",
+		"c": "sympathetic",
+		"d": "piteous"
+	},
+	"answer": "a",
+	"explanation": "The tone is optimistic because it predicts an end to the shedding of tears. The phrase **oily tears** is a metonymy for **oil spill** being a cause of **sorrow** (i.e. tears) to the addressee, and the poet being of a strong hope that oil spilling and attendant suffering will become a past tense matter (staunched) sooner than later, is clearly OPTIMISTIC"
 }
 ]
