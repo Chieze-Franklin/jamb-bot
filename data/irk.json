@@ -6,13 +6,13 @@
 		"a": "Muhammaed Husayn Haikai",
 		"b": "Waraqah b. Nawfal",
 		"c": "‘Abdul Muttalib",
-		"d": "Abb􀜽􀴤s b. Mirdas"
+		"d": "Abbas b. Mirdas"
 	},
 	"answer": "b"
 },
 {
 	"id": "irk/1",
-	"body": "Abb􀜽􀴤sThe ninth year of hijrah is known as the year of",
+	"body": "The ninth year of hijrah is known as the year of",
 	"options": {
 		"a": "Deputation",
 		"b": "Elephant",
@@ -20,5 +20,38 @@
 		"d": "Aqabah"
 	},
 	"answer": "a"
+},
+{
+	"id": "irk/2",
+	"body": "After the Prophet (S.A.W) had migrated to al-madinah, the first two major wars he fought against the Makkans were",
+	"options": {
+		"a": "Badr and Hudabiyyah",
+		"b": "Uhud and Khaybar",
+		"c": "Khandaq and Mu’tah",
+		"d": "Badr and Uhud"
+	},
+	"answer": "d"
+},
+{
+	"id": "irk/3",
+	"body": "The Prophet’s uncle who lost his life in the battle of Badr was",
+	"options": {
+		"a": "Hamzah",
+		"b": "Abbas",
+		"c": "Abu Talib",
+		"d": "Abu Jahl"
+	},
+	"answer": "d"
+},
+{
+	"id": "irk/4",
+	"body": "The Quyaysh boycotted Banu Hashim because they",
+	"options": {
+		"a": "had all accepted Islam",
+		"b": "refused to accept Islam",
+		"c": "planned to migrate to Yathrib with the Prophet (S.A.W)",
+		"d": "protected the Prophet (S.A.W) and refused to surrender him"
+	},
+	"answer": "d"
 }
 ]
