@@ -1,4 +1,5 @@
 var express = require("express");
+var exphbs = require('express3-handlebars');
 var request = require("request");
 var bodyParser = require("body-parser");
 
@@ -7,19 +8,41 @@ var utils = require("./utils");
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use('/public', express.static(__dirname + "/public"));
-app.listen((process.env.PORT || 5000));
+
+app.use('**/assets', express.static(__dirname + '/assets'));
+app.use('**/public', express.static(__dirname + "/public"));
+
+app.set('views', __dirname + '/views');
+app.engine('html', exphbs.create({
+  defaultLayout: 'main.html',
+  layoutsDir: app.get('views') + '/layouts',
+  partialsDir: [app.get('views') + '/partials']
+}).engine);
+app.set('view engine', 'html');
+
+var server = app.listen((process.env.PORT || 5000), function() {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log("JAMB Buddy Server running on http://%s:%s", host, port);
+    console.log('');
+
+    process.on('uncaughtException', function (error) {
+        console.log(error);
+        console.log(error.stack);
+        console.trace();
+    });
+});
 
 var BASE_URL = "https://jamb-bot.herokuapp.com/";
 
 // Server index page
 app.get("/", function (req, res) {
-    res.send("JAMB Bot up and running!");
+    res.render('index.html');
 });
 
 // Privacy Policy
 app.get("/privacy", function (req, res) {
-    res.send("JAMB Bot currently does NOT collect any information about users. You have nothing to fear. If anything changes with regards to this, you will be duely informed.");
+    res.render('privacy.html');
 });
 
 //to test if the server is up
@@ -168,6 +191,7 @@ function processMessage(event) {
             var formattedMsg = message.text.toLowerCase().trim();
 
             if (formattedMsg.indexOf("hello") > -1 || formattedMsg.indexOf("hey") > -1 || formattedMsg.indexOf("hi") > -1 || formattedMsg.indexOf("good ") > -1 || //good morning, good day...
+                formattedMsg.indexOf("how") > -1 || formattedMsg.indexOf("hw") > -1 || //hw fr
                 formattedMsg.indexOf("start") > -1 || formattedMsg.indexOf("begin") > -1 ||
                 formattedMsg.indexOf("subject") > -1 || formattedMsg.indexOf("course") > -1 || formattedMsg.indexOf("program") > -1) {
                 //assume the user wants to change subjects
