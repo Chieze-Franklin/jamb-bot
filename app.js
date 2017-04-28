@@ -22,6 +22,11 @@ app.get("/privacy", function (req, res) {
     res.send("JAMB Bot currently does NOT collect any information about users. You have nothing to fear. If anything changes with regards to this, you will be duely informed.");
 });
 
+//to test if the server is up
+app.get("/ping", function (req, res) {
+    res.send("pong");
+});
+
 // Facebook Webhook
 // Used for verification
 app.get("/webhook", function (req, res) {
@@ -621,7 +626,7 @@ function sendAnswerQuestion(recipientId, qId, option) {
             sendMessage(recipientId, message);
         }
         else {
-            sendMessage(recipientId, {text: "Oops! For some reason I can't find the question for you at the moment. Sorry about that."});
+            sendMessage(recipientId, {text: "Oops! For some reason I can't find the answer to the question at the moment. Sorry about that."});
         }
     }
 

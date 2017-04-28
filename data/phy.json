@@ -66,5 +66,50 @@
 		"d": "50%"
 	},
 	"answer": "d"
+},
+{
+	"id": "phy/6",
+	"body": "A stone of mass 1kg is dropped from a height of 10m above the ground and falls freely under gravity. Its kinetic energy 5m above the ground is then equal to",
+	"options": {
+		"a": "its kinetic energy on the ground",
+		"b": "half its initial potential",
+		"c": "its initial potential energy",
+		"d": "twice its initial potential energy"
+	},
+	"answer": "b"
+},
+{
+	"id": "phy/7",
+	"body": "The resultant of two forces acting on an object is maximum if the angle between them is",
+	"options": {
+		"a": "45\u00b0",
+		"b": "180\u00b0",
+		"c": "0\u00b0",
+		"d": "90\u00b0"
+	},
+	"answer": "c"
+},
+{
+	"id": "phy/8",
+	"preamble_image": "public/phy-8.jpg",
+	"body": "In the diagram above, which of the simple pendula will resonate with P when set into oscillation?",
+	"options": {
+		"a": "R and T",
+		"b": "Q and R",
+		"c": "U",
+		"d": "T"
+	},
+	"answer": "d"
+},
+{
+	"id": "phy/9",
+	"body": "The terrestrial telescope has one extra lens more than the astronomical telescope. The extra lens is for",
+	"options": {
+		"a": "erection of the image",
+		"b": "improving the sharpness",
+		"c": "crating an inverted image",
+		"d": "magnification of the image"
+	},
+	"answer": "a"
 }
 ]

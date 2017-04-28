@@ -1,24 +1,24 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "irk/0",
+	"body": "‘By Him who dominates my soul I swear that you are the Prophet of this nation ... you will be abused and you will be persecuted. If I should ever live to see that day, I shall surely help the cause of Allah’. Who made the statement above?",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "Muhammaed Husayn Haikai",
+		"b": "Waraqah b. Nawfal",
+		"c": "‘Abdul Muttalib",
+		"d": "Abb􀜽􀴤s b. Mirdas"
 	},
-	"answer": "c"
+	"answer": "b"
 },
 {
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "irk/1",
+	"body": "Abb􀜽􀴤sThe ninth year of hijrah is known as the year of",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "Deputation",
+		"b": "Elephant",
+		"c": "Peace",
+		"d": "Aqabah"
 	},
-	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"answer": "a"
 }
 ]
