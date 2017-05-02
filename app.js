@@ -586,11 +586,9 @@ function createTextWithButtonsMessage(text, buttons) {
 }
 function createTextWithLinksMessage(text, links) {
     var message = {
-        attachment: {
-            type: "survey",
-            question: text,
-            options: links
-        }
+        type: "survey",
+        question: text,
+        options: links
     };
 
     return message;
