@@ -1,24 +1,62 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "yor/0",
+	"body": "Ìrókíròó tí a bá pè nígbà ti ìdíwö wà fún èémí ni",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "fáwêlì",
+		"b": "köþsónáýtì",
+		"c": "ìró-ohùn",
+		"d": "ìró-ìfõ"
 	},
-	"answer": "c"
+	"answer": "b",
+	"explanation": "Àpççrç ni b, d àti k."
 },
 {
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "yor/1",
+	"body": "Fi àmì-ohùn tó tõnà sórí **Olubôbôtiribô** láti fún un ní ìtumõ tó péye",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "Olúböbôtiribö",
+		"b": "Olùböbôtìribö",
+		"c": "Olúbõbõtiribõ",
+		"d": "Olùbõbôtíribõ"
 	},
-	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"answer": "c",
+	"explanation": "Bí a ÿe pè é lënu ni àwôn àmì tí a fi sí orí i rê."
+},
+{
+	"id": "yor/2",
+	"body": "Õrõ wo ni kò ní apààlà sílébù nínú Olú á ra bàtà?",
+	"options": {
+		"a": "Olú",
+		"b": "á",
+		"c": "ra",
+		"d": "bàtà"
+	},
+	"answer": "b",
+	"explanation": "“Á” nìkan ni kò ÿe é gé sí sílébú nínú gbogbo õrõ inú gbólóhùn náà."
+},
+{
+	"id": "yor/3",
+	"body": "Dá iná di Dáná nípasê",
+	"options": {
+		"a": "ìyöpõ",
+		"b": "àrànmö",
+		"c": "àýkóò fáwêlì",
+		"d": "ìpajç fáwêlì"
+	},
+	"answer": "d",
+	"explanation": "Dá + iná = Dáná\nFáwêlì “i” ní a pájç"
+},
+{
+	"id": "yor/4",
+	"body": "Àpççrç õrõ àyálò níbi tí köþsónáýtì ti parí õrõ ni",
+	"options": {
+		"a": "máþgòrò",
+		"b": "töõgì",
+		"c": "bírò",
+		"d": "búlúù."
+	},
+	"answer": "b",
+	"explanation": "Láti inú èdè Gêësì “thug” ni a ti yá õrõ yìí lò; ìlànà òfin õrõ Yorùbá ló jë ká fí fáwëlì i parí rê nígbà tí a pèé."
 }
 ]

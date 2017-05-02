@@ -1,24 +1,57 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "his/0",
+	"body": "The savannah region of Nigeria is characterized by",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "sparse vegetation",
+		"b": "high population density",
+		"c": "abundant resources",
+		"d": "large bodies of water"
+	},
+	"answer": "a"
+},
+{
+	"id": "his/1",
+	"body": "A major economic activity among the Nupe was",
+	"options": {
+		"a": "horse breeding",
+		"b": "leather work",
+		"c": "canoe-building",
+		"d": "cattle rearing"
 	},
 	"answer": "c"
 },
 {
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "his/2",
+	"body": "The main features of the economy of the forest zone of Nigeria in the eighteenth century were",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "pastoral farming and fishing",
+		"b": "fishing and salt-making",
+		"c": "cotton cultivation and weaving",
+		"d": "cash crop production and trading"
 	},
-	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"answer": "b"
+},
+{
+	"id": "his/3",
+	"body": "The spread of Islam between the 11th and 14th centuries in Nigeria was largely due to",
+	"options": {
+		"a": "Arab missionary activities",
+		"b": "the waging of jihads",
+		"c": "trade and commerce",
+		"d": "absence of any religion in the area"
+	},
+	"answer": "c"
+},
+{
+	"id": "his/4",
+	"body": "A significant effect of the Christian missionary activitiy in Nigeria was the",
+	"options": {
+		"a": "introduction of formal education",
+		"b": "training of nationalists",
+		"c": "introduction of new crops",
+		"d": "abolition of the slave trade"
+	},
+	"answer": "a"
 }
 ]

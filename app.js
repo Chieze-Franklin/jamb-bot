@@ -601,7 +601,7 @@ function reactToAnswerQuestion(recipientId, qId) {
 //reacts to user input 'explain'
 function reactToExplainQuestion(recipientId, qId) {
     function afterGettingQuestion(error, question) {
-        if (question) {
+        if (question && (question.explanation || question.explanation_image)) {
             if (question.explanation) {
                 var message = createTextWithButtonsMessage(question.explanation, [{type: "postback", title: "Next", payload: "QUESTION_NEXT/" + qId}]);
                 sendMessage(recipientId, message);
@@ -674,48 +674,57 @@ function sendSubjectQuestion(recipientId, subjId) {
 function sendQuestion(recipientId, question) {
     utils.setUserQuestionId(recipientId, question.id, function(error, data) {});
 
+    function postBody() {
+        //if the question has body_image or
+        //if question has more than 3 options (Facebook doesn't let us create more than 3 buttons at once) or
+        //if the question has an option that is not a text (like a_image)
+        if (question.body_image ||
+            question.options.d || 
+            question.options.a_image || question.options.b_image || question.options.c_image || question.options.d_image || question.options.e_image) {
+
+            function postOptions() {
+                var messages = createMessagesForOptions(question);
+                
+                var index = 0;
+                function postOption() {
+                    if (index < messages.length) {
+                        var message = messages[index];
+                        sendMessage(recipientId, message);
+                        index++;
+                        setTimeout(postOption, 500); //wait 500ms before sending the next option... this way we have a good CHANCE facebook will post dem in order
+                        //of course to make sure facebook posts them in order I could increase 500 to, say, 1000... but nahhh
+                    }
+                }
+
+                postOption();
+            }
+
+            if (question.body) {
+                sendMessage(recipientId, {text: question.body});
+                setTimeout(postOptions, 250); //post options 250ms (which I feel is OK bcuz 'createMessagesForOptions' will add more delays) after to give body a chance of appearing first
+            }
+            else if (question.body_image) {
+                var message = createImageMessage(BASE_URL + question.body_image);
+                sendMessage(recipientId, message);
+                setTimeout(postOptions, 500); //post options 500ms (which I feel is OK bcuz 'createMessagesForOptions' will add more delays) after to give body_image a chance of appearing first
+            }
+        } else {
+            var message = createMessageForQuestion(question);
+            sendMessage(recipientId, message);
+        }
+    }
+
     if (question.preamble) {
         sendMessage(recipientId, {text: question.preamble});
+        setTimeout(postBody, 500); //post body of question 500ms after to give preamble a chance of appearing first
     }
     else if (question.preamble_image) {
         var message = createImageMessage(BASE_URL + question.preamble_image);
         sendMessage(recipientId, message);
+        setTimeout(postBody, 1000); //post body of question 1000ms after to give preamble_image a chance of appearing first
     }
-
-    //if the question has body_image or
-    //if question has more than 3 options (Facebook doesn't let us create more than 3 buttons at once) or
-    //if the question has an option that is not a text (like a_image)
-    if (question.body_image ||
-        question.options.d || 
-        question.options.a_image || question.options.b_image || question.options.c_image || question.options.d_image || question.options.e_image) {
-        if (question.body) {
-            sendMessage(recipientId, {text: question.body});
-        }
-        else if (question.body_image) {
-            var message = createImageMessage(BASE_URL + question.body_image);
-            sendMessage(recipientId, message);
-        }
-
-        var messages = createMessagesForOptions(question);
-        //METHOD 1: with this method there's no guarantee the options will be posted to d user in order: A, B, C, ...
-        /*messages.forEach(function(message){ 
-            sendMessage(recipientId, message); //send options
-        });*/
-        //METHOD 2: below is an attempt to make the options be posted in order
-        var index = 0;
-        function postOption() {
-            if (index < messages.length) {
-                var message = messages[index];
-                sendMessage(recipientId, message);
-                index++;
-                setTimeout(postOption, 500); //wait 500ms before sending the next option... this way we have a good CHANCE facebook will post dem in order
-                //of course to make sure facebook posts them in order I could increase 500 to, say, 1000... but nahhh
-            }
-        }
-        postOption();
-    } else {
-        var message = createMessageForQuestion(question);
-        sendMessage(recipientId, message);
+    else { //if there's no preamble just postBody()
+        postBody();
     }
 }
 

@@ -1,24 +1,62 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "agric/0",
+	"body": "A farmer who notices that his maize farm has been infected by fungi and bacteria should employ the services of",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
-	},
-	"answer": "c"
-},
-{
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
-	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "a veterinarian",
+		"b": "an entomologist",
+		"c": "a pathologist",
+		"d": "an agricultural economist"
 	},
 	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"explanation": "Pathology is the scientific study of diseases. Pathologist is a doctor who studies pathology."
+},
+{
+	"id": "agric/1",
+	"body": "Agricultural production on a large scale is principally for",
+	"options": {
+		"a": "export",
+		"b": "local consumption",
+		"c": "storage",
+		"d": "commercial purposes"
+	},
+	"answer": "d",
+	"explanation": "Commercial agriculture is the type of agriculture which is concerned with the production of food, animals and cash crops in large quantities for sale."
+},
+{
+	"id": "agric/2",
+	"body": "The basic agricultural resources include",
+	"options": {
+		"a": "industries, fibres and drugs",
+		"b": "biogas, crops and feeder roads",
+		"c": "livestock, crops and forest",
+		"d": "fish, natural gas and vegetable"
+	},
+	"answer": "c",
+	"explanation": "The different branches or areas of specialization in agriculture include animal production, veterinary medicine, soil science, crop production, forestry and wildlife conservation, fishery, agricultural engineering, agricultural economics and farm management, agricultural extension and education."
+},
+{
+	"id": "agric/3",
+	"body": "The cultivation of cocoa is more suitable in Oyo State rather than Niger state of Nigeria owing to the differences in",
+	"options": {
+		"a": "temperature",
+		"b": "wind",
+		"c": "light",
+		"d": "humidity"
+	},
+	"answer": "d",
+	"explanation": "Cocoa needs a rainfall 114cm - 200cm per annum (i.e. per year) Oyo State is situated in a region with high relative humidity (high amount of moisture in the atmosphere whereas Niger State is in a region with low humidity. The soil in Oyo State contains enough moisture (water) that can make cocoa grow and develop well compared to the soil in Niger State that cannot meet the water requirement of cocoa."
+},
+{
+	"id": "agric/4",
+	"body": "Which of the following processes reduces the diploid number of an ovum to a haploid number?",
+	"options": {
+		"a": "Cytokinesis",
+		"b": "Meiosis",
+		"c": "Mitosis",
+		"d": "Fission"
+	},
+	"answer": "b",
+	"explanation": "Meiosis is the cell division that gives rise to the gametes and haploid spores. In flowering plants and animals, it occurs only in the reproductive organs.\nA diploid cell has two sets of chromosomes: one from the male gamete/parent, and the other from t he female gamete /parent. When a diploid cell (ovum) undergoes meiosis, it results in the diploid parent cell giving rise to four haploid gamete cells."
 }
 ]

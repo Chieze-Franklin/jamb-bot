@@ -1,24 +1,57 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "igbo/0",
+	"body": "Nke bụ ụdampụta na ndị a bụ",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "ch",
+		"b": "f",
+		"c": "kp",
+		"d": "v"
 	},
-	"answer": "c"
+	"answer": "d"
 },
 {
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "igbo/1",
+	"body": "N’ Igbo, ‘syllable’ bụ",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "nkebiụda",
+		"b": "nkejiokwu",
+		"c": "nkejiụda",
+		"d": "nkebiokwu"
 	},
-	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"answer": "b"
+},
+{
+	"id": "igbo/2",
+	"body": "Olu + ike – Oliike bụ ọmụmaatụ",
+	"options": {
+		"a": "olilo ụdaume",
+		"b": "olilo mgbochiume",
+		"c": "ndapụ mgbochiume",
+		"d": "ndapụ ụdaume"
+	},
+	"answer": "a"
+},
+{
+	"id": "igbo/3",
+	"body": "Nke bụ ụdamkpi na ndị a bụ",
+	"options": {
+		"a": "Mụ",
+		"b": "d",
+		"c": "I",
+		"d": "nw"
+	},
+	"answer": "d"
+},
+{
+	"id": "igbo/4",
+	"body": "Nke nwere ike ịdị na ngwụcha mkpụrụokwu na ndị a bụ",
+	"options": {
+		"a": "mgbochiume",
+		"b": "myiriudaume",
+		"c": "ụdarịị",
+		"d": "ụdashịị."
+	},
+	"answer": "b"
 }
 ]

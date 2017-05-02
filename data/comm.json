@@ -1,24 +1,57 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "comm/0",
+	"body": "The pivot on which the wheel of commerce rotates is",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "tariff",
+		"b": "trade",
+		"c": "taxation",
+		"d": "price"
+	},
+	"answer": "b"
+},
+{
+	"id": "comm/1",
+	"body": "A distinguishing characteristic of labour is that it is",
+	"options": {
+		"a": "constant",
+		"b": "expensive",
+		"c": "mobile",
+		"d": "cheap"
 	},
 	"answer": "c"
 },
 {
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "comm/2",
+	"body": "Land as a factor of production does not vary in",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "quantity",
+		"b": "nature",
+		"c": "quality",
+		"d": "cost"
 	},
-	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"answer": "b"
+},
+{
+	"id": "comm/3",
+	"body": "Which of the following services does a lawyer render?",
+	"options": {
+		"a": "Industrial services",
+		"b": "Indirect services",
+		"c": "Direct services",
+		"d": "Commercial services"
+	},
+	"answer": "c"
+},
+{
+	"id": "comm/4",
+	"body": "The partner that only contributes part of the capital used in the formation and running of a business is known as",
+	"options": {
+		"a": "a passive partner",
+		"b": "an active partner",
+		"c": "a dormant partner",
+		"d": "a nominal partner"
+	},
+	"answer": "c"
 }
 ]

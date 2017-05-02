@@ -1,24 +1,62 @@
 [
 {
-	"id": "eng/0",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nI cannot understand why Ali should serve in that *moribund* administration.",
+	"id": "hau/0",
+	"body": "Wannan alamar (–), ita aka fi sani da",
 	"options": {
-		"a": "oppressive",
-		"b": "prodigal",
-		"c": "crumbling",
-		"d": "purposeless"
+		"a": "waƙafi",
+		"b": "ruwa biyu",
+		"c": "karan ɗori",
+		"d": "ɗebewa"
 	},
-	"answer": "c"
+	"answer": "c",
+	"explanation": "Ana amfani da karan-dori wajen hoda kalmomi biyu, domni su ba da ma'ana."
 },
 {
-	"id": "eng/1",
-	"body": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).\n\nThe Conference Centre caters for *transients* only.",
+	"id": "hau/1",
+	"body": "Wanne ne keɓaɓɓen bayanin wasalin /a/?",
 	"options": {
-		"a": "temporary guests",
-		"b": "professionals",
-		"c": "permanent guests"
+		"a": "Ɗan gaba ne na sama.",
+		"b": "Ɗan gaba ne na tsakiya.",
+		"c": "Ɗan ƙurya ne na sama.",
+		"d": "Ɗan tsakatsaki ne na ƙasa."
 	},
-	"answer": "a",
-	"solution": "Don't ask me to explain!"
+	"answer": "d",
+	"explanation": "Harshe na tsayawa a tsakiyar bakin dan Adam."
+},
+{
+	"id": "hau/2",
+	"body": "Wanne ne ɗan jirge ?",
+	"options": {
+		"a": "/m/.",
+		"b": "/t/.",
+		"c": "/l/.",
+		"d": "/sh/."
+	},
+	"answer": "c",
+	"explanation": "Bayan iska ta san datse a cikin baki, sai ta saki ta fita ta gefen harshe."
+},
+{
+	"id": "hau/3",
+	"body": "Wanne ne bare dangane da jinsi?",
+	"options": {
+		"a": "Cinnaka.",
+		"b": "Hankaka.",
+		"c": "Buraƙa.",
+		"d": "Gauraka."
+	},
+	"answer": "c",
+	"explanation": "Jinsin mace ne."
+},
+{
+	"id": "hau/4",
+	"body": "A kalmar marubuciya, akwai ɗafi",
+	"options": {
+		"a": "ɗaya",
+		"b": "biyu",
+		"c": "uku",
+		"d": "huɗu"
+	},
+	"answer": "b",
+	"explanation": "Dafo-goshi-ma = marubuciya\nDafo-keyo-iya."
 }
 ]
