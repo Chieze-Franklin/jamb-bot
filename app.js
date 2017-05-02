@@ -476,7 +476,7 @@ function createMessageForAnswer(question, correct) {
     var remark = "";
     buttons.push({type: "postback", title: "Next", payload: "QUESTION_NEXT/" + question.id});
     if (correct) {
-        remark = "Yayy, nice job!";
+        remark = "Yayy, nice job \ud83d\udc4d";
     }
     else {
         remark = "Nope, wrong answer!";
