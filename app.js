@@ -113,6 +113,28 @@ function processPostback(event) {
             sendMessage(senderId, {text: "What subject would you like to practise?"});
         });
     }
+    else if (payload === "HELP") { //user wants help
+        // Get user's first name from the User Profile API
+        // and include it in the help
+        request({
+            url: "https://graph.facebook.com/v2.6/" + senderId,
+            qs: {
+                access_token: process.env.PAGE_ACCESS_TOKEN,
+                fields: "first_name"
+            },
+            method: "GET"
+        }, function(error, response, body) {
+            var hi = "";
+            if (error) {
+                console.log("Error getting user's name: " +  error);
+            } else {
+                var bodyObj = JSON.parse(body);
+                hi = "Hi " + bodyObj.first_name + ". ";
+            }
+            var message = hi + "If you need help with something please visit http://jamb-bot.herokuapp.com/";
+            sendMessage(senderId, {text: message});
+        });
+    }
     else if (payload.indexOf("OPTION_") == 0) {
         //the format of payload is OPTION_A/eng/0
         var indexOfSlash = payload.indexOf('/');
@@ -220,6 +242,28 @@ function processMessage(event) {
                     }
                     var message = bye + "It was really nice practising with you. Hope we chat again soon." +
                         "\n\nFor more info please visit http://jamb-bot.herokuapp.com/";//TODO: put a button to link to examhub.com when it is ready
+                    sendMessage(senderId, {text: message});
+                });
+            }
+            else if (formattedMsg.indexOf("help") > -1 || formattedMsg === "?") {
+                // Get user's first name from the User Profile API
+                // and include it in the help
+                request({
+                    url: "https://graph.facebook.com/v2.6/" + senderId,
+                    qs: {
+                        access_token: process.env.PAGE_ACCESS_TOKEN,
+                        fields: "first_name"
+                    },
+                    method: "GET"
+                }, function(error, response, body) {
+                    var hi = "";
+                    if (error) {
+                        console.log("Error getting user's name: " +  error);
+                    } else {
+                        var bodyObj = JSON.parse(body);
+                        hi = "Hi " + bodyObj.first_name + ". ";
+                    }
+                    var message = hi + "If you need help with something please visit http://jamb-bot.herokuapp.com/";
                     sendMessage(senderId, {text: message});
                 });
             }
