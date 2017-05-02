@@ -9,6 +9,18 @@
 		"c_image": "public/arab-0-c.jpg",
 		"d_image": "public/arab-0-d.jpg"
 	},
-	"answer": "d"
+	"answer": "a"
+},
+{
+	"id": "arab/1",
+	"preamble": "Choose the option that correctly completes the Arabic translation of the English sentence.\n\nIt was completely quiet.",
+	"body_image": "public/arab-1.jpg",
+	"options": {
+		"a_image": "public/arab-1-a.jpg",
+		"b_image": "public/arab-1-b.jpg",
+		"c_image": "public/arab-1-c.jpg",
+		"d_image": "public/arab-1-d.jpg"
+	},
+	"answer": "b"
 }
 ]
