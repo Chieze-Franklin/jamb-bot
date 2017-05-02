@@ -105,11 +105,10 @@ function processPostback(event) {
                 var bodyObj = JSON.parse(body);
                 greeting = "Hi " + bodyObj.first_name + ". ";
             }
-            var text = greeting + "I am your JAMB buddy. I am here to help you prepare for JAMB." + 
+            var message = greeting + "I am your JAMB buddy. I am here to help you prepare for JAMB." + 
                 "\nCurrently I have access to only a few questions but I am always working for you, gathering more from various corners on the internet." +
                 "\n\nFor more info please visit http://jamb-bot.herokuapp.com/";
-            var message = createTextWithButtonsMessage(text, [{type: "url", title: "Website", url: "http://jamb-bot.herokuapp.com/"}]);
-            sendMessage(senderId, message);
+            sendMessage(senderId, {text: message});
 
             sendMessage(senderId, {text: "What subject would you like to practise?"});
         });
@@ -174,10 +173,9 @@ function processPostback(event) {
                 var bodyObj = JSON.parse(body);
                 bye = "Bye " + bodyObj.first_name + ". ";
             }
-            var text = bye + "It was really nice practising with you. Hope we chat again soon." +
+            var message = bye + "It was really nice practising with you. Hope we chat again soon." +
                 "\n\nFor more info please visit http://jamb-bot.herokuapp.com/";//TODO: put a button to link to examhub.com when it is ready
-            var message = createTextWithLinksMessage(text, [{type: "url", title: "Website", url: "http://jamb-bot.herokuapp.com/", webview_height_ratio: "compact"}]);
-            sendMessage(senderId, message);
+            sendMessage(senderId, {text: message});
         });
     }
 }
@@ -220,10 +218,9 @@ function processMessage(event) {
                         var bodyObj = JSON.parse(body);
                         bye = "Bye " + bodyObj.first_name + ". ";
                     }
-                    var text = bye + "It was really nice practising with you. Hope we chat again soon." +
+                    var message = bye + "It was really nice practising with you. Hope we chat again soon." +
                         "\n\nFor more info please visit http://jamb-bot.herokuapp.com/";//TODO: put a button to link to examhub.com when it is ready
-                    var message = createTextWithLinksMessage(text, [{type: "url", title: "Website", url: "http://jamb-bot.herokuapp.com/", webview_height_ratio: "compact"}]);
-                    sendMessage(senderId, message);
+                    sendMessage(senderId, {text: message});
                 });
             }
             else if (formattedMsg === "a" || formattedMsg === "b" || formattedMsg === "c" || formattedMsg === "d" || formattedMsg === "e") {
@@ -580,15 +577,6 @@ function createTextWithButtonsMessage(text, buttons) {
                 buttons: buttons
             }
         }
-    };
-
-    return message;
-}
-function createTextWithLinksMessage(text, links) {
-    var message = {
-        type: "survey",
-        question: text,
-        options: links
     };
 
     return message;
