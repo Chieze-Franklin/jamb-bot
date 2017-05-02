@@ -176,7 +176,7 @@ function processPostback(event) {
             }
             var text = bye + "It was really nice practising with you. Hope we chat again soon." +
                 "\n\nFor more info please visit http://jamb-bot.herokuapp.com/";//TODO: put a button to link to examhub.com when it is ready
-            var message = createTextWithButtonsMessage(text, [{type: "url", title: "Website", url: "http://jamb-bot.herokuapp.com/"}]);
+            var message = createTextWithButtonsMessage(text, [{type: "url", title: "Website", url: "http://jamb-bot.herokuapp.com/", webview_height_ratio: "compact"}]);
             sendMessage(senderId, message);
         });
     }
@@ -222,7 +222,7 @@ function processMessage(event) {
                     }
                     var text = bye + "It was really nice practising with you. Hope we chat again soon." +
                         "\n\nFor more info please visit http://jamb-bot.herokuapp.com/";//TODO: put a button to link to examhub.com when it is ready
-                    var message = createTextWithButtonsMessage(text, [{type: "url", title: "Website", url: "http://jamb-bot.herokuapp.com/"}]);
+                    var message = createTextWithButtonsMessage(text, [{type: "url", title: "Website", url: "http://jamb-bot.herokuapp.com/", webview_height_ratio: "compact"}]);
                     sendMessage(senderId, message);
                 });
             }
@@ -579,6 +579,17 @@ function createTextWithButtonsMessage(text, buttons) {
                 text: text,
                 buttons: buttons
             }
+        }
+    };
+
+    return message;
+}
+function createTextWithLinksMessage(text, links) {
+    var message = {
+        attachment: {
+            type: "survey",
+            question: text,
+            options: links
         }
     };
 
