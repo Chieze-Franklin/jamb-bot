@@ -99,5 +99,140 @@
 		"d": "Y"
 	},
 	"answer": "c"
+},
+{
+	"id": "chem/9",
+	"preamble_image": "public/chem-9.jpg",
+	"body": "The diagram above represents the formation of",
+	"options": {
+		"a": "a metallic bond",
+		"b": "an electrovalent bond",
+		"c": "a covalent bond",
+		"d": "a coordinate bond"
+	},
+	"answer": "c"
+},
+{
+	"id": "chem/10",
+	"body_image": "public/chem-10.jpg",
+	"options": {
+		"a": "16",
+		"b": "18",
+		"c": "12",
+		"d": "14"
+	},
+	"answer": "b"
+},
+{
+	"id": "chem/11",
+	"body": "Which of the following statement is correct about the average kinetic energy of the molecules of a gas?",
+	"options": {
+		"a": "It increases with increase in pressure",
+		"b": "It increases at constant pressure",
+		"c": "It increases with increase in temperature",
+		"d": "It increases with increase in volume"
+	},
+	"answer": "c"
+},
+{
+	"id": "chem/12",
+	"body": "The pollutant from petroleum spillage in rivers and lakes can best be dispersed by",
+	"options": {
+		"a": "pouring detergents",
+		"b": "passing of ships through the area",
+		"c": "pouring organic solvents",
+		"d": "evaporation"
+	},
+	"answer": "a"
+},
+{
+	"id": "chem/13",
+	"body": "Deliquescent substances are used for",
+	"options": {
+		"a": "cooling",
+		"b": "wetting",
+		"c": "melting",
+		"d": "drying"
+	},
+	"answer": "d"
+},
+{
+	"id": "chem/14",
+	"preamble_image": "public/chem-14.jpg",
+	"body": "If 1dm\u00b3 of saturated solution of L at 60\u00b0C is cooled to 25\u00b0C what amount in mole will separate out?",
+	"options": {
+		"a": "0.75",
+		"b": "0.25",
+		"c": "1.00",
+		"d": "0.50"
+	},
+	"answer": "b"
+},
+{
+	"id": "chem/15",
+	"preamble_image": "public/chem-14.jpg",
+	"body": "At what temperature are the solubility of L and K the same?",
+	"options": {
+		"a": "82\u00b0C",
+		"b": "75\u00b0C",
+		"c": "100\u00b0C",
+		"d": "90\u00b0C"
+	},
+	"answer": "a"
+},
+{
+	"id": "chem/16",
+	"body": "Pure solvents are obtained by",
+	"options": {
+		"a": "distillation",
+		"b": "condensation",
+		"c": "extraction",
+		"d": "evaporation"
+	},
+	"answer": "a"
+},
+{
+	"id": "chem/17",
+	"body": "What is the decrease in volume of air when pyrogallol is shaken with 30.00cm\u00b3 of air?",
+	"options": {
+		"a": "5.00cm\u00b3",
+		"b": "6.00cm\u00b3",
+		"c": "0.63cm\u00b3",
+		"d": "0.06cm\u00b3"
+	},
+	"answer": "b"
+},
+{
+	"id": "chem/18",
+	"body": "Environmental pollution is worsened by the release from automobile exhausts of",
+	"options": {
+		"a": "water vapour",
+		"b": "steam",
+		"c": "smoke",
+		"d": "heavy metals"
+	},
+	"answer": "d"
+},
+{
+	"id": "chem/19",
+	"body": "The chemical used for coagulation in water purification is",
+	"options": {
+		"a": "aluminium tetraoxosulphate",
+		"b": "copper tetraoxosulphate",
+		"c": "sodium tetraoxosulphate",
+		"d": "calcium tetraoxosulphate"
+	},
+	"answer": "a"
+},
+{
+	"id": "chem/20",
+	"body": "Phosphorus is stored under water to prevent it from",
+	"options": {
+		"a": "dehydrating",
+		"b": "becoming inert",
+		"c": "smelling",
+		"d": "catching fire"
+	},
+	"answer": "d"
 }
 ]

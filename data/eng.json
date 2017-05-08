@@ -130,5 +130,135 @@
 		"d": "liar"
 	},
 	"answer": "b"
+},
+{
+	"id": "eng/11",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "While the hooligans exchanged blows, we looked **complacently**.",
+	"options": {
+		"a": "dejectedly",
+		"b": "sorrowfully",
+		"c": "questioningly",
+		"d": "contentedly"
+	},
+	"answer": "d"
+},
+{
+	"id": "eng/12",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "Tade became **timorous** when she was asked to give the valedictory speech.",
+	"options": {
+		"a": "excited",
+		"b": "nervous",
+		"c": "aggressive",
+		"d": "happy"
+	},
+	"answer": "b"
+},
+{
+	"id": "eng/13",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "The player kept on **gamely** to the end of the match.",
+	"options": {
+		"a": "amateurishly",
+		"b": "skilfully",
+		"c": "courageously",
+		"d": "stubbornly"
+	},
+	"answer": "c"
+},
+{
+	"id": "eng/14",
+	"preamble": "Choose the option nearest in meaning to the word(s) or phrase in italics (**).",
+	"body": "Art lies in cherishing the initiative and **creative power** of each person.",
+	"options": {
+		"a": "potential",
+		"b": "strength",
+		"c": "gift",
+		"d": "mind"
+	},
+	"answer": "a"
+},
+{
+	"id": "eng/15",
+	"preamble": "Select the option that *best explains* the information conveyed in the sentence.",
+	"body": "Oche’s chief idiosyncrasy is a passion for pounded yam.",
+	"options": {
+		"a": "Oche’s chief hates pounded yam.",
+		"b": "Oche hates pounded yam.",
+		"c": "Oche has a penchant for pounded yam.",
+		"d": "Oche’s chief likes pounded yam."
+	},
+	"answer": "c"
+},
+{
+	"id": "eng/16",
+	"preamble": "Select the option that *best explains* the information conveyed in the sentence.",
+	"body": "You must not attend the end-of-year party",
+	"options": {
+		"a": "It is not necessary that you attend the party.",
+		"b": "It is necessary that you do not attend the party.",
+		"c": "You do not have to decide whether to attend the party or not.",
+		"d": "You have to decide whether to attend the party or not."
+	},
+	"answer": "b"
+},
+{
+	"id": "eng/17",
+	"preamble": "Select the option that *best explains* the information conveyed in the sentence.",
+	"body": "The man reasoned that there ought to be a limit to sycophancy.",
+	"options": {
+		"a": "There can be no favour beyond a reasonable point.",
+		"b": "Sycophants need not talk all the time.",
+		"c": "People should know when not to use flattery.",
+		"d": "Sycophants should know when to grant people’s requests."
+	},
+	"answer": "c"
+},
+{
+	"id": "eng/18",
+	"preamble": "Select the option that *best explains* the information conveyed in the sentence.",
+	"body": "Adawo is an imp.",
+	"options": {
+		"a": "Adawo behaves queerly.",
+		"b": "Adawo behaves decently.",
+		"c": "Adawo behaves differently.",
+		"d": "Adawo behaves badly."
+	},
+	"answer": "d"
+},
+{
+	"id": "eng/19",
+	"preamble": "Select the option that *best explains* the information conveyed in the sentence.",
+	"body": "The solution lies in choosing between various negative alternatives.",
+	"options": {
+		"a": "The solution can be found in one of the negative options.",
+		"b": "The solution lies in choosing between the positive and the negative.",
+		"c": "The solutions are many.",
+		"d": "The solution is a negative one."
+	},
+	"answer": "a"
+},
+{
+	"id": "eng/20",
+	"body": "Identify the word that has the stress on the first syllable.",
+	"options": {
+		"a": "resist",
+		"b": "salon",
+		"c": "confirm",
+		"d": "intact"
+	},
+	"answer": "d"
+},
+{
+	"id": "eng/21",
+	"body": "Identify the word that has the stress on the first syllable.",
+	"options": {
+		"a": "competent",
+		"b": "misread",
+		"c": "resign",
+		"d": "compel"
+	},
+	"answer": "a"
 }
 ]
