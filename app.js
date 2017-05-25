@@ -317,7 +317,7 @@ function processMessage(event) {
                     }
                 });
             }
-            else if (formattedMsg.indexOf("y") == 0) { //yes, yh, yeah, ...
+            else if (formattedMsg.indexOf("ye") == 0 || formattedMsg.indexOf("yh") == 0) { //yes, yh, yeah, ...
                 utils.getUserSubjectId(senderId, function(error, sid) {
                     if (sid) {
                         sendSubjectQuestion(senderId, sid);
@@ -327,7 +327,7 @@ function processMessage(event) {
                     }
                 });
             }
-            else if (formattedMsg.indexOf("n") == 0) { //no, nope, nah, ...
+            else if (formattedMsg.indexOf("no") == 0 || formattedMsg.indexOf("nah") == 0) { //no, nope, nah, ...
                 sendMessage(senderId, {text: "OK. Sorry about that. What subject would you like to practise?"});
             }
             else {
