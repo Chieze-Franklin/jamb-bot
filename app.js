@@ -334,7 +334,7 @@ function processMessage(event) {
                 message = createMessageForConfirmSubject(senderId, formattedMsg);
                 sendMessage(senderId, message);
             }
-        } else if (message.attachments) {
+        } else if (message.attachments) {//TODO: how to know if attachment is thumbs up, and hw to respond appropriately
             // Get user's first name from the User Profile API
             // and include it in the warning
             request({
@@ -345,14 +345,14 @@ function processMessage(event) {
                 },
                 method: "GET"
             }, function(error, response, body) {
-                var name = "Come on. ";
+                var name = "OK. ";
                 if (error) {
                     console.log("Error getting user's name: " +  error);
                 } else {
                     var bodyObj = JSON.parse(body);
-                    name = "Come on " + bodyObj.first_name + ". ";
+                    name = "OK " + bodyObj.first_name + ". ";
                 }
-                var message = name + "Don't send any files to me. Let's focus.";
+                var message = name + "Let's continue.";
                 sendMessage(senderId, {text: message});
             });
         }
