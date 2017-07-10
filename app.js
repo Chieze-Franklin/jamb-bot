@@ -71,7 +71,7 @@ app.post("/webhook", function (req, res) {
         req.body.entry.forEach(function(entry) {
             // Iterate over each messaging event
             entry.messaging.forEach(function(event) {
-                if (event.postback) {
+                if (event.postback || (event.message && event.message.quick_reply)) {
                     processPostback(event);
                 } else if (event.message) {
                     processMessage(event);
@@ -85,7 +85,12 @@ app.post("/webhook", function (req, res) {
 
 function processPostback(event) {
     var senderId = event.sender.id;
-    var payload = event.postback.payload;
+    var payload = "";
+    if (event.message.quick_reply) {
+        payload = event.message.quick_reply.payload;
+    } else {
+        payload = event.postback.payload;
+    }
 
     if (payload === "Greeting") {
         // Get user's first name from the User Profile API
@@ -452,7 +457,7 @@ function createMessageForConfirmSubject(recipientId, subject) {
                 payload: {
                     template_type: "button",
                     text: "OK. Shall we begin practising " + subjName + "?",
-                    buttons: [
+                    /*buttons: [
                     {
                         type: "postback",
                         title: "Yes",
@@ -460,6 +465,17 @@ function createMessageForConfirmSubject(recipientId, subject) {
                     },
                     {
                         type: "postback",
+                        title: "No",
+                        payload: "SUBJECT_WRONG"
+                    }]*/
+                    quick_replies: [
+                    {
+                        content_type: "text",
+                        title: "Yes",
+                        payload: "SUBJECT/" + subjCode
+                    },
+                    {
+                        content_type: "text",
                         title: "No",
                         payload: "SUBJECT_WRONG"
                     }]
