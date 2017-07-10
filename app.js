@@ -451,13 +451,13 @@ function createMessageForConfirmSubject(recipientId, subject) {
     else {
         utils.setUserSubjectId(recipientId, subjCode, function(error, data) {});
 
-        message = {
+        /*message = {
             attachment: {
                 type: "template",
                 payload: {
                     template_type: "button",
                     text: "OK. Shall we begin practising " + subjName + "?",
-                    /*buttons: [
+                    buttons: [
                     {
                         type: "postback",
                         title: "Yes",
@@ -465,22 +465,26 @@ function createMessageForConfirmSubject(recipientId, subject) {
                     },
                     {
                         type: "postback",
-                        title: "No",
-                        payload: "SUBJECT_WRONG"
-                    }]*/
-                    quick_replies: [
-                    {
-                        content_type: "text",
-                        title: "Yes",
-                        payload: "SUBJECT/" + subjCode
-                    },
-                    {
-                        content_type: "text",
                         title: "No",
                         payload: "SUBJECT_WRONG"
                     }]
                 }
             }
+        };*/
+
+        message = {
+            text: "OK. Shall we begin practising " + subjName + "?",
+            quick_replies: [
+            {
+                content_type: "text",
+                title: "Yes",
+                payload: "SUBJECT/" + subjCode
+            },
+            {
+                content_type: "text",
+                title: "No",
+                payload: "SUBJECT_WRONG"
+            }]
         };
     }
 
