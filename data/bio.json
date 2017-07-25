@@ -132,5 +132,82 @@
 		"d": "vascular bundles"
 	},
 	"answer": "d"
+},
+{
+	"id": "bio/12",
+	"body": "When specimen X is mixed with few drops of iodine solution, the appearance of a blue-black colour confirms X is",
+	"options": {
+		"a": "sucrose",
+		"b": "glucose",
+		"c": "starch",
+		"d": "galactose"
+	},
+	"answer": "c"
+},
+{
+	"id": "bio/13",
+	"body": "The enzyme invertase will hydrolyze sucrose to give",
+	"options": {
+		"a": "mannose and galactose",
+		"b": "glucose and fructose",
+		"c": "maltose and glucose",
+		"d": "glycerol and fatty acid"
+	},
+	"answer": "b"
+},
+{
+	"id": "bio/14",
+	"body": "Salts and water are absorbed in the roots and transported to the leaves by",
+	"options": {
+		"a": "osmosis through the phloem tissues",
+		"b": "diffusion through the phloem tissues",
+		"c": "osmosis through the xylem tissues",
+		"d": "diffusion through the xylem tissues"
+	},
+	"answer": "c"
+},
+{
+	"id": "bio/15",
+	"body": "The transportation of oxygen and carbon (IV) oxide in mammals is carried out by",
+	"options": {
+		"a": "phagocytes",
+		"b": "leucocytes",
+		"c": "erythrocytes",
+		"d": "thrombocytes"
+	},
+	"answer": "c"
+},
+{
+	"id": "bio/16",
+	"body": "The gas produced during tissues respiration can be identified by using",
+	"options": {
+		"a": "sodium hydroxide",
+		"b": "calcium carbonate",
+		"c": "copper sulphate",
+		"d": "calcium hydroxide"
+	},
+	"answer": "d"
+},
+{
+	"id": "bio/17",
+	"body": "When yeast respires anaerobically it converts simple sugars to carbon (IV) oxide and",
+	"options": {
+		"a": "acid",
+		"b": "water",
+		"c": "oxygen",
+		"d": "alcohol"
+	},
+	"answer": "d"
+},
+{
+	"id": "bio/18",
+	"body": "Urea formation occurs in the",
+	"options": {
+		"a": "liver",
+		"b": "kidney",
+		"c": "heart",
+		"d": "lung"
+	},
+	"answer": "a"
 }
 ]
