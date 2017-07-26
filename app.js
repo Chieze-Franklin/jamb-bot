@@ -70,7 +70,7 @@ app.post("/webhook", function (req, res) {
         // There may be multiple entries if batched
         req.body.entry.forEach(function(entry) {
             // Iterate over each messaging event
-            entry.messaging.forEach(function(event) {console.log(">>>>>>>");console.log(event)
+            entry.messaging.forEach(function(event) {
                 if (event.postback || (event.message && event.message.quick_reply)) {
                     processPostback(event);
                 } else if (event.message) {
