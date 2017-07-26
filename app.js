@@ -86,7 +86,7 @@ app.post("/webhook", function (req, res) {
 function processPostback(event) {
     var senderId = event.sender.id;
     var payload = "";
-    if (event.message.quick_reply) {
+    if (event.message && event.message.quick_reply) {
         payload = event.message.quick_reply.payload;
     } else {
         payload = event.postback.payload;
