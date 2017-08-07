@@ -620,7 +620,7 @@ function createMessageForWhatSubjDoYouWant() {
         quick_replies: [
         {
             content_type: "text",
-            title: "Show List of Subjects",
+            title: "Show Subject List",
             payload: "SUBJECT_LIST"
         }]
     };
