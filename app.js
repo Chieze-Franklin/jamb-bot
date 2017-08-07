@@ -347,6 +347,10 @@ function processMessage(event) {
                 message = createMessageForWhatSubjDoYouWant();
                 sendMessage(senderId, message);
             }
+            else if (formattedMsg.indexOf("subject") > -1 && (formattedMsg.indexOf("list") > -1 || formattedMsg.indexOf("option") > -1)) {
+                message = createMessageForWhatSubjDoYouWant();
+                sendMessage(senderId, message);
+            }
             else {
                 message = createMessageForConfirmSubject(senderId, formattedMsg);
                 sendMessage(senderId, message);
