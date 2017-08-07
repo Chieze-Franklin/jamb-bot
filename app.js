@@ -115,7 +115,8 @@ function processPostback(event) {
                 "\n\nFor more info please visit http://jamb-bot.herokuapp.com/";
             sendMessage(senderId, {text: message});
 
-            sendMessage(senderId, {text: "What subject would you like to practise?"});
+            message = createMessageForWhatSubjDoYouWant();
+            sendMessage(senderId, message);
         });
     }
     else if (payload === "HELP") { //user wants help
@@ -180,8 +181,17 @@ function processPostback(event) {
         sendSubjectQuestion(senderId, subjId);
     }
     else if (payload.indexOf("SUBJECT_WRONG") == 0) {
-        sendMessage(senderId, {text: "OK. Sorry about that. What subject would you like to practise?"});
+        sendMessage(senderId, {text: "OK. Sorry about that."});
+        var message = createMessageForWhatSubjDoYouWant();
+        sendMessage(senderId, message);
     } 
+    else if (payload.indexOf("SUBJECT_LIST") == 0) {
+        var message = "I've got \nAccounting, \nAgricultural Science, \nArabic, \nBiology, \nChemistry, \nCommerce, \nChristian Religion Study, " + 
+                    "\nEconomics, \nEnglish Language, \nGeography, \nGovernment, \nHausa, \nHistory, \nIgbo, \nIslamic Religion Knowledge, \Literature in English, " + 
+                    "\nMathematics, \nPhysics, \nYoruba." +
+                    "\n\n(You don't have to type the full name of the subject.)";
+        sendMessage(senderId, {text: message});
+    }
     else if (payload === "STOP") { //user wants to stop now
         // Get user's first name from the User Profile API
         // and include it in the goodbye
@@ -224,7 +234,7 @@ function processMessage(event) {
                 formattedMsg.indexOf("start") > -1 || formattedMsg.indexOf("begin") > -1 ||
                 formattedMsg.indexOf("subject") > -1 || formattedMsg.indexOf("course") > -1 || formattedMsg.indexOf("program") > -1) {
                 //assume the user wants to change subjects
-                sendMessage(senderId, {text: "What subject would you like to practise?"});
+                sendMessage(senderId, createMessageForWhatSubjDoYouWant());
             }
             else if (formattedMsg.indexOf("bye") > -1 || formattedMsg.indexOf("later") > -1 || 
                     formattedMsg.indexOf("complete") > -1 || formattedMsg.indexOf("end") > -1 || formattedMsg.indexOf("finish") > -1 || formattedMsg.indexOf("stop") > -1) {
@@ -333,7 +343,9 @@ function processMessage(event) {
                 });
             }
             else if (formattedMsg.indexOf("no") == 0 || formattedMsg.indexOf("nah") == 0) { //no, nope, nah, ...
-                sendMessage(senderId, {text: "OK. Sorry about that. What subject would you like to practise?"});
+                sendMessage(senderId, {text: "OK. Sorry about that."});
+                message = createMessageForWhatSubjDoYouWant();
+                sendMessage(senderId, message);
             }
             else {
                 message = createMessageForConfirmSubject(senderId, formattedMsg);
@@ -392,7 +404,7 @@ function createMessageForConfirmSubject(recipientId, subject) {
         subjName = "Commerce";
         subjCode = "comm";
     }
-    else if (subject.indexOf("crs") > -1 || subject.indexOf("crk") > -1 || subject.indexOf("christ") > -1) {
+    else if (subject.indexOf("crs") > -1 || subject.indexOf("crk") > -1 || subject.indexOf("chr") > -1) {
         subjName = "Christian Religion Study";
         subjCode = "crs";
     }
@@ -420,11 +432,11 @@ function createMessageForConfirmSubject(recipientId, subject) {
         subjName = "History";
         subjCode = "hist";
     }
-    else if (subject.indexOf("igbo") > -1 || subject.indexOf("ibo") > -1) {
+    else if (subject.indexOf("igbo") > -1 || subject.indexOf("igb") > -1 || subject.indexOf("ibo") > -1) {
         subjName = "Igbo";
         subjCode = "igbo";
     }
-    else if (subject.indexOf("irs") > -1 || subject.indexOf("irk") > -1 || subject.indexOf("islam") > -1) {
+    else if (subject.indexOf("irs") > -1 || subject.indexOf("irk") > -1 || subject.indexOf("isl") > -1) {
         subjName = "Islamic Religion Knowledge";
         subjCode = "irk";
     }
@@ -446,7 +458,8 @@ function createMessageForConfirmSubject(recipientId, subject) {
     }
 
     if (subjCode == "*") {
-        message = {text: "Sorry I didn't get that. What subject would you like to practise?"};
+        //message = {text: "Sorry I didn't get that. What subject would you like to practise?"};
+        message = createMessageForWhatSubjDoYouWant();
     }
     else {
         utils.setUserSubjectId(recipientId, subjCode, function(error, data) {});
@@ -599,6 +612,20 @@ function createMessagesForOptions(question) {
     }
 
     return messages;
+}
+
+function createMessageForWhatSubjDoYouWant() {
+    var message = {
+        text: "What subject would you like to practise?",
+        quick_replies: [
+        {
+            content_type: "text",
+            title: "Show List of Subjects",
+            payload: "SUBJECT_LIST"
+        }]
+    };
+
+    return message;
 }
 
 function createImageMessage(url) {
