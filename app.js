@@ -186,11 +186,7 @@ function processPostback(event) {
         sendMessage(senderId, message);
     } 
     else if (payload.indexOf("SUBJECT_LIST") == 0) {
-        var message = "I've got \nAccounting, \nAgricultural Science, \nArabic, \nBiology, \nChemistry, \nCommerce, \nChristian Religion Study, " + 
-                    "\nEconomics, \nEnglish Language, \nGeography, \nGovernment, \nHausa, \nHistory, \nIgbo, \nIslamic Religion Knowledge, \Literature in English, " + 
-                    "\nMathematics, \nPhysics, \nYoruba." +
-                    "\n\n(You don't have to type the full name of the subject.)";
-        sendMessage(senderId, {text: message});
+        sendSubjectList(senderId);
     }
     else if (payload === "STOP") { //user wants to stop now
         // Get user's first name from the User Profile API
@@ -348,8 +344,7 @@ function processMessage(event) {
                 sendMessage(senderId, message);
             }
             else if (formattedMsg.indexOf("subject") > -1 && (formattedMsg.indexOf("list") > -1 || formattedMsg.indexOf("option") > -1)) {
-                message = createMessageForWhatSubjDoYouWant();
-                sendMessage(senderId, message);
+                sendSubjectList(senderId);
             }
             else {
                 message = createMessageForConfirmSubject(senderId, formattedMsg);
@@ -766,6 +761,14 @@ function sendSubjectQuestion(recipientId, subjId) {
     }
 
     utils.getRandomQuestion(subjId, afterGettingQuestion);
+}
+
+function sendSubjectList(recipientId) {
+    var message = "I've got \nAccounting, \nAgricultural Science, \nArabic, \nBiology, \nChemistry, \nCommerce, \nChristian Religion Study, " + 
+        "\nEconomics, \nEnglish Language, \nGeography, \nGovernment, \nHausa, \nHistory, \nIgbo, \nIslamic Religion Knowledge, \Literature in English, " + 
+        "\nMathematics, \nPhysics, \nYoruba." +
+        "\n\n(You don't have to type the full name of the subject.)";
+    sendMessage(recipientId, {text: message});
 }
 
 //sends question
